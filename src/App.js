@@ -23,7 +23,9 @@ class App extends Component {
 
 
   geoFunction = () => {
-    Geocode.setApiKey("AIzaSyDZZLXvVCOMNZvWpXNbTztmGWfOFTWuBt0");
+    Geocode.setApiKey("");
+    //* Make sure to get the API key from my kazumikarbowski account. Happytrails then
+    //* figure out a way to hide the key and not publish it on github
     Geocode.enableDebug();
     Geocode.fromAddress(this.state.address).then(
       response => {

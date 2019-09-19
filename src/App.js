@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import Geocode from "react-geocode";
 
 class App extends Component {
-
+  componentDidMount() {
+    fetch("http://localhost:3000/api/v1/trails")
+      .then(res => res.json())
+      .then(console.log)
+  }
 
   state = {
     address: ''

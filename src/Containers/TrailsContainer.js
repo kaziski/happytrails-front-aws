@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import TrailForm from '../Components/trails/TrailForm.js'
+import React, { Component } from './node_modules/react';
+import TrailForm from '../components/trails/TrailForm.js'
 
 class TrailsContainer extends Component {
   render() {

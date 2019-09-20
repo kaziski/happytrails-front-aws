@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-
-
 class App extends Component {
-  componentDidMount() {
-    fetch("http://localhost:3000/api/v1/trails")
-      .then(res => res.json())
-      .then(console.log)
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/api/v1/trails")
+  //     .then(res => res.json())
+  //     .then(console.log)
+  // }
 
   render() {
     return (
@@ -17,9 +15,8 @@ class App extends Component {
 
         </header>
       </div>
-    );
+    )
   }
-
 }
 
-export default App;
+export default App

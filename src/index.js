@@ -4,11 +4,14 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import usersReducer from './reducers/users'
+import users from './reducers/users'
+import currentUser from './reducers/currentUser'
 
 
 const reducer = combineReducers({
-  users: usersReducer
+  //I can do users:users or do like line 13
+  users,
+  currentUser
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

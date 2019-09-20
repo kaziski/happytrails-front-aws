@@ -9,12 +9,13 @@ export const setCurrentUser = user => {
 
 export const login = credentials => {
   return dispatch => {
+    console.log("credentials are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
       hearders: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ username: "Codingmamakaz", password: "password" })
+      body: JSON.stringify(credentials)
     })
   }
 }

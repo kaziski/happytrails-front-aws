@@ -1,3 +1,32 @@
 "start": "webpack-dev-server --config ./webpack.config.js",
     "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ignore-styles 'src/**/*.spec.js'",
     "test:unit:watch": "npm run test:unit -- --watch"
+
+    // ♥ yarn build
+yarn run v1.17.3
+$ react-scripts build
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  45.56 KB  build/static/js/2.374eac28.chunk.js
+  1.53 KB   build/static/js/main.e38e88d2.chunk.js
+  784 B     build/static/js/runtime~main.9f3b94f1.js
+
+The project was built assuming it is hosted at the server root.
+You can control this with the homepage field in your package.json.
+For example, add this to build it for GitHub Pages:
+
+  "homepage" : "http://myname.github.io/myapp",
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://bit.ly/CRA-deploy
+
+✨  Done in 11.24s.

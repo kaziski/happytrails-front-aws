@@ -5,17 +5,12 @@ export const setCurrentUser = user => {
   }
 }
 
-//async action creators
-
 export const login = credentials => {
   return dispatch => {
     console.log("credentials are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
       method: "POST",
-      // hearders: {
-      //   "Content-Type": "application/json"
-      // },
       headers: {
         Accept: 'application/json', "Content-Type":
           'application/json'
@@ -52,5 +47,21 @@ export const getCurrentUser = () => {
         }
       })
       .catch(console.logs)
+  }
+}
+
+export const clearCurrentUser = () => {
+  return {
+    type: "CLEAR_CURRENT_USER",
+  }
+}
+
+export const logout = () => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch("http://localhost:3000/api/v1/logout", {
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }

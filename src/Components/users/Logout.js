@@ -2,15 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from "../../actions/loginForm.js"
 import { logout } from "../../actions/currentUser.js"
-import { Button } from "react-bulma-components/full";
-
 
 const Logout = ({ logout }) => {
   return (
     <form onSubmit={logout}>
-      <Button type="submit" >
-        Logout
-      </Button>
+      <button class="button is-primary is-rounded" type="submit">  Log out </button>
     </form>
   )
 }

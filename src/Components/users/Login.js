@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from "../../actions/loginForm.js"
 import { login } from "../../actions/currentUser.js"
-import { Button } from "react-bulma-components/full"
-
 
 const Login = ({ loginFormData, updateLoginForm, login }) => {
 
@@ -23,12 +21,29 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
 
   return (
     <form className='login' onSubmit={handleSubmit}>
-      <input placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
-      <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
-      {/* <input type="submit" value="Log In" /> */}
-      <Button type="submit" >
-        Log In
-      </Button>
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-rounded is-hovered" placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span class="icon is-small is-right">
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-rounded is-hovered" placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+          <span class="icon is-small is-right">
+          </span>
+        </div>
+      </div>
+      <button class="button is-primary is-rounded" type="submit">  Log In </button>
     </form>
   )
 }

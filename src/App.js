@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import Login from './components/users/Login'
-import Logout from './components/users/Logout'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
+import Navbar from './components/users/NavBar'
+import { AppLayout } from '../src/ui/Layout'
 
+// const AppLayout = styled.div`
+//   padding: 40px;
 
+// `
 export class App extends Component {
 
   componentDidMount() {
@@ -12,7 +15,10 @@ export class App extends Component {
   }
   render() {
     return (
-      this.props.currentUser ? <Logout /> : <Login />
+      <AppLayout>
+
+        <Navbar />
+      </AppLayout>
     )
   }
 }

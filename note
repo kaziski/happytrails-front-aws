@@ -3,3 +3,27 @@
     "test:unit:watch": "npm run test:unit -- --watch"
 
  CI=true npm test
+
+ beforeEach(() => {
+  wrapper = mount(
+    <Provider store={store}>
+      <App />
+    </ Provider>
+  )
+})
+
+afterEach(function () {
+  store.clearActions()
+})
+
+
+
+describe("App Component", () => {
+  it("should render without throwing an error", () => {
+    expect(
+      shallow(
+        <App />
+      )
+    )
+  })
+})

@@ -27,3 +27,5 @@ describe("App Component", () => {
     )
   })
 })
+value={loginFormData.username}
+value={loginFormData.password}

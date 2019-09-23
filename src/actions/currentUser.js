@@ -41,12 +41,12 @@ export const getCurrentUser = () => {
         "Content-Type": "application/json"
       },
     })
-      .then(r => r.json())
-      .then(response => {
-        if (response.error) {
-          alert(response.error)
+      .then(res => res.json())
+      .then(user => {
+        if (user.error) {
+          alert(user.error)
         } else {
-          dispatch(setCurrentUser(response.data))
+          dispatch(setCurrentUser(user))
         }
       })
       .catch(console.logs)

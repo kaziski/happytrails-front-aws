@@ -7,7 +7,7 @@ import { H2 } from '../../ui/Styles'
 const NavBar = ({ currentUser }) => {
   return (
     <div className="NavBar">
-      {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
+      {currentUser ? <H2><strong>Welcome, {currentUser.attributes.username}!</strong></H2> : ""}
       {currentUser ? <Logout /> : <Login />}
     </div>
   )

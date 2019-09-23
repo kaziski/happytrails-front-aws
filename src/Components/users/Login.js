@@ -43,7 +43,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
           </span>
         </div>
       </div>
-      <button class="button is-primary is-rounded" type="submit">  Log In </button>
+      <button class="button is-primary is-rounded has-margin-top-20" type="submit">  Log In </button>
     </form>
   )
 }

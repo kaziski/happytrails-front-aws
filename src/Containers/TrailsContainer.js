@@ -1,15 +1,13 @@
-import React, { Component } from './node_modules/react';
-import TrailForm from '../components/trails/TrailForm.js'
+import React from 'react';
 
-class TrailsContainer extends Component {
-  render() {
-    return (
-      <div>
-        {/* <RestaurantInput addRestaurant={this.props.addRestaurant} />
-        <Restaurants restaurants={this.props.restaurants} deleteRestaurant={this.props.deleteRestaurant} /> */}
-      </div>
-    );
-  }
-}
+// import TrailForm from '../components/trails/TrailForm.js'
+
+const TrailsContainer = () => {
+  return (
+    <div>
+      <h3>Trail Page</h3>
+    </div>
+  );
+};
 
 export default TrailsContainer;

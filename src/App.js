@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { getCurrentUser } from './actions/currentUser'
 import LogInOut from './components/users/LogInOut'
+import NavBar from './containers/NavBar'
 import { AppLayout } from './ui/Styles'
 import styled from 'styled-components'
+import UsersContainer from './containers/UsersContainer';
+import TrailsContainer from './containers/TrailsContainer';
+import ReviewsContainer from './containers/ReviewsContainer';
 
 
 const Title = styled.h1`
@@ -21,10 +26,17 @@ export class App extends Component {
   }
   render() {
     return (
-      <AppLayout>
-        <Title>Happy Trails!</Title>
-        <LogInOut />
-      </AppLayout>
+      <Router>
+        <AppLayout>
+          <NavBar />
+          <Title>Happy Trails!</Title>
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/users" component={UsersContainer} />
+          <Route exact path="/trails" component={TrailsContainer} />
+          <Route exact path="/reviews" component={ReviewsContainer} />
+          <LogInOut />
+        </AppLayout>
+      </Router>
     )
   }
 }

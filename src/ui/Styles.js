@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const AppLayout = styled.div`
-  padding: 40px;
+  padding: 20px 40px;
 `
 
 export const H2 = styled.div`

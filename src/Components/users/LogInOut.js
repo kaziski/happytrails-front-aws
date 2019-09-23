@@ -7,13 +7,11 @@ import { H2 } from '../../ui/Styles'
 const LogInOut = ({ currentUser }) => {
   return (
     <div className="LogInOut">
-      {/* {console.log("currentUser", currentUser.username)} */}
       {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
       {currentUser ? <Logout /> : <Login />}
     </div>
   )
 }
-// user.data.attributes.username
 const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser

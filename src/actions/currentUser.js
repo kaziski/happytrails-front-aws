@@ -25,7 +25,6 @@ export const login = credentials => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
-          // console.log("setCurrentUser(user.data.data.attributes.username)", user.data.data.attributes.username)
           dispatch(resetLoginForm())
         }
       })
@@ -47,10 +46,8 @@ export const getCurrentUser = () => {
         if (user.error) {
           alert(user.error)
         } else {
-          console.log("getCurrentUser - user.data.attributes.username", user.data.attributes.username)
-          // dispatch(setCurrentUser(user))
           dispatch(setCurrentUser(user.data.attributes))
-
+          //user.data.attributes is a hash of an user obj
         }
       })
       .catch(console.logs)

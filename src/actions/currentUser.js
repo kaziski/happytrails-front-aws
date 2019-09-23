@@ -25,6 +25,7 @@ export const login = credentials => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
+          // console.log("setCurrentUser(user.data.data.attributes.username)", user.data.data.attributes.username)
           dispatch(resetLoginForm())
         }
       })
@@ -46,8 +47,10 @@ export const getCurrentUser = () => {
         if (user.error) {
           alert(user.error)
         } else {
-          console.log("getCurrentUser - user", user)
-          dispatch(setCurrentUser(user.data))
+          console.log("getCurrentUser - user.data.attributes.username", user.data.attributes.username)
+          // dispatch(setCurrentUser(user))
+          dispatch(setCurrentUser(user.data.attributes))
+
         }
       })
       .catch(console.logs)

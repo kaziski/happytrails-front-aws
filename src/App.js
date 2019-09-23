@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
-import Navbar from './components/users/NavBar'
+import LogInOut from './components/users/LogInOut'
 import { AppLayout } from './ui/Styles'
 import styled from 'styled-components'
 
@@ -23,7 +23,7 @@ export class App extends Component {
     return (
       <AppLayout>
         <Title>Happy Trails!</Title>
-        <Navbar />
+        <LogInOut />
       </AppLayout>
     )
   }

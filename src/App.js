@@ -6,8 +6,10 @@ import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import { AppLayout } from './ui/Styles'
 import Home from './components/Home'
+import Login from './components/users/Login.js'
 import TrailsContainer from './containers/TrailsContainer'
 import ReviewsContainer from './containers/ReviewsContainer'
+import IndexTrail from './components/trails/IndexTrail'
 
 export class App extends Component {
 
@@ -15,12 +17,17 @@ export class App extends Component {
     this.props.getCurrentUser()
   }
   render() {
+    const { currentUser } = this.props
     return (
       <div className="App">
         <AppLayout>
           <NavBar />
+          {currentUser ? <TrailsContainer /> : <Login />}
           <Switch>
-            <Route exact path="/" component={Home} />
+            When I put line 29 back, it shows two log in form
+
+            <Route path="/" component={Home} />
+            {/* <Route exact path='/login' component={Login} /> */}
             <Route exact path="/trails" component={TrailsContainer} />
             <Route exact path="/reviews" component={ReviewsContainer} />
           </Switch>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { Title, H2 } from '../ui/Styles'
+import { Title } from '../ui/Styles'
 
 import Login from './users/Login'
 import Logout from './users/Logout'
@@ -12,9 +12,6 @@ const NavBar = ({ currentUser }) => {
   return (
     <>
       {currentUser ? <NavLoggedIn /> : <NavLoggedOut />}
-
-      {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
-      {currentUser ? " " : <Login />}
     </>
   )
 }

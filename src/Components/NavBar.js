@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Title, H2 } from '../ui/Styles'
 
-// import { getCurrentUser } from '../actions/currentUser'
-
 import Login from './users/Login'
 import Logout from './users/Logout'
+
 
 
 const NavBar = ({ currentUser }) => {
@@ -15,10 +14,11 @@ const NavBar = ({ currentUser }) => {
       {currentUser ? <NavLoggedIn /> : <NavLoggedOut />}
 
       {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
-      {currentUser ? <Logout /> : <Login />}
+      {currentUser ? " " : <Login />}
     </>
   )
 }
+
 
 export const NavLoggedIn = () => {
   return (
@@ -34,6 +34,16 @@ export const NavLoggedIn = () => {
           <div className="navbar-end">
             <NavLink className="navbar-item has-text-weight-bold" to="/trails">Trails</NavLink>
             <NavLink className="navbar-item has-text-weight-bold" to="/reviews">Reviews</NavLink>
+
+          </div>
+        </div>
+
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class=" is-light">
+              <Logout />
+            </div>
           </div>
         </div>
       </nav>
@@ -52,11 +62,6 @@ export const NavLoggedOut = () => {
     </>
   )
 }
-
-//   <div className="LogInOut">
-//     {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
-//     {currentUser ? <Logout /> : <Login />}
-//   </div> 
 
 const mapStateToProps = ({ currentUser }) => {
   return {

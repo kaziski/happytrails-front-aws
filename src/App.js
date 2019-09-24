@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom'
+// import { Route, Switch, withRouter } from 'react-router-dom'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import { AppLayout } from './ui/Styles'
@@ -15,17 +16,16 @@ export class App extends Component {
   }
   render() {
     return (
-      <Router>
+      <div className="App">
         <AppLayout>
           <NavBar />
-
-          <Route exact path="/" component={Home} />
-          <Route exact path="/trails" component={TrailsContainer} />
-          <Route exact path="/reviews" component={ReviewsContainer} />
-          {/* {currentUser ? <Logout /> : <Login />} */}
-
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/trails" component={TrailsContainer} />
+            <Route exact path="/reviews" component={ReviewsContainer} />
+          </Switch>
         </AppLayout>
-      </Router>
+      </div>
     )
   }
 }

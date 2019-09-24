@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { getCurrentUser } from './actions/currentUser'
 import LogInOut from './components/users/LogInOut'
-import NavBar from './containers/NavBar'
+import NavBar from './components/NavBar'
 import { AppLayout } from './ui/Styles'
 import styled from 'styled-components'
-import UsersContainer from './containers/UsersContainer';
+import Home from './components/Home'
 import TrailsContainer from './containers/TrailsContainer';
 import ReviewsContainer from './containers/ReviewsContainer';
 
@@ -30,8 +30,7 @@ export class App extends Component {
         <AppLayout>
           <NavBar />
           <Title>Happy Trails!</Title>
-          {/* <Route exact path="/" component={Home} /> */}
-          <Route exact path="/users" component={UsersContainer} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/trails" component={TrailsContainer} />
           <Route exact path="/reviews" component={ReviewsContainer} />
           <LogInOut />

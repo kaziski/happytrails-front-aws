@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from "../../actions/loginForm.js"
 import { login } from "../../actions/currentUser.js"
+import { Button } from "../../ui/Styles"
 
 const Login = ({ loginFormData, updateLoginForm, login }) => {
 
@@ -24,7 +25,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
       <div className="field">
         <label className="label">Username</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-rounded is-hovered" placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
+          <input className="input is-hovered" placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
           <span className="icon is-small is-left">
             <i className="fas fa-user"></i>
           </span>
@@ -35,7 +36,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
       <div className="field">
         <label className="label">Password</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-rounded is-hovered" placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
+          <input className="input is-hovered" placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
           <span className="icon is-small is-left">
             <i className="fas fa-lock"></i>
           </span>
@@ -43,7 +44,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
           </span>
         </div>
       </div>
-      <button className="button is-primary is-rounded has-margin-top-20" type="submit">  Log In </button>
+      <Button type="submit">  Log In </Button>
     </form>
   )
 }

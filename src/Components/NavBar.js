@@ -1,65 +1,67 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { Title, H2 } from '../ui/Styles'
+
+// import { getCurrentUser } from '../actions/currentUser'
 
 import Login from './users/Login'
 import Logout from './users/Logout'
-import { NavItem } from "../ui/Styles"
 
-const NavBar = () => {
+
+const NavBar = ({ currentUser }) => {
   return (
-    < >
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <div className="title">Happy Trails</div>
-        </div>
-        <div class="navbar-menu">
-          <NavLink className="link" to="/">Home</NavLink>
-        </div>
-        <div class="navbar-menu">
-          <NavLink className="link" to="/trails">Trails</NavLink>
-        </div>
-        <div class="navbar-menu">
-          <NavLink className="link" to="/reviews">Reviews</NavLink>
-        </div>
-      </nav>
-      {/* <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <NavLink className="link" to="/">Home</NavLink>
-        </div>
-        <div class="navbar-menu">
-          <NavLink className="link" to="/trails">Trails</NavLink>
-        </div>
-      </nav> */}
+    <>
+      {currentUser ? <NavLoggedIn /> : <NavLoggedOut />}
 
-      <NavItem>
-
-        <ul className="nav-links">
-          <li>
-            <NavLink className="link" to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink className="link" to="/trails">Trails</NavLink>
-          </li>
-          <li>
-            <NavLink className="link" to="/reviews">Reviews</NavLink>
-          </li>
-        </ul>
-      </NavItem>
+      {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
+      {currentUser ? <Logout /> : <Login />}
     </>
   )
 }
 
-export default NavBar
+export const NavLoggedIn = () => {
+  return (
+    < >
+      <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <Title className="title">Happy Trails</Title>
 
- //   <div className="LogInOut">
-  //     {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
-  //     {currentUser ? <Logout /> : <Login />}
-  //   </div> 
+          <div className="navbar-start">
+            <NavLink className="navbar-item" to="/">Home</NavLink>
+          </div>
 
-  // const mapStateToProps = ({ currentUser }) => {
-// return {
-//   currentUser
-// }
-// }
+          <div className="navbar-end">
+            <NavLink className="navbar-item" to="/trails">Trails</NavLink>
+            <NavLink className="navbar-item" to="/reviews">Reviews</NavLink>
+          </div>
+        </div>
+      </nav>
 
-// export default connect(mapStateToProps)(NavBar)
+    </>
+  )
+}
+export const NavLoggedOut = () => {
+  return (
+    < >
+      <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <Title className="title">Happy Trails</Title>
+        </div>
+      </nav>
+    </>
+  )
+}
+
+//   <div className="LogInOut">
+//     {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
+//     {currentUser ? <Logout /> : <Login />}
+//   </div> 
+
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps)(NavBar)

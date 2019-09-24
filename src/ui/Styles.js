@@ -8,6 +8,14 @@ export const H2 = styled.div`
   font-size: 30px;
 `
 
+export const Title = styled.h1`
+  font-size: 60px;
+  text-align: center;
+  color: palevioletred;
+  padding: 0 20px ;
+  font-weight: bold;
+`
+
 export const Button = styled.button`
   display: inline-block;
   color: palevioletred;
@@ -28,6 +36,12 @@ export const NavItem = styled.nav`
   justify-content: space-evenly;
   align-items: center;
 
+  .title {
+    font-size: 60px;
+    text-align: left;
+    color: palevioletred;
+    font-weight: bold;
+  }
   .nav-links {
     display: flex;
     flex-flow: row nowrap;
@@ -37,10 +51,9 @@ export const NavItem = styled.nav`
   }
 
   .link {
-    color: #DB7093;
-    border: 2px solid #DB7093;
-    margin: 1em;
-    padding: 0.25em 1em;
+    color: palevioletred;
+    margin: 5px;
+    padding: 5px;
     font-weight: bold;
     border-radius: 5px;
     font-size: 18px;

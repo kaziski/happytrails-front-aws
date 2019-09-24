@@ -11,13 +11,13 @@ import TrailsContainer from './containers/TrailsContainer';
 import ReviewsContainer from './containers/ReviewsContainer';
 
 
-const Title = styled.h1`
-  font-size: 60px;
-  text-align: center;
-  color: palevioletred;
-  padding: 0 20px ;
-  font-weight: bold;
-`
+// const Title = styled.h1`
+//   font-size: 60px;
+//   text-align: center;
+//   color: palevioletred;
+//   padding: 0 20px ;
+//   font-weight: bold;
+// `
 
 export class App extends Component {
 
@@ -29,7 +29,6 @@ export class App extends Component {
       <Router>
         <AppLayout>
           <NavBar />
-          <Title>Happy Trails!</Title>
           <Route exact path="/" component={Home} />
           <Route exact path="/trails" component={TrailsContainer} />
           <Route exact path="/reviews" component={ReviewsContainer} />

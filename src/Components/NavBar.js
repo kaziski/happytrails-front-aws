@@ -25,7 +25,7 @@ export const NavLoggedIn = () => {
     < >
       <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Title className="title">Happy Trails</Title>
+          <Title className="title"><span className="fas fa-hiking"></span> Happy Trails</Title>
 
           <div className="navbar-start">
             <NavLink className="navbar-item" to="/">Home</NavLink>

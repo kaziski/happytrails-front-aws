@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import 'bulma-helpers/css/bulma-helpers.min.css'
+// import ''
+// import '../node_fortawesome/react-fontawesome'
+
 import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'

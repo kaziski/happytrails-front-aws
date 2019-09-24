@@ -5,17 +5,8 @@ import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import { AppLayout } from './ui/Styles'
 import Home from './components/Home'
-import TrailsContainer from './containers/TrailsContainer';
-import ReviewsContainer from './containers/ReviewsContainer';
-
-
-// const Title = styled.h1`
-//   font-size: 60px;
-//   text-align: center;
-//   color: palevioletred;
-//   padding: 0 20px ;
-//   font-weight: bold;
-// `
+import TrailsContainer from './containers/TrailsContainer'
+import ReviewsContainer from './containers/ReviewsContainer'
 
 export class App extends Component {
 

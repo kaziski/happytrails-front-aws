@@ -28,12 +28,12 @@ export const NavLoggedIn = () => {
           <Title className="title"><span className="fas fa-hiking"></span> Happy Trails</Title>
 
           <div className="navbar-start">
-            <NavLink className="navbar-item" to="/">Home</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold" to="/">Home</NavLink>
           </div>
 
           <div className="navbar-end">
-            <NavLink className="navbar-item" to="/trails">Trails</NavLink>
-            <NavLink className="navbar-item" to="/reviews">Reviews</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold" to="/trails">Trails</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold" to="/reviews">Reviews</NavLink>
           </div>
         </div>
       </nav>
@@ -46,7 +46,7 @@ export const NavLoggedOut = () => {
     < >
       <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Title className="title">Happy Trails</Title>
+          <Title className="title"><span className="fas fa-hiking"></span> Happy Trails</Title>
         </div>
       </nav>
     </>

@@ -17,13 +17,13 @@ export class App extends Component {
     return (
       <Router>
         <AppLayout>
-
-          {/* Render Navbar only when it's logged in using getCurrentUser */}
           <NavBar />
+
           <Route exact path="/" component={Home} />
           <Route exact path="/trails" component={TrailsContainer} />
           <Route exact path="/reviews" component={ReviewsContainer} />
-          {/* <LogInOut /> */}
+          {/* {currentUser ? <Logout /> : <Login />} */}
+
         </AppLayout>
       </Router>
     )

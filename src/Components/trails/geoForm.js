@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Geocode from "react-geocode"
 
-class geoForm extends Component {
+class GeoForm extends Component {
 
   state = {
     address: ''
@@ -48,4 +48,4 @@ class geoForm extends Component {
   }
 }
 
-export default geoForm
+export default GeoForm

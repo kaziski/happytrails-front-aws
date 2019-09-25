@@ -5,8 +5,15 @@ import GeoForm from './trails/GeoForm'
 const Home = ({ currentUser }) => {
   return (
     < >
-      <p className="is-pulled-right">Logged in as {currentUser.username}.</p>
-      <GeoForm />
+      <div class="title">
+        <GeoForm />
+      </div>
+      <p class="subtitle">Logged in as {currentUser.username}.</p>
+
+      {/* <p className="is-pulled-right">Logged in as {currentUser.username}.</p> */}
+
+
+
     </>
   );
 };

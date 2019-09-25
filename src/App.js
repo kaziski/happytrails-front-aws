@@ -20,9 +20,16 @@ export class App extends Component {
     const { currentUser } = this.props
     return (
       <div className="App">
-        <BackGround>
+        <section className="hero is-primary is-fullheight has-background is-transparent">
           <NavBar />
-          {currentUser ? <Home /> : <Login />}
+
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <p className="title">
+                {currentUser ? <Home /> : <Login />}
+              </p>
+            </div>
+          </div>
           {/* <Switch>
 
             <Route exact path="/" component={Home} />
@@ -31,7 +38,7 @@ export class App extends Component {
             <Route exact path="/trails" component={TrailsContainer} />
             <Route exact path="/reviews" component={ReviewsContainer} />
           </Switch> */}
-        </BackGround>
+        </section>
       </div>
     )
   }

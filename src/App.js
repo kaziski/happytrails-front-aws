@@ -6,7 +6,7 @@ import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/users/Login.js'
-import { BackGround } from './ui/Styles'
+
 // import TrailsContainer from './containers/TrailsContainer'
 // import ReviewsContainer from './containers/ReviewsContainer'
 // import IndexTrail from './components/trails/IndexTrail'

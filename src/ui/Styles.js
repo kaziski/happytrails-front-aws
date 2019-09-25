@@ -23,10 +23,10 @@ export const Title = styled.h1`
 
 export const Button = styled.button`
   display: inline - block;
-  color: palevioletred;
+  color: turquoise;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  border: 2px solid turquoise;
   font-weight: bold;
   border-radius: 5px;
   font-size: 18px;

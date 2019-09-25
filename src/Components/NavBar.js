@@ -23,14 +23,16 @@ export const NavLoggedIn = () => {
           <Title className="title"><span className="fas fa-hiking"></span> Happy Trails</Title>
 
           <div className="navbar-start">
-            <NavLink className="navbar-item has-text-weight-bold" to="/">Home</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/">Home</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/trails">Trails</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/reviews">Reviews</NavLink>
           </div>
 
-          <div className="navbar-end">
-            <NavLink className="navbar-item has-text-weight-bold" to="/trails">Trails</NavLink>
-            <NavLink className="navbar-item has-text-weight-bold" to="/reviews">Reviews</NavLink>
+          {/* <div className="navbar-end">
+            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/trails">Trails</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/reviews">Reviews</NavLink>
 
-          </div>
+          </div> */}
         </div>
 
 

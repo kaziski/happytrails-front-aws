@@ -25,7 +25,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
       <div className="field">
         <label className="label">Username</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-hovered" placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
+          <input className="input is-hovered is-primary" placeholder="username" value={loginFormData.username} name="username" type="text" onChange={handleInputChange} />
           <span className="icon is-small is-left">
             <i className="fas fa-user"></i>
           </span>
@@ -36,7 +36,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
       <div className="field">
         <label className="label">Password</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-hovered" placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
+          <input className="input is-hovered is-primary" placeholder="password" value={loginFormData.password} name="password" type="text" onChange={handleInputChange} />
           <span className="icon is-small is-left">
             <i className="fas fa-lock"></i>
           </span>

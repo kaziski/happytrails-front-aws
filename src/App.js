@@ -20,14 +20,14 @@ export class App extends Component {
     const { currentUser } = this.props
     return (
       <div className="App">
-        <section className="hero is-primary is-fullheight has-background is-transparent">
+        <section className="hero is-fullheight has-background is-transparent">
           <NavBar />
 
           <div className="hero-body">
             <div className="container has-text-centered">
-              <p className="title">
+              <div className="title">
                 {currentUser ? <Home /> : <Login />}
-              </p>
+              </div>
             </div>
           </div>
           {/* <Switch>

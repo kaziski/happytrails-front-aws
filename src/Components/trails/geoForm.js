@@ -30,34 +30,23 @@ class GeoForm extends Component {
   }
 
   getTrails = (lat, lng) => {
-    // process.env.REACT_APP_YELP_API_KEY
-
-
-    debugger
     const key = "200594950-5f020033b054b3d9e23fb80d0d1d2fd8"
+    console.log(key)
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
-      .then(response => response.json())
+      .then(response => console.log(response.json()))
       .then(res => console.log(res))
     //dispatch the res to action to add trails to the store for this session
     //add mapstateprops in this component to make sure i have the state - trails
   }
 
   geoFunction = () => {
-    // const API_KEY = process.env.GEOFORM_API_KEY
-    // Geocode.setApiKey(API_KEY)
-    Geocode.setApiKey("AIzaSyAiLUUlI0WSPzU7xirrlZbN2LrX3LhNABo")
-
-    //! I thought I figured a way to put the KEY in .env, but 
-    //! It has very unreliable behavior
+    Geocode.setApiKey(process.env.REACT_APP_GEOFORM_API_KEY)
     Geocode.enableDebug()
     Geocode.fromAddress(this.state.address).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location
         console.log(lat, lng)
-        // this.updateState([{ name: 'lat', value: lat }, { name: 'lng', value: lng }])
         this.getTrails(lat, lng)
-        //* this lat and lng need to be sent to Trail components as props and 
-        //*somehow trigger fetch??
       },
       error => {
         console.error(error)
@@ -66,7 +55,6 @@ class GeoForm extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>

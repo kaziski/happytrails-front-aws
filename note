@@ -4,28 +4,5 @@
 
  CI=true npm test
 
- beforeEach(() => {
-  wrapper = mount(
-    <Provider store={store}>
-      <App />
-    </ Provider>
-  )
-})
-
-afterEach(function () {
-  store.clearActions()
-})
-
-
-
-describe("App Component", () => {
-  it("should render without throwing an error", () => {
-    expect(
-      shallow(
-        <App />
-      )
-    )
-  })
-})
-value={loginFormData.username}
-value={loginFormData.password}
+ 
+551 Madison Ave. Carnegie, PA 15106

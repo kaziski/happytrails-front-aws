@@ -4,12 +4,12 @@ import { Route, Switch } from 'react-router-dom'
 // import { Route, Switch, withRouter } from 'react-router-dom'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
-import { AppLayout } from './ui/Styles'
 import Home from './components/Home'
 import Login from './components/users/Login.js'
-import TrailsContainer from './containers/TrailsContainer'
-import ReviewsContainer from './containers/ReviewsContainer'
-import IndexTrail from './components/trails/IndexTrail'
+import { BackGround } from './ui/Styles'
+// import TrailsContainer from './containers/TrailsContainer'
+// import ReviewsContainer from './containers/ReviewsContainer'
+// import IndexTrail from './components/trails/IndexTrail'
 
 export class App extends Component {
 
@@ -20,18 +20,18 @@ export class App extends Component {
     const { currentUser } = this.props
     return (
       <div className="App">
-        <AppLayout>
+        <BackGround>
           <NavBar />
-          {currentUser ? <TrailsContainer /> : <Login />}
-          <Switch>
-            When I put line 29 back, it shows two log in form
+          {currentUser ? <Home /> : <Login />}
+          {/* <Switch>
 
-            <Route path="/" component={Home} />
-            {/* <Route exact path='/login' component={Login} /> */}
+            <Route exact path="/" component={Home} />
+            When I put line 28, I get "TypeError: Cannot read property 'username' of null"
+            <Route exact path='/login' component={Login} />
             <Route exact path="/trails" component={TrailsContainer} />
             <Route exact path="/reviews" component={ReviewsContainer} />
-          </Switch>
-        </AppLayout>
+          </Switch> */}
+        </BackGround>
       </div>
     )
   }

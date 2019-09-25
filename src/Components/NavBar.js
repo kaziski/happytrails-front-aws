@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Title } from '../ui/Styles'
-
-import Login from './users/Login'
 import Logout from './users/Logout'
 
 
@@ -36,11 +34,9 @@ export const NavLoggedIn = () => {
         </div>
 
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class=" is-light">
-              <Logout />
-            </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <Logout />
           </div>
         </div>
       </nav>

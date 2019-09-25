@@ -1,14 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { H2 } from '../ui/Styles'
-import Login from './users/Login'
+import GeoForm from './trails/GeoForm'
 
 const Home = ({ currentUser }) => {
   return (
     < >
-      this is home
-      {currentUser ? <H2><strong>Welcome, {currentUser.username}!</strong></H2> : ""}
-      {/* {currentUser ? <Login /> : ""} */}
+      <p className="is-pulled-right">Logged in as {currentUser.username}.</p>
+      <GeoForm />
     </>
   );
 };

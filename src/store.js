@@ -3,14 +3,14 @@ import thunk from 'redux-thunk'
 import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
-import trails from './reducers/trailsReducer'
+import trailsReducer from './reducers/trailsReducer'
 
 const reducer = combineReducers({
   //I can do users:users or do like line 13
   users,
   currentUser,
   loginForm,
-  trails
+  trailsReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

@@ -24,11 +24,12 @@ class GeoForm extends Component {
 
   getTrails = (lat, lng) => {
     const key = "200594950-5f020033b054b3d9e23fb80d0d1d2fd8"
-    return fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
+
+    fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
       .then(response => response.json())
       // .then(res => console.log("res in getTrails", res))
-      .then(res => setTrails(res))
-
+      // .then(res => dispatch(setTrails(res)))
+      .then(res => (setTrails(res)))
       .catch(console.log)
   }
 
@@ -77,18 +78,4 @@ class GeoForm extends Component {
 }
 
 
-// const mapStateToProps = state => {
-//   console.log("mapStateToProps in GeoForm - state", state)
-//   return {
-//     trails: state.trails
-//   }
-// }
-
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
-//   };
-// };
-// export default GeoForm
 export default connect(null, { setTrails })(GeoForm)

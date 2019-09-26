@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Geocode from "react-geocode"
-import { fetchTrails } from '../../actions/fetchTrails'
+import { setTrails } from '../../actions/setTrails'
 
 class GeoForm extends Component {
 
@@ -23,13 +23,17 @@ class GeoForm extends Component {
   }
 
   getTrails = (lat, lng) => {
-    return function (dispatch) {
-      const key = "200594950-5f020033b054b3d9e23fb80d0d1d2fd8"
-      return fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
-        .then(response => response.json())
-        .then(res => dispatch(fetchTrails(res)))
-    }
+    const key = "200594950-5f020033b054b3d9e23fb80d0d1d2fd8"
+    return fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
+      .then(response => response.json())
+      // .then(res => console.log("res in getTrails", res))
+      .then(res => setTrails(res))
+
+      .catch(console.log)
   }
+
+  // .then(res => setTrails({ type: 'SET_TRAILS', payload: res.trails }))
+
 
 
   //dispatch the res to action to add trails to the store for this session
@@ -73,11 +77,12 @@ class GeoForm extends Component {
 }
 
 
-const mapStateToProps = state => {
-  console.log("mapStateToProps in GeoForm - state", state)
-  return {
-  }
-}
+// const mapStateToProps = state => {
+//   console.log("mapStateToProps in GeoForm - state", state)
+//   return {
+//     trails: state.trails
+//   }
+// }
 
 
 // const mapDispatchToProps = dispatch => {
@@ -86,4 +91,4 @@ const mapStateToProps = state => {
 //   };
 // };
 // export default GeoForm
-export default connect(mapStateToProps, { fetchTrails })(GeoForm)
+export default connect(null, { setTrails })(GeoForm)

@@ -1,6 +1,9 @@
-export const fetchTrails = (lat, lng) => {
+
+export const fetchTrails = trailsData => {
+  debugger
   return {
     type: "FETCH_TRAILS",
-    lat, lng
+    trailsData
   }
 }
+//*action creator

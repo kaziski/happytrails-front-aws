@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import 'bulma-helpers/css/bulma-helpers.min.css'
 
-require('dotenv').config()
 
 ReactDOM.render(
   <Provider store={store}>

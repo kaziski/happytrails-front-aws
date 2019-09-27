@@ -24,8 +24,8 @@ export const NavLoggedIn = () => {
 
           <div className="navbar-start">
             <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/">Home</NavLink>
-            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/trails">Trails</NavLink>
             <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/reviews">Reviews</NavLink>
+            <NavLink className="navbar-item has-text-weight-bold has-text-white" to="/logout">Logout</NavLink>
           </div>
 
           {/* <div className="navbar-end">

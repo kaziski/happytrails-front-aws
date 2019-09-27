@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-const IndexTrail = () => {
+class IndexTrail extends Component {
   // console.log("IndexTrail - this.props", this.props)
   // const { trails } = this.props
   // debugger
-  return (
-    <div className="has-text-white">
-      <h3>all the trails</h3>
-      {/* <ul>
-        {trails.map(trail => (
-          <li key={trail}>
-            {trail} &nbsp;
-          </li>
-        ))}
-      </ul> */}
-      <p>Show list of trails</p>
-    </div>
-  );
-};
+  render() {
+    console.log(this.props.trailobj)
+    const { trails } = this.props.trailobj
+    return (
+      <div className="has-text-white" >
+        <h3>Trails near the address</h3>
+        <ul>
+          {trails.map(trail => (
+            <li>
+              {trail.name}
+            </li>
+          ))}
+        </ul>
+        <p> Show list of trails</p >
+      </div >
+    )
+  }
+}
 
 
 const mapStateToProps = state => ({ trails: state.trailsReducer })

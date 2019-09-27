@@ -69,7 +69,7 @@ class GeoForm extends Component {
         </div >
       )
     }
-    return <IndexTrail trails={this.props} />
+    return <IndexTrail trailobj={this.props} />
   }
 }
 const mapStateToProps = state => ({ trails: state.trailsReducer })

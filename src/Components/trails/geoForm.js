@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Geocode from "react-geocode"
 import { setTrails } from '../../actions/setTrails'
+import IndexTrail from './IndexTrail'
 
 class GeoForm extends Component {
   state = {
     address: '',
     lat: null,
-    lng: null
+    lng: null,
+    isSubmitted: false
   }
 
   handleOnChange = (event) => {
@@ -19,6 +21,7 @@ class GeoForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault()
     this.geoFunction()
+    this.setState({ isSubmitted: true })
   }
 
   getTrails = (lat, lng) => {
@@ -46,27 +49,31 @@ class GeoForm extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <div className="field has-addons">
-            <div className="control is-expanded">
-              <input type="text"
-                className="input"
-                placeholder="Type an address to find trails"
-                value={this.state.address}
-                onChange={event => this.handleOnChange(event)} />
+    if (!this.state.isSubmitted) {
+      return (
+        <div>
+          <form onSubmit={(event) => this.handleOnSubmit(event)}>
+            <div className="field has-addons">
+              <div className="control is-expanded">
+                <input type="text"
+                  className="input"
+                  placeholder="Type an address to find trails"
+                  value={this.state.address}
+                  onChange={event => this.handleOnChange(event)} />
+              </div>
+              <div className="control">
+                <input className="button is-primary " type="submit" value="Find me trails!" />
+              </div>
             </div>
-            <div className="control">
-              <input className="button is-primary " type="submit" value="Find me trails!" />
-            </div>
-          </div>
-        </form>
-      </div >
-    );
+          </form>
+        </div >
+      )
+    }
+    return <IndexTrail />
   }
 }
 
 export default connect(null, { setTrails })(GeoForm)
 
 //* When submit button is clicked, render < TrailIndex />
+// {this.state.isSubmitted && <IndexTrail />}

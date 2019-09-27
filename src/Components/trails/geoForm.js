@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Geocode from "react-geocode"
 import { setTrails } from '../../actions/setTrails'
-
 class GeoForm extends Component {
 
   state = {
@@ -28,13 +27,9 @@ class GeoForm extends Component {
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
       .then(response => response.json())
       // .then(res => console.log("res in getTrails", res))
-      // .then(res => dispatch(setTrails(res)))
-      .then(res => (setTrails(res)))
+      .then(res => (this.props.setTrails(res)))
       .catch(console.log)
   }
-
-  // .then(res => setTrails({ type: 'SET_TRAILS', payload: res.trails }))
-
 
 
   //dispatch the res to action to add trails to the store for this session

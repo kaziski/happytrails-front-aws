@@ -69,11 +69,12 @@ class GeoForm extends Component {
         </div >
       )
     }
-    return <IndexTrail />
+    return <IndexTrail trails={this.props} />
   }
 }
+const mapStateToProps = state => ({ trails: state.trailsReducer })
 
-export default connect(null, { setTrails })(GeoForm)
+export default connect(mapStateToProps, { setTrails })(GeoForm)
 
 //* When submit button is clicked, render < TrailIndex />
 // {this.state.isSubmitted && <IndexTrail />}

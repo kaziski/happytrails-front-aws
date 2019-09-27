@@ -8,8 +8,7 @@ const Home = ({ currentUser }) => {
       <div className="title">
         <GeoForm />
       </div>
-      <div className="subtitle has-text-white	">Logged in as {currentUser.username}</div>
-
+      <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div>
     </>
   )
 }

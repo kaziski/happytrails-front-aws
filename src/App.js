@@ -6,7 +6,6 @@ import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/users/Login.js'
-import GeoForm from './components/trails/GeoForm'
 
 export class App extends Component {
 
@@ -20,14 +19,14 @@ export class App extends Component {
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
           <NavBar />
-
+          {/* 
           <div className="hero-body">
             <div className="container has-text-centered">
-              <div className="title">
-                {currentUser ? <Home /> : <Login />}
-              </div>
+              <div className="title"> */}
+          {currentUser ? <Home /> : <Login />}
+          {/* </div>
             </div>
-          </div>
+          </div> */}
 
 
           <Switch>

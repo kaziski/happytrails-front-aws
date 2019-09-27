@@ -1,22 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import GeoForm from './trails/GeoForm'
+// import GeoForm from './trails/GeoForm'
+import TrailsContainer from '../containers/TrailsContainer'
 
 const Home = ({ currentUser }) => {
   return (
     < >
       <div className="title">
-        <GeoForm />
+        {/* <GeoForm /> */}
+        <TrailsContainer />
       </div>
       <div className="subtitle has-text-white	">Logged in as {currentUser.username}</div>
 
-      {/* <p className="is-pulled-right">Logged in as {currentUser.username}.</p> */}
-
-
+      {/* I want this on the bottom; I may have to make it another component?*/}
 
     </>
-  );
-};
+  )
+}
 const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser
@@ -25,4 +25,3 @@ const mapStateToProps = ({ currentUser }) => {
 
 export default connect(mapStateToProps)(Home)
 
-//*I think this is where the search bar should be?

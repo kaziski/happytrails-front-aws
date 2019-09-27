@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 // import { Route, Switch, withRouter } from 'react-router-dom'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/users/Login.js'
-
-
-// import TrailsContainer from './containers/TrailsContainer'
-// import ReviewsContainer from './containers/ReviewsContainer'
-// import IndexTrail from './components/trails/IndexTrail'
+import GeoForm from './components/trails/GeoForm'
+import IndexTrail from './components/trails/IndexTrail'
 
 export class App extends Component {
 
   componentDidMount() {
     this.props.getCurrentUser()
   }
+
   render() {
     const { currentUser } = this.props
     return (
@@ -31,14 +29,16 @@ export class App extends Component {
               </div>
             </div>
           </div>
-          {/* <Switch>
 
-            <Route exact path="/" component={Home} />
-            When I put line 28, I get "TypeError: Cannot read property 'username' of null"
+
+          <Switch>
+            {/* <Route exact path='/signup' render={({history})=><Signup history={history}/>}/> */}
+
             <Route exact path='/login' component={Login} />
-            <Route exact path="/trails" component={TrailsContainer} />
-            <Route exact path="/reviews" component={ReviewsContainer} />
-          </Switch> */}
+            <Route exact path="/search" component={GeoForm} />
+            <Route exact path="/trails" component={IndexTrail} />
+            {/* <Route exact path="/reviews" component={ReviewsContainer} /> */} */}
+          </Switch>
         </section>
       </div>
     )

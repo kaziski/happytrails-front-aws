@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Geocode from "react-geocode"
 import { setTrails } from '../../actions/setTrails'
-class GeoForm extends Component {
 
+class GeoForm extends Component {
   state = {
     address: '',
     lat: null,
@@ -26,14 +26,9 @@ class GeoForm extends Component {
 
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&key=${key}`)
       .then(response => response.json())
-      // .then(res => console.log("res in getTrails", res))
       .then(res => (this.props.setTrails(res)))
       .catch(console.log)
   }
-
-
-  //dispatch the res to action to add trails to the store for this session
-  //add mapstateprops in this component to make sure i have the state - trails
 
 
   geoFunction = () => {
@@ -47,7 +42,7 @@ class GeoForm extends Component {
       error => {
         console.error(error)
       }
-    );
+    )
   }
 
   render() {
@@ -72,5 +67,6 @@ class GeoForm extends Component {
   }
 }
 
-
 export default connect(null, { setTrails })(GeoForm)
+
+//* When submit button is clicked, render < TrailIndex />

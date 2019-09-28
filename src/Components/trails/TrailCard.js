@@ -2,9 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const TrailCard = ({ trail }) => {
-  // render = () => {
-  //   if (this.props.trailobj) {
-  //     const trail = this.props.trailobj.trails.map(t => {
+
   return (
     <div className="box card column is-3">
       <div className="card-image">
@@ -25,8 +23,11 @@ const TrailCard = ({ trail }) => {
         </div>
       </div>
       <footer className="card-footer">
-        <div className="card-footer-item">Save</div>
-        <div className="card-footer-item">Review</div>
+        {/* <input className="button is-primary " type="submit" value="Find me trails!" /> */}
+        <a href="/like" className="card-footer-item has-text-black"><i class="fas fa-heart"></i>  Like</a>
+
+        <a href="/comment" className="card-footer-item has-text-black"><i class="fas fa-comments"></i>  Review</a>
+
       </footer>
     </div>
   )

@@ -3,3 +3,25 @@
   background-repeat: no - repeat;
   background-size: cover;
 }
+
+.card .card-content{
+  height: 24rem;
+}
+.column {
+  float: left;
+}
+.card-footer{
+  margin-top: auto;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}

@@ -3,29 +3,30 @@ import { connect } from 'react-redux'
 
 const TrailCard = ({ trail }) => {
   return (
-    <div class="card ">
-      <div class="card-image">
-        <figure class="image is-4by3">
-          <img src={trail.imgMedium} alt={trail.name} />
+    <div className="tile is-ancestor">
+      <div className="card tile is-4 is-vertical is-parent">
+        <div className="card-image ">
+          <figure className="image">
+            <img src={trail.imgMedium} alt={trail.name} />
 
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="media">
-          {/* <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-            </figure>
-          </div> */}
-          <div class="media-content">
-            <p class="title is-4">{trail.name}</p>
-            <p class="subtitle is-6">{trail.difficulty}</p>
+          </figure>
+        </div>
+        <div className="card-content">
+          <div className="media">
+            <div className="media-content">
+              <p className="title is-4">{trail.name}</p>
+              <p className="subtitle is-6">{trail.difficulty}</p>
+            </div>
+          </div>
+
+          <div className="content">
+            {trail.summary}
           </div>
         </div>
-
-        <div class="content">
-          {trail.summary}
-        </div>
+        <footer className="card-footer">
+          <div className="card-footer-item">Save</div>
+          <div className="card-footer-item">Review</div>
+        </footer>
       </div>
     </div>
   );

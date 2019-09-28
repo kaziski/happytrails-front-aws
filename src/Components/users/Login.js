@@ -21,7 +21,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
   }
 
   return (
-    <form className='login' onSubmit={handleSubmit}>
+    <form className="login" onSubmit={handleSubmit}>
       <div className="field">
         <label className="label">Username</label>
         <div className="control has-icons-left has-icons-right">

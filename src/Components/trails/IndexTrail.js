@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import TrailCard from './TrailCard'
 
 class IndexTrail extends Component {
   // console.log("IndexTrail - this.props", this.props)
@@ -8,18 +9,18 @@ class IndexTrail extends Component {
   render() {
     console.log(this.props.trailobj)
     const { trails } = this.props.trailobj
+    const trailList = trails.map(trail => {
+      return (
+        <TrailCard
+          key={trail.id}
+          trail={trail}
+        />
+      )
+    })
     return (
-      <div className="has-text-white" >
-        <h3>Trails near the address</h3>
-        <ul>
-          {trails.map(trail => (
-            <li>
-              {trail.name}
-            </li>
-          ))}
-        </ul>
-        <p> Show list of trails</p >
-      </div >
+      <ul>
+        {trailList}
+      </ul>
     )
   }
 }

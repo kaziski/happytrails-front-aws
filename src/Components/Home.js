@@ -5,7 +5,7 @@ import GeoForm from '../components/trails/GeoForm'
 const Home = ({ currentUser }) => {
   return (
     < >
-      <div className="title">
+      <div >
         <GeoForm />
       </div>
       <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div>

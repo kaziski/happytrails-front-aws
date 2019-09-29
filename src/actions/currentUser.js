@@ -7,6 +7,10 @@ export const setCurrentUser = user => {
   }
 }
 
+export const signup = () => {
+  debugger
+}
+
 export const login = credentials => {
   return dispatch => {
     console.log("credentials are", credentials)

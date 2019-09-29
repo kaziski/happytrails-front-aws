@@ -24,7 +24,7 @@ export class App extends Component {
 
 
           <Switch>
-            <Route exact path='/login' component={Login} />
+            {/* <Route exact path='/login' component={Login} /> */}
             <Route exact path="/trails/:id" component={TrailCard} />
             {/* Once I store the state of trips, I need to find my trip id to use it for the path */}
             {/* <Route exact path="/reviews" component={ReviewsContainer} /> */}

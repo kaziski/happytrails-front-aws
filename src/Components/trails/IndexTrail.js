@@ -22,6 +22,6 @@ class IndexTrail extends Component {
   }
 }
 
-const mapStateToProps = state => ({ trails: state.trailsReducer })
+const mapStateToProps = state => ({ trails: state.trails })
 
 export default connect(mapStateToProps)(IndexTrail)

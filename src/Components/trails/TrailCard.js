@@ -65,6 +65,6 @@ const TrailCard = ({ trail, addLikes }) => {
 // )
 
 
-const mapStateToProps = state => ({ trails: state.trailsReducer })
+const mapStateToProps = state => ({ trails: state.trails })
 
 export default connect(mapStateToProps, { addLikes })(TrailCard)

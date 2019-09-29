@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addLikes } from '../../actions/likes'
+import { addReview } from '../../actions/reviews'
 
 const TrailCard = ({ trail, addLikes }) => {
 
@@ -8,6 +9,12 @@ const TrailCard = ({ trail, addLikes }) => {
     event.preventDefault()
     addLikes(trail)
   }
+
+  const handleReviewClick = (event) => {
+    event.preventDefault()
+    addReview(trail)
+  }
+
 
   return (
     <div className="box card column is-3">
@@ -30,7 +37,7 @@ const TrailCard = ({ trail, addLikes }) => {
       <footer className="card-footer">
         {/* <input className="button is-primary " type="submit" value="Find me trails!" /> */}
         <a href="/like" className="card-footer-item has-text-black" onClick={handleLikeClick}><i className="fas fa-heart"></i>  Like</a>
-        <a href="/comment" className="card-footer-item has-text-black"><i className="fas fa-comments"></i>  Review</a>
+        <a href="/comment" className="card-footer-item has-text-black" onClick={handleReviewClick}><i className="fas fa-comments"></i>  Review</a>
         {/* <div class="tabs is-centered">
           <ul>
             <li class="is-active">

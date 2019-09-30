@@ -3,15 +3,17 @@ import { connect } from 'react-redux'
 import Review from './Review'
 
 class MyReviews extends Component {
-
   render() {
-    const { reviewsArr } = this.props.reviews
-    const reviews = reviewsArr.map(review => {
+    // debugger
+    // const { reviewsArr } = this.props.reviews
+    // const reviews = reviewsArr.map(review => {
+    const reviews = this.props.reviews.map(review => {
+      console.log("MyReviews-.attributes.comment", review.attributes.comment)
       return (
         <div>
           <Review
-            key={review.id}
-            review={review}
+            key={review.attributes.id}
+            review={review.attributes}
           />
         </div>
       )

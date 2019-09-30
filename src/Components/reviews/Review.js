@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 
-class Review extends Component {
-  render() {
-    return (
-      <div>
-        <div></div>
-      </div>
-    );
-  }
+const Review = ({ review }) => {
+  console.log("in Review review", review);
+
+  // debugger
+  return (
+    <div className="has-text-white">
+      <div>{review.comment}</div>
+    </div>
+  );
 }
 
-export default Review
+
+
+const mapStateToProps = state => ({ reviews: state.reviews })
+
+export default connect(mapStateToProps)(Review)

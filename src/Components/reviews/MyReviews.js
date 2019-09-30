@@ -8,11 +8,11 @@ class MyReviews extends Component {
     // const { reviewsArr } = this.props.reviews
     // const reviews = reviewsArr.map(review => {
     const reviews = this.props.reviews.map(review => {
-      console.log("MyReviews-.attributes.comment", review.attributes.comment)
+      console.log("MyReviews-.attributes", review.id)
       return (
         <div>
           <Review
-            key={review.attributes.id}
+            key={review.id}
             review={review.attributes}
           />
         </div>

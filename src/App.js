@@ -4,10 +4,12 @@ import { Route, Switch } from 'react-router-dom'
 // import { Route, Switch, withRouter } from 'react-router-dom'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
-import GeoForm from './components/trails/GeoForm'
+import Home from './components/Home'
 import Login from './components/users/Login'
+import Logout from './components/users/Logout'
 import TrailCard from './components/trails/TrailCard'
 import Signup from './components/users/Signup'
+import MyReviews from './components/reviews/MyReviews'
 
 
 export class App extends Component {
@@ -24,9 +26,12 @@ export class App extends Component {
           <NavBar />
           <div className="hero-body">
             <div className="container">
-              {currentUser ? <GeoForm /> : <Login />}
+              <Home />
               <Switch>
                 <Route exact path='/signup' component={Signup} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/logout' component={Logout} />
+                <Route exact path='/myreviews' component={MyReviews} />
                 <Route exact path="/trails/:id" component={TrailCard} />
                 {/* Once I store the state of trips, I need to find my trip id to use it for the path */}
                 {/* <Route exact path="/reviews" component={ReviewsContainer} /> */}

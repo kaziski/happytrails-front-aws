@@ -15,7 +15,6 @@ const TrailCard = ({ trail, addLikes }) => {
     addReview(trail)
   }
 
-
   return (
     <div className="box card column is-3">
       <div className="card-image">
@@ -58,13 +57,5 @@ const TrailCard = ({ trail, addLikes }) => {
     </div>
   )
 }
-// return (
-//   <>
-//     {trail}
-//   </>
-// )
 
-
-const mapStateToProps = state => ({ trails: state.trails })
-
-export default connect(mapStateToProps, { addLikes })(TrailCard)
+export default connect(null, { addLikes })(TrailCard)

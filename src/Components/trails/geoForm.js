@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Geocode from "react-geocode"
 import { setTrails } from '../../actions/setTrails'
 import IndexTrail from './IndexTrail'
+import MyReviews from '../reviews/MyReviews'
 
 class GeoForm extends Component {
   state = {
@@ -52,6 +53,7 @@ class GeoForm extends Component {
     if (!this.state.isSubmitted) {
       return (
         <div>
+          <MyReviews />
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
             <div className="field has-addons">
               <div className="control is-expanded">

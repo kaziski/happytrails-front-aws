@@ -23,5 +23,7 @@ class IndexTrail extends Component {
 }
 
 const mapStateToProps = state => ({ trails: state.trails })
+//trails is the name of the reducer. The name used here is 
+//defined in App
 
 export default connect(mapStateToProps)(IndexTrail)

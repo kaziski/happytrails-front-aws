@@ -5,6 +5,7 @@ import loginForm from './reducers/loginFormReducer'
 import trails from './reducers/trailsReducer'
 import likes from './reducers/likesReducer'
 import signupForm from './reducers/signupForm'
+import myReviews from './reducers/myReviewsReducer'
 
 const reducer = combineReducers({
   //I can do users:users or do like line 10
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   loginForm,
   trails,
   likes,
-  signupForm
+  signupForm,
+  myReviews
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

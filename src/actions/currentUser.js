@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm'
+import { getMyReviews } from './myReviews'
 
 export const setCurrentUser = user => {
   return {
@@ -51,7 +52,7 @@ export const getCurrentUser = () => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user.data.attributes))
-          //user.data.attributes is a hash of an user obj
+          dispatch(getMyReviews())
         }
       })
       .catch(console.logs)

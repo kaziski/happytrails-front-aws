@@ -48,3 +48,5 @@ const mapStateToProps = ({ currentUser }) => {
 
 export default connect(mapStateToProps, { getCurrentUser })(App)
 
+//! trying to render myReview to see props coming in
+

@@ -2,6 +2,10 @@ import { resetLoginForm } from './loginForm'
 import { getMyReviews } from './myReviews'
 import { resetSignupForm } from './signupForm'
 
+
+//* Action
+
+
 export const setCurrentUser = user => {
   return {
     type: "SET_CURRENT_USER",
@@ -9,7 +13,7 @@ export const setCurrentUser = user => {
   }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
   return dispatch => {
     console.log("credentials are", credentials)
     const userInfo = {
@@ -32,6 +36,7 @@ export const signup = credentials => {
         } else {
           dispatch(setCurrentUser(user))
           dispatch(resetSignupForm())
+          history.push('/')
         }
       })
       .catch(console.logs)

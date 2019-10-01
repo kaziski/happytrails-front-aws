@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { Route, Switch } from 'react-router-dom'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+// import { Route, Switch, withRouter } from 'react-router-dom'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import GeoForm from "./components/trails/GeoForm"
 import Login from './components/users/Login'
 import TrailCard from './components/trails/TrailCard'
+import NewTrailForm from './components/trails/NewTrailForm'
 import Signup from './components/users/Signup'
 import MyReviews from './components/reviews/MyReviews'
 
@@ -19,15 +20,13 @@ export class App extends Component {
   }
 
   render() {
-    const { currentUser } = this.props
+    // const { currentUser } = this.props
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
           <NavBar />
           <div className="hero-body">
             <div className="container">
-              {/* {currentUser ? <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> : ""} */}
-
               <Home />
               <Switch>
                 <Route exact path='/' component={Home} />
@@ -36,12 +35,14 @@ export class App extends Component {
                 <Route exact path='/geoform' component={GeoForm} />
                 <Route exact path='/myreviews' component={MyReviews} />
                 <Route exact path="/trails/:id" component={TrailCard} />
+                <Route exact path="/trails/new" component={NewTrailForm} />
+
                 {/* Once I store the state of trips, I need to find my trip id to use it for the path */}
                 {/* <Route exact path="/reviews" component={ReviewsContainer} /> */}
               </Switch>
             </div>
           </div>
-          {currentUser ? <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> : ""}
+          {/* {currentUser ? <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> : ""} */}
         </section>
       </div >
     )
@@ -54,6 +55,6 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser })(App))
+export default connect(mapStateToProps, { getCurrentUser })(App)
 
 

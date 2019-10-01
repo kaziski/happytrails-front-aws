@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Geocode from "react-geocode"
-import { setTrails } from '../../actions/setTrails'
+import { setTrails } from '../../actions/trails'
 import IndexTrail from './IndexTrail'
 
 class GeoForm extends Component {

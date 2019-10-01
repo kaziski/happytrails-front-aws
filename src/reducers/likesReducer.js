@@ -1,11 +1,13 @@
+//* Reducer
+//? Not sure if I need this...
 export default function manageLikes(state = {
-  likedTrails: []
+  savedTrails: []
 }, action) {
   switch (action.type) {
     case 'ADD_LIKES':
       return {
         ...state,
-        likedTrails: [...state.likedTrails, action.trail]
+        savedTrails: [...state.savedTrails, action.trail]
       }
 
     default:
@@ -13,4 +15,3 @@ export default function manageLikes(state = {
   }
 }
 
-//* Reducer

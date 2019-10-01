@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addLikes } from '../../actions/likes'
+import { saveTrails } from '../../actions/trails'
 import { addReview } from '../../actions/reviews'
 
-const TrailCard = ({ trail, addLikes }) => {
+const TrailCard = ({ trail, saveTrails, currentUser }) => {
 
   const handleLikeClick = (event) => {
     event.preventDefault()
-    addLikes(trail)
+    saveTrails(trail, currentUser)
   }
 
   const handleReviewClick = (event) => {
@@ -58,4 +58,9 @@ const TrailCard = ({ trail, addLikes }) => {
   )
 }
 
-export default connect(null, { addLikes })(TrailCard)
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+export default connect(mapStateToProps, { saveTrails })(TrailCard)

@@ -1,25 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { getCurrentUser } from '../actions/currentUser'
 import GeoForm from '../components/trails/GeoForm'
-import Login from '../components/users/Login'
-import Signup from '../components/users/Signup'
+// import Login from '../components/users/Login'
+// import Signup from '../components/users/Signup'
+import { Button } from "../ui/Styles"
 
-const LoginSignup = () => {
-  return (
-    <>
-      <Login /> or < Signup />
-    </>
-  )
-}
+class Home extends Component {
 
+  componentDidMount() {
+    this.props.getCurrentUser()
+  }
 
-export const Home = ({ currentUser }) => {
-  return (
-    <div>
-      {currentUser ? <GeoForm /> : <LoginSignup />}
+  state = {
+    clicked: false
+  }
 
-    </div >
-  )
+  handleOnClick = (event) => {
+    event.preventDefault()
+    this.setState({ isClicked: true })
+  }
+
+  render() {
+    const { currentUser } = this.props
+    return (
+      < >
+        {!currentUser ?
+          <span>
+            <Button onClick={this.handleOnClick} ><Link to="/signup">Sign Up</Link></Button>
+            <Button onClick={this.handleOnClick}><Link to="/login">Log In</Link></Button>
+          </span> : <GeoForm />}
+      </>
+    )
+  }
 }
 
 
@@ -29,4 +43,5 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-export default connect(mapStateToProps)(Home)
+
+export default connect(mapStateToProps, { getCurrentUser })(Home)

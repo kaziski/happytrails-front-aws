@@ -35,3 +35,7 @@ export const Button = styled.button`
       color: #9DC5BB;
       } 
 `
+
+export const StyledLink = styled.link`
+    color: white;
+    `

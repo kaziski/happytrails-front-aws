@@ -24,6 +24,7 @@ class Home extends Component {
 
   render() {
     const { currentUser } = this.props
+
     return (
       < >
         {!currentUser ?

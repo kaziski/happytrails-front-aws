@@ -38,7 +38,7 @@ export const signup = credentials => {
   }
 }
 
-export const login = credentials => {
+export const login = (credentials, history) => {
   return dispatch => {
     console.log("credentials are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
@@ -57,6 +57,8 @@ export const login = credentials => {
         } else {
           dispatch(setCurrentUser(user))
           dispatch(resetLoginForm())
+          history.push('/')
+          // this.props.history.push('/')
         }
       })
       .catch(console.logs)

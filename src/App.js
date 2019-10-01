@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route, Switch } from 'react-router-dom'
-// import { Route, Switch, withRouter } from 'react-router-dom'
+// import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
@@ -26,6 +26,8 @@ export class App extends Component {
           <NavBar />
           <div className="hero-body">
             <div className="container">
+              {/* {currentUser ? <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> : ""} */}
+
               <Home />
               <Switch>
                 <Route exact path='/' component={Home} />
@@ -52,6 +54,6 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App)
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App))
 
 

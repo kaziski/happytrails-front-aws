@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { getMyReviews } from './myReviews'
+import { resetSignupForm } from './signupForm'
 
 export const setCurrentUser = user => {
   return {
@@ -8,8 +9,33 @@ export const setCurrentUser = user => {
   }
 }
 
-export const signup = () => {
-  debugger
+export const signup = credentials => {
+  return dispatch => {
+    console.log("credentials are", credentials)
+    const userInfo = {
+      user: credentials
+    }
+    //this has to be nested for strong params to work
+    return fetch("http://localhost:3000/api/v1/signup", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        Accept: 'application/json', "Content-Type":
+          'application/json'
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(res => res.json())
+      .then(user => {
+        if (user.error) {
+          alert(user.error)
+        } else {
+          dispatch(setCurrentUser(user))
+          dispatch(resetSignupForm())
+        }
+      })
+      .catch(console.logs)
+  }
 }
 
 export const login = credentials => {

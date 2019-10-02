@@ -35,7 +35,7 @@ const TrailCard = ({ trail, saveTrails, currentUser }) => {
       </div>
       <footer className="card-footer">
         {/* <input className="button is-primary " type="submit" value="Find me trails!" /> */}
-        <a href="/like" className="card-footer-item has-text-black" onClick={handleLikeClick}><i className="fas fa-heart"></i>  Like</a>
+        <a href="/like" className="card-footer-item has-text-black" onClick={handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
         <a href="/comment" className="card-footer-item has-text-black" onClick={handleReviewClick}><i className="fas fa-comments"></i>  Review</a>
         {/* <div class="tabs is-centered">
           <ul>

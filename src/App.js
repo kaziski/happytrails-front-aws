@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 // import { Route, Switch, withRouter } from 'react-router-dom'
-import { getCurrentUser } from './actions/currentUser'
+// import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import GeoForm from "./components/trails/GeoForm"
@@ -12,9 +12,9 @@ import Signup from './components/users/Signup'
 
 export class App extends Component {
 
-  componentDidMount() {
-    this.props.getCurrentUser()
-  }
+  // componentDidMount() {
+  //   this.props.getCurrentUser()
+  // }
 
   render() {
     // const { currentUser } = this.props
@@ -30,26 +30,27 @@ export class App extends Component {
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/geoform' component={GeoForm} />
-                <Route exact path="/trails/:id" component={TrailCard} />
+                {/* this probably shouldn't be a link? */}
+                <Route exact path="/trails" component={TrailCard} />
 
                 {/* Once I store the state of trips, I need to find my trip id to use it for the path */}
                 {/* <Route exact path="/reviews" component={ReviewsContainer} /> */}
               </Switch>
             </div>
           </div>
-          {/* {currentUser ? <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> : ""} */}
         </section>
       </div >
     )
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    currentUser
-  }
-}
+// const mapStateToProps = ({ currentUser }) => {
+//   return {
+//     currentUser
+//   }
+// }
 
-export default connect(mapStateToProps, { getCurrentUser })(App)
+// export default connect(mapStateToProps, { getCurrentUser })(App)
+export default App
 
 

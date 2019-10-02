@@ -12,20 +12,3 @@ starVotes, location, url, imgSqSmall, imgSmall, imgSmallMed, imgMedium,
 length, ascent, descent, high, low, longitude, latitude, conditionStatus, 
 conditionDetails, conditionDate
 
-Build MyTrips to show all trips saved(liked)
-
-
-  render() {
-    if (!this.state.isClicked) {
-      return (
-        <span>
-          <Button onClick={this.handleFormClick} ><Link to="/signup">Sign Up</Link></Button>
-          <Button onClick={this.handleFormClick}><Link to="/login">Log In</Link></Button>
-          {/* <Button variant="outline-primary" onClick={this.handleFormClick}><Link to="/signup">Sign Up</Link></Button>
-          OR <Button variant="outline-primary" onClick={this.handleFormClick}><Link to="/login">Log In</Link></Button> */}
-        </span> : null
-      )
-    }
-    return <GeoForm />
-  }
-}

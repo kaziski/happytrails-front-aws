@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+// import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import GeoForm from "./components/trails/GeoForm"
@@ -41,5 +42,4 @@ export class App extends Component {
 }
 
 export default App
-
 

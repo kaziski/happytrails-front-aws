@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { Title } from '../ui/Styles'
 // import Logout from './users/Logout'
 import { NavLink } from 'react-router-dom'
-
 // const LogoutButton = () => {
 //   return (
 //     < >
@@ -17,6 +16,7 @@ import { NavLink } from 'react-router-dom'
 //   )
 // }
 
+
 export const NavBar = ({ currentUser }) => {
   return (
     < >
@@ -27,13 +27,10 @@ export const NavBar = ({ currentUser }) => {
         <div className="navbar-end">
           <div className="navbar-item">
             {currentUser ? <span><NavLink to="/logout">Logout</NavLink>
-              <NavLink to="/my_trails">My Trails</NavLink></span> : ""}
+              <NavLink to="/my_trails" >My Trails</NavLink></span> : ""}
           </div>
         </div>
       </nav>
-
-
-
     </>
   )
 }

@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import MyTrailCard from './MyTrailCard'
+import { getTrails } from '../../actions/trails'
 
 class MyTrails extends Component {
 
+  componentDidMount() {
+    this.props.getTrails()
+  }
   render() {
-    const { trails } = this.props.trails
-    const trailList = trails.map(trail => {
+    const { myTrails } = this.props
+    const trailList = myTrails.map(trail => {
       return (
-        <MyTrailCard
-          key={trail.id}
-          trail={trail}
-        />
+        <div>
+          <ul>
+            <li>{trail.attributes.name}</li>
+          </ul>
+        </div>
       )
     })
     return (
@@ -21,7 +26,7 @@ class MyTrails extends Component {
     )
   }
 }
+const mapStateToProps = state => ({ myTrails: state.myTrails })
 
-const mapStateToProps = state => ({ trails: state.myTrails })
-
-export default connect(mapStateToProps)(MyTrails)
+export default connect(mapStateToProps, { getTrails })(MyTrails)
+// export default MyTrails

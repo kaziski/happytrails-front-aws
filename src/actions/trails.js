@@ -10,6 +10,7 @@ export const setTrail = trailsData => {
 
 export const setMyTrails = trailsObj => {
   const trails = trailsObj.data
+  console.log("setMyTrails trails", trails)
   return {
     type: 'SET_MY_TRAILS',
     trails
@@ -20,7 +21,7 @@ export const setMyTrails = trailsObj => {
 //When a user clicks "save" on TrailCard, this gets triggered.
 export const saveTrails = (trail, currentUser) => {
   return dispatch => {
-    console.log("trail in saveTrails", trail)
+    // console.log("trail in saveTrails", trail)
     // console.log("currentUser in saveTrails", currentUser)
     //the key trail is the required key in Trail strong params
     const trailInfo = {
@@ -40,8 +41,7 @@ export const saveTrails = (trail, currentUser) => {
         if (trail.error) {
           alert(trail.error)
         } else {
-          //! Should I do this or have this separate?
-          //! yes, right now it's triggering only when someone likes a trail
+          console.log("trail in saveTrails", trail)
           dispatch(getTrails())
         }
       })
@@ -49,9 +49,12 @@ export const saveTrails = (trail, currentUser) => {
   }
 }
 
-export const getTrails = currentUser => {
+export const getTrails = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/users/:user_id/trails", {
+    //!How does this know who the user is?
+    // return fetch("http://localhost:3000/api/v1/users/10/trails", {
+    return fetch("http://localhost:3000//api/v1/trails", {
+
       credentials: "include",
       method: "GET",
       hearders: {
@@ -64,6 +67,7 @@ export const getTrails = currentUser => {
         if (trailsObj.error) {
           alert(trailsObj.error)
         } else {
+          console.log("trailsObj in getTrails", trailsObj)
           dispatch(setMyTrails(trailsObj))
         }
       })

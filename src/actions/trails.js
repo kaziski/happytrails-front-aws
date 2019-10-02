@@ -38,10 +38,13 @@ export const saveTrails = (trail, currentUser) => {
     })
       .then(res => res.json())
       .then(trail => {
+        console.log("trail after fetch in saveTrails", trail);
+
         if (trail.error) {
           alert(trail.error)
         } else {
           console.log("trail in saveTrails", trail)
+          //? This may not be necessary
           dispatch(getTrails())
         }
       })

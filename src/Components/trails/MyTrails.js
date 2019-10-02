@@ -12,11 +12,10 @@ class MyTrails extends Component {
     const { myTrails } = this.props
     const trailList = myTrails.map(trail => {
       return (
-        <div>
-          <ul>
-            <li>{trail.attributes.name}</li>
-          </ul>
-        </div>
+        <MyTrailCard
+          key={trail.id}
+          trail={trail.attributes}
+        />
       )
     })
     return (

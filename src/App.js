@@ -9,8 +9,6 @@ import GeoForm from "./components/trails/GeoForm"
 import Login from './components/users/Login'
 import TrailCard from './components/trails/TrailCard'
 import Signup from './components/users/Signup'
-import MyReviews from './components/reviews/MyReviews'
-
 
 export class App extends Component {
 
@@ -32,7 +30,6 @@ export class App extends Component {
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/geoform' component={GeoForm} />
-                <Route exact path='/myreviews' component={MyReviews} />
                 <Route exact path="/trails/:id" component={TrailCard} />
 
                 {/* Once I store the state of trips, I need to find my trip id to use it for the path */}

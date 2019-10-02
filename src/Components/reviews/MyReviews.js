@@ -26,7 +26,7 @@ class MyReviews extends Component {
   }
 }
 
-const mapStateToProps = state => ({ reviews: state.myReviews })
+const mapStateToProps = state => ({ reviews: state.reviews })
 //myReviews is the name of the reducer. The name used here is 
 //defined in App
 

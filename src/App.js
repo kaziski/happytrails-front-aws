@@ -6,6 +6,7 @@ import GeoForm from "./components/trails/GeoForm"
 import Login from './components/users/Login'
 import Logout from './components/users/Logout'
 import Signup from './components/users/Signup'
+import MyTrails from './components/trails/MyTrails'
 
 export class App extends Component {
 
@@ -24,6 +25,7 @@ export class App extends Component {
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/logout' component={Logout} />
+                <Route exact path='/my_trails' component={MyTrails} />
 
                 <Route exact path='/geoform' component={GeoForm} />
 

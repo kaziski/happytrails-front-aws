@@ -9,9 +9,10 @@ export const setTrail = trailsData => {
 }
 
 export const setMyTrails = trailsObj => {
+  const trails = trailsObj.data
   return {
     type: 'SET_MY_TRAILS',
-    trailsObj
+    trails
   }
 }
 
@@ -59,9 +60,13 @@ export const getTrails = currentUser => {
     })
       .then(res => res.json())
       // .then(trailsObj => console.log("trailsObj in trails action", trailsObj))
-      .then(trailsObj => setMyTrails(trailsObj))
+      .then(trailsObj => {
+        if (trailsObj.error) {
+          alert(trailsObj.error)
+        } else {
+          dispatch(setMyTrails(trailsObj))
+        }
+      })
       .catch(console.log)
   }
 }
-
-

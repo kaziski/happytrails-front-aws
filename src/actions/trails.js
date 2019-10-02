@@ -1,25 +1,22 @@
 //* Action
 
 // set trail to pass down to <TrailCard/>
-export const setTrails = trailsData => {
+export const setTrail = trailsData => {
   return {
-    type: 'SET_TRAILS',
+    type: 'SET_TRAIL',
     trailsData
   }
 }
 
-
+//When a user clicks "save" on TrailCard, this gets triggered.
 export const saveTrails = (trail, currentUser) => {
   return dispatch => {
     console.log("trail in saveTrails", trail)
     console.log("currentUser in saveTrails", currentUser)
     //the key trail is the required key in Trail strong params
-    //the value trail is what's passed into this component
     const trailInfo = {
       trail: { ...trail, user_id: currentUser.id }
-
     }
-
     return fetch("http://localhost:3000/api/v1/newtrail", {
       credentials: "include",
       method: "POST",
@@ -30,26 +27,32 @@ export const saveTrails = (trail, currentUser) => {
       body: JSON.stringify(trailInfo)
     })
       .then(res => res.json())
-      // .then(trail => console.log("in fetch addlikis- trail", trail)
       .then(trail => {
         if (trail.error) {
           alert(trail.error)
         } else {
-          console.log(trail)
-          //!trail is coming in! 
-          //? this is where I dispatch another action, pass the trail
-          //? to save trails?
+          //! Should I do this or have this separate?
+          dispatch(getTrails())
         }
       })
       .catch(console.logs)
   }
 }
 
-// export const addLikes = trail => {
-//   return {
-//     type: 'ADD_LIKES',
-//     trail
-//   }
-// }
-//? Do I need this action if I'm saving each trail?
+export const getTrails = currentUser => {
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/users/:user_id/trails", {
+      credentials: "include",
+      method: "GET",
+      hearders: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(res => res.json())
+      .then(trailsObj => {
+        console.log("In getTrails - trailsObj", trailsObj)
+      })
+  }
+}
 
+// export const setMyTrails = 

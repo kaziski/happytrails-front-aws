@@ -20,7 +20,6 @@ export const getMyReviews = () => {
     })
       .then(res => res.json())
       .then(reviewsObj => {
-        console.log("getMyReviews", reviewsObj)
         if (reviewsObj.error) {
           alert(reviewsObj.error)
         } else {

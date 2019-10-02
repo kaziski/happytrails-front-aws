@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Geocode from "react-geocode"
-import { setTrails } from '../../actions/trails'
+import { setTrail } from '../../actions/trails'
 import IndexTrail from './IndexTrail'
 
 class GeoForm extends Component {
@@ -29,7 +29,7 @@ class GeoForm extends Component {
 
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxResults=12&key=${key}`)
       .then(response => response.json())
-      .then(res => (this.props.setTrails(res)))
+      .then(res => (this.props.setTrail(res)))
       .catch(console.log)
   }
 
@@ -74,7 +74,7 @@ class GeoForm extends Component {
 }
 const mapStateToProps = state => ({ trails: state.trails })
 
-export default connect(mapStateToProps, { setTrails })(GeoForm)
+export default connect(mapStateToProps, { setTrail })(GeoForm)
 
 //* When submit button is clicked, render < TrailIndex />
 // {this.state.isSubmitted && <IndexTrail />}

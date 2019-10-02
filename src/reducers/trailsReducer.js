@@ -1,7 +1,7 @@
 export default (state = [], action) => {
 
   switch (action.type) {
-    case 'SET_TRAILS':
+    case 'SET_TRAIL':
       return action.trailsData.trails
 
     default:

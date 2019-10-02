@@ -20,6 +20,7 @@ class MyTrails extends Component {
     })
     return (
       <div className="has-text-white" >
+        <h3>My Saved Trails</h3>
         {trailList}
       </div>
     )

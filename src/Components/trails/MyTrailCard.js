@@ -22,12 +22,6 @@ const MyTrailCard = ({ trail }) => {
     </div>
   )
 }
-
+//? Should I change for users to see more info when they click a picture?
 export default MyTrailCard
 
-// attributes:
-// latitude: "37.8966"
-// length: 7.1
-// longitude: "-122.6359"
-// name: "Steep Ravine - Matt Davis Loop"
-// url: "https://www.hikingproject.com/trail/7027132/steep-rav

@@ -62,8 +62,6 @@ export const login = (credentials, history) => {
         } else {
           dispatch(setCurrentUser(user))
           dispatch(resetLoginForm())
-          // history.push('/')
-          // this.props.history.push('/')
         }
       })
       .catch(console.logs)

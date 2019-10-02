@@ -19,7 +19,6 @@ export class App extends Component {
           <NavBar />
           <div className="hero-body">
             <div className="container">
-              <Home />
               <Switch>
                 <Route exact path='/' component={Home} />
                 {/* These three are showing up as buttons.  */}
@@ -28,7 +27,7 @@ export class App extends Component {
                 <Route exact path='/logout' component={Logout} />
                 <Route exact path='/my_trails' component={MyTrails} />
 
-                <Route exact path='/geoform' component={GeoForm} />
+                {/* <Route exact path='/geoform' component={GeoForm} /> */}
 
                 {/* Once I store the state of trips, I need to find my trip id to use it for the path */}
                 {/* <Route exact path="/reviews" component={ReviewsContainer} /> */}

@@ -18,6 +18,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
   const handleSubmit = event => {
     event.preventDefault()
     login(loginFormData, history)
+    history.push('/')
   }
 
   return (

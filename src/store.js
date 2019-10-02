@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import currentUser from './reducers/currentUserReducer'
 import loginForm from './reducers/loginFormReducer'
 import trails from './reducers/trailsReducer'
+import myTrails from './reducers/myTrailReducer'
 import signupForm from './reducers/signupForm'
 import reviews from './reducers/reviewsReducer'
 
@@ -11,6 +12,7 @@ const reducer = combineReducers({
   currentUser,
   loginForm,
   trails,
+  myTrails,
   signupForm,
   reviews
 })

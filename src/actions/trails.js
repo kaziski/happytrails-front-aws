@@ -1,6 +1,6 @@
 //* Action
 
-// set trail to pass down to <TrailCard/>
+// set trail to pass down from <GeoForm/> to <TrailCard/>
 export const setTrail = trailsData => {
   return {
     type: 'SET_TRAIL',
@@ -8,11 +8,19 @@ export const setTrail = trailsData => {
   }
 }
 
+export const setMyTrails = trailsObj => {
+  return {
+    type: 'SET_MY_TRAILS',
+    trailsObj
+  }
+}
+
+
 //When a user clicks "save" on TrailCard, this gets triggered.
 export const saveTrails = (trail, currentUser) => {
   return dispatch => {
     console.log("trail in saveTrails", trail)
-    console.log("currentUser in saveTrails", currentUser)
+    // console.log("currentUser in saveTrails", currentUser)
     //the key trail is the required key in Trail strong params
     const trailInfo = {
       trail: { ...trail, user_id: currentUser.id }
@@ -32,6 +40,7 @@ export const saveTrails = (trail, currentUser) => {
           alert(trail.error)
         } else {
           //! Should I do this or have this separate?
+          //! yes, right now it's triggering only when someone likes a trail
           dispatch(getTrails())
         }
       })
@@ -49,10 +58,10 @@ export const getTrails = currentUser => {
       },
     })
       .then(res => res.json())
-      .then(trailsObj => {
-        console.log("In getTrails - trailsObj", trailsObj)
-      })
+      // .then(trailsObj => console.log("trailsObj in trails action", trailsObj))
+      .then(trailsObj => setMyTrails(trailsObj))
+      .catch(console.log)
   }
 }
 
-// export const setMyTrails = 
+

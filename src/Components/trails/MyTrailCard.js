@@ -22,6 +22,7 @@ const MyTrailCard = ({ trail }) => {
     </div>
   )
 }
-//? Should I change for users to see more info when they click a picture?
+//* Should I change for users to see more info when they click a picture?
+
 export default MyTrailCard
 

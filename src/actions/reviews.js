@@ -1,10 +1,11 @@
-export const addReview = trail => {
+//* need form info here
+
+export const addTrailtoReview = trail => {
   return {
-    type: 'ADD_REVIEW',
+    type: 'ADD_TRAIL_TO_REVIEW',
     trail
   }
 }
-
 //synchronous actions
 export const setMyReviews = reviewsData => {
   //reviewsData is an array of review objects

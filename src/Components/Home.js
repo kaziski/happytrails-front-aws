@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getCurrentUser } from '../actions/currentUser'
 import GeoForm from '../components/trails/GeoForm'
 // import Login from '../components/users/Login'
 // import Signup from '../components/users/Signup'
 import { Button } from "../ui/Styles"
 
 class Home extends Component {
-
-  componentDidMount() {
-    this.props.getCurrentUser()
-  }
 
   state = {
     clicked: false
@@ -49,4 +44,4 @@ const mapStateToProps = ({ currentUser }) => {
 }
 
 
-export default connect(mapStateToProps, { getCurrentUser })(Home)
+export default connect(mapStateToProps)(Home)

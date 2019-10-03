@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { saveTrails } from '../../actions/trails'
-import { addReview } from '../../actions/reviews'
+import { addTrailtoReview } from '../../actions/reviews'
 
-const TrailCard = ({ trail, saveTrails, currentUser }) => {
+const TrailCard = ({ trail, saveTrails, currentUser, history }) => {
 
   const handleLikeClick = (event) => {
     event.preventDefault()
@@ -11,8 +11,11 @@ const TrailCard = ({ trail, saveTrails, currentUser }) => {
   }
 
   const handleReviewClick = (event) => {
+    debugger
     event.preventDefault()
-    addReview(trail)
+    addTrailtoReview(trail, history)
+    //*why doesn't this work but look at Login component
+    // history.push('/review_form')
   }
 
   return (

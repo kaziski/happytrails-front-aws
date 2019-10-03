@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/users/Login'
@@ -8,7 +8,17 @@ import Login from './components/users/Login'
 import Signup from './components/users/Signup'
 import MyTrails from './components/trails/MyTrails'
 
+import { getCurrentUser } from './actions/currentUser'
+
 export class App extends Component {
+
+  //I need to this for getDerivedStateFromProps to work properly
+  state = {}
+
+  static getDerivedStateFromProps({ getCurrentUser }) {
+    getCurrentUser()
+    return null
+  }
 
   render() {
 
@@ -39,5 +49,5 @@ export class App extends Component {
   }
 }
 
-export default App
+export default connect(null, { getCurrentUser })(App)
 

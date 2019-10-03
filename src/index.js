@@ -10,7 +10,7 @@ import 'bulma-helpers/css/bulma-helpers.min.css'
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter >
       <App />
     </BrowserRouter>
   </Provider>, document.getElementById('root'));

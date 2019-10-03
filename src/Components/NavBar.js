@@ -15,6 +15,7 @@ export const NavBar = ({ currentUser }) => {
         <div className="navbar-end">
           <div className="navbar-item">
             {currentUser ? <span> <Logout /><NavLink to="/my_trails" >My Trails</NavLink></span> : ""}
+            {/* add home link, put in const and make it if statement? */}
           </div>
         </div>
       </nav>
@@ -27,5 +28,4 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-
 export default connect(mapStateToProps)(NavBar)

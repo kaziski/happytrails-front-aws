@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Title } from '../ui/Styles'
-// import Logout from './users/Logout'
+import Logout from './users/Logout'
 import { NavLink } from 'react-router-dom'
-// const LogoutButton = () => {
-//   return (
-//     < >
-//       <div className="navbar-end">
-//         <div className="navbar-item">
-//           <Logout />
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
+const LogoutButton = () => {
+  return (
+    < >
+      <div className="navbar-end">
+        <div className="navbar-item">
+          <Logout />
+        </div>
+      </div>
+    </>
+  )
+}
 
 
 export const NavBar = ({ currentUser }) => {
@@ -26,7 +26,9 @@ export const NavBar = ({ currentUser }) => {
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
-            {currentUser ? <span><NavLink to="/logout">Logout</NavLink>
+            {/* {currentUser ? <LogoutButton /> : ""} */}
+
+            {currentUser ? <span> <LogoutButton />
               <NavLink to="/my_trails" >My Trails</NavLink></span> : ""}
           </div>
         </div>

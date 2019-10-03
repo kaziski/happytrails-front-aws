@@ -1,5 +1,4 @@
 import { resetLoginForm } from './loginForm'
-import { getMyReviews } from './reviews'
 import { resetSignupForm } from './signupForm'
 
 
@@ -36,14 +35,13 @@ export const signup = (credentials, history) => {
         } else {
           dispatch(setCurrentUser(user))
           dispatch(resetSignupForm())
-          // history.push('/')
         }
       })
       .catch(console.logs)
   }
 }
 
-export const login = (credentials, history) => {
+export const login = credentials => {
   return dispatch => {
     console.log("credentials are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
@@ -83,7 +81,6 @@ export const getCurrentUser = () => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user.data.attributes))
-          dispatch(getMyReviews())
         }
       })
       .catch(console.logs)

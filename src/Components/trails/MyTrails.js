@@ -10,7 +10,10 @@ class MyTrails extends Component {
   }
   render() {
     const { myTrails } = this.props
+    console.log("this.props.myTrails in MyTrails", this.props.myTrails);
+
     const trailList = myTrails.map(trail => {
+      console.log("trail in MyTrails", trail);
       return (
         <MyTrailCard
           key={trail.id}
@@ -20,7 +23,8 @@ class MyTrails extends Component {
     })
     return (
       <div className="has-text-white" >
-        {this.props.myTrails.length === 0 ? <h3>You don't have any trails saved</h3> : { trailList }}
+        {this.props.myTrails.length === 0 ? <h3>You don't have any trails saved</h3> : ""}
+        {trailList}
         {/* <h3>My Saved Trails</h3>
         {trailList} */}
       </div>

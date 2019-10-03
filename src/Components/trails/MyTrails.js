@@ -20,8 +20,9 @@ class MyTrails extends Component {
     })
     return (
       <div className="has-text-white" >
-        <h3>My Saved Trails</h3>
-        {trailList}
+        {this.props.myTrails.length === 0 ? <h3>You don't have any trails saved</h3> : { trailList }}
+        {/* <h3>My Saved Trails</h3>
+        {trailList} */}
       </div>
     )
   }

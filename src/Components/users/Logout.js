@@ -6,13 +6,15 @@ import { Button } from "../../ui/Styles"
 
 class Logout extends Component {
 
-  handleSubmit = () => {
+  handleOnSubmit = (event) => {
+    event.preventDefault()
     this.props.logout()
-    this.props.history.push('/')
+    // this.props.history.push('/')
   }
+
   render() {
     return (
-      <form onSubmit={logout}>
+      <form onSubmit={(event) => this.handleOnSubmit(event)}>
         <Button type="submit">  Log out </Button>
       </form >
     )

@@ -88,7 +88,6 @@ export const getCurrentUser = () => {
 }
 
 export const clearCurrentUser = () => {
-  debugger
   return {
     type: "CLEAR_CURRENT_USER",
   }

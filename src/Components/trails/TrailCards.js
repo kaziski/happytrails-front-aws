@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import ReviewForm from '../reviews/ReviewForm'
+import ReviewForm from '../reviews/ReviewForm'
 import { saveTrails } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 // { trail, saveTrails, addTrailtoReview, currentUser, history }
 
 class TrailCard extends Component {
 
+  state = {
+    reviewClicked: false,
+    redirect: false
+  }
 
   handleLikeClick = event => {
     event.preventDefault()
@@ -18,59 +22,57 @@ class TrailCard extends Component {
   handleReviewClick = event => {
     event.preventDefault()
     this.props.addTrailtoReview(this.props.trail)
+    this.setState({
+      reviewClicked: true,
+      redirect: true
+    })
     // history.push('/review-form')
     // return <Redirect to='/review-form' />
   }
 
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/review-form' />
+    }
+  }
+
   render() {
     const { trail } = this.props
-    return (
-      <div className="box card column is-3">
-        <div className="card-image">
-          <figure className="image is-4by3">
-            <img src={trail.imgSmallMed ? (trail.imgSmallMed) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} alt={trail.name} />
-          </figure>
-        </div>
-        <div className="card-content">
-          <div className="media">
-            <div className="media-content">
-              <a className="title is-4" href={trail.url} target="_blank" rel="noopener noreferrer">{trail.name}</a>
+    if (!this.state.reviewClicked) {
+      return (
+        <div className="box card column is-3">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img src={trail.imgSmallMed ? (trail.imgSmallMed) : ("http://appalachiantrail.org/images/default-source/default-album/trailfocus.jpg?sfvrsn=2")} alt={trail.name} />
+            </figure>
+          </div>
+          <div className="card-content">
+            <div className="media">
+              <div className="media-content">
+                <a className="title is-4" href={trail.url} target="_blank" rel="noopener noreferrer">{trail.name}</a>
+              </div>
+            </div>
+
+            <div className="content">
+              {trail.summary}
             </div>
           </div>
-
-          <div className="content">
-            {trail.summary}
-          </div>
-        </div>
-        <footer className="card-footer">
-          {/* <input className="button is-primary " type="submit" value="Find me trails!" /> */}
-          <a href="/like" className="card-footer-item has-text-black" onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
-          <a href="/review-form" className="card-footer-item has-text-black" onClick={this.handleReviewClick}><i className="fas fa-comments"></i>  Review</a>
-          {/* <div class="tabs is-centered">
-          <ul>
-            <li class="is-active">
-              <div>
-                <span class="icon is-small"><i class="fas fa-heart" aria-hidden="true"></i></span>
-                <span><input className="card-footer-item has-text-black" type="submit" value="Like" /></span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <span class="icon is-small"><i class="fas fa-comments" aria-hidden="true"></i></span>
-                <span><input className="card-footer-item has-text-black" type="submit" value="Review " /></span>
-              </div>
-            </li>
-          </ul>
-        </div> */}
-        </footer>
-      </div>
-    )
+          <footer className="card-footer">
+            <a href="/like" className="card-footer-item has-text-black" onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
+            <a href="/review-form" className="card-footer-item has-text-black"
+              // onClick={this.handleReviewClick}>
+              onClick={() => {
+                this.handleReviewClick();
+                this.renderRedirect();
+              }}>
+              <i className="fas fa-comments"></i>  Review</a>
+          </footer >
+        </div >
+      )
+    }
+    return < ReviewForm />
   }
 }
-
-// { trail, saveTrails, addTrailtoReview, currentUser, history }
-
-
 
 const mapStateToProps = ({ currentUser }) => {
   return {

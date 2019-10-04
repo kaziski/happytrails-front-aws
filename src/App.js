@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Login from './components/users/Login'
 import Signup from './components/users/Signup'
 import MyTrails from './components/trails/MyTrails'
+import ReviewForm from './components/reviews/ReviewForm'
 
 import { getCurrentUser } from './actions/currentUser'
 
@@ -31,7 +32,8 @@ export class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
-                <Route exact path='/my_trails' component={MyTrails} />
+                <Route exact path='/my-trails' component={MyTrails} />
+                <Route exact path='/review-form' component={ReviewForm} />
               </Switch>
             </div>
           </div>

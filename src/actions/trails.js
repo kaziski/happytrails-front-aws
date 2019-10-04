@@ -1,6 +1,6 @@
 //* Action
 
-// set trail to pass down from <GeoForm/> to <TrailCard/>
+// set trail to pass down from <GeoForm/> to <TrailCards/>
 export const setTrail = trailsData => {
   return {
     type: 'SET_TRAIL',
@@ -18,7 +18,7 @@ export const setMyTrails = trailsObj => {
 }
 
 
-//When a user clicks "save" on TrailCard, this gets triggered.
+//When a user clicks "save" on TrailCards, this gets triggered.
 export const saveTrails = (trail, currentUser) => {
   return dispatch => {
     //the key trail is the required key in Trail strong params

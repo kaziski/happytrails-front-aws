@@ -4,7 +4,7 @@ const ReviewForm = () => {
   alert('oy!')
   return (
     <div>
-      <p>Haya!</p>
+      <p className="has-text-white">Haya!</p>
     </div>
   );
 };

@@ -21,8 +21,6 @@ export const setMyTrails = trailsObj => {
 //When a user clicks "save" on TrailCard, this gets triggered.
 export const saveTrails = (trail, currentUser) => {
   return dispatch => {
-    // console.log("trail in saveTrails", trail)
-    // console.log("currentUser in saveTrails", currentUser)
     //the key trail is the required key in Trail strong params
     const trailInfo = {
       trail: { ...trail, user_id: currentUser.id }
@@ -54,8 +52,6 @@ export const saveTrails = (trail, currentUser) => {
 
 export const getTrails = () => {
   return dispatch => {
-    //!How does this know who the user is?
-    // return fetch("http://localhost:3000/api/v1/users/10/trails", {
     return fetch("http://localhost:3000//api/v1/trails", {
 
       credentials: "include",
@@ -65,7 +61,6 @@ export const getTrails = () => {
       },
     })
       .then(res => res.json())
-      // .then(trailsObj => console.log("trailsObj in trails action", trailsObj))
       .then(trailsObj => {
         if (trailsObj.error) {
           alert(trailsObj.error)

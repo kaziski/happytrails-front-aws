@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import ReviewForm from '../reviews/ReviewForm'
 import { saveTrails } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 
-const TrailCard = ({ trail, saveTrails, currentUser, history }) => {
+const TrailCard = ({ trail, saveTrails, addTrailtoReview, currentUser, history }) => {
 
   const handleLikeClick = (event) => {
     event.preventDefault()
@@ -11,12 +12,23 @@ const TrailCard = ({ trail, saveTrails, currentUser, history }) => {
   }
 
   const handleReviewClick = (event) => {
-    debugger
     event.preventDefault()
-    addTrailtoReview(trail, history)
+    addTrailtoReview(trail)
+    renderReview()
     //*why doesn't this work but look at Login component
-    // history.push('/review_form')
+    // history.push('/reviewform')
   }
+
+  const renderReview = () => {
+    alert('choi!')
+    return (
+      <form className="reviewForm" onSubmit={handleSubmit}>
+        <input placeholder="review" value={reviewFormData.review} name="review" type="text" onChange={handleInputChange} />
+
+      </form>
+    )
+  }
+
 
   return (
     <div className="box card column is-3">
@@ -66,4 +78,4 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-export default connect(mapStateToProps, { saveTrails })(TrailCard)
+export default connect(mapStateToProps, { saveTrails, addTrailtoReview })(TrailCard)

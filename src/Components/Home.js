@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import GeoForm from '../components/trails/GeoForm'
-// import Login from '../components/users/Login'
-// import Signup from '../components/users/Signup'
+//Not sure why, but it stopped compiling with trails/GeoForm and having lowercase geoForm works
+import GeoForm from '../components/trails/geoForm'
 import { Button } from "../ui/Styles"
-
 class Home extends Component {
 
   state = {

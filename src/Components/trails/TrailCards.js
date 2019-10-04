@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import ReviewForm from '../reviews/ReviewForm'
 import { saveTrails } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
-import { Redirect } from 'react-router-dom'
 
 // { trail, saveTrails, addTrailtoReview, currentUser, history }
 
@@ -11,7 +10,6 @@ class TrailCard extends Component {
 
   state = {
     reviewClicked: false,
-    redirect: false
   }
 
   handleLikeClick = event => {
@@ -22,19 +20,16 @@ class TrailCard extends Component {
   handleReviewClick = event => {
     event.preventDefault()
     this.props.addTrailtoReview(this.props.trail)
-    this.setState({
-      reviewClicked: true,
-      redirect: true
-    })
+    this.setState({ reviewClicked: true })
     // history.push('/review-form')
     // return <Redirect to='/review-form' />
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/review-form' />
-    }
-  }
+  // renderRedirect = () => {
+  //   if (this.state.redirect) {
+  //     return <Redirect to='/review-form' />
+  //   }
+  // }
 
   render() {
     const { trail } = this.props
@@ -58,19 +53,16 @@ class TrailCard extends Component {
             </div>
           </div>
           <footer className="card-footer">
-            <a href="/like" className="card-footer-item has-text-black" onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
+            <a href="/like" className="card-footer-item has-text-black"
+              onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
             <a href="/review-form" className="card-footer-item has-text-black"
-              // onClick={this.handleReviewClick}>
-              onClick={() => {
-                this.handleReviewClick();
-                this.renderRedirect();
-              }}>
-              <i className="fas fa-comments"></i>  Review</a>
+              onClick={this.handleReviewClick}> <i className="fas fa-comments"></i>  Review</a>
           </footer >
         </div >
       )
     }
-    return < ReviewForm />
+    return <ReviewForm trail={trail} />
+
   }
 }
 

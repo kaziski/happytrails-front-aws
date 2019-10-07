@@ -6,6 +6,7 @@ export const setTrail = trailsData => {
   }
 }
 
+//This gets dispatched in getTrails 
 export const setMyTrails = trailsObj => {
   const trails = trailsObj.data
   // console.log("setMyTrails trails", trails)

@@ -51,7 +51,7 @@ class GeoForm extends Component {
   render() {
     if (!this.state.isSubmitted) {
       return (
-        <div>
+        < >
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
             <div className="field has-addons">
               <div className="control is-expanded">
@@ -66,7 +66,7 @@ class GeoForm extends Component {
               </div>
             </div>
           </form>
-        </div >
+        </>
       )
     }
     return <IndexTrail trailobj={this.props} />

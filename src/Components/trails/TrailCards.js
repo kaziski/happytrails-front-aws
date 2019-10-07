@@ -63,7 +63,7 @@ class TrailCard extends Component {
         </div >
       )
     }
-    return <ReviewForm trail={trail} />
+    return <ReviewForm trail={trail} currentUser={this.props.currentUser} />
 
   }
 }

@@ -20,6 +20,15 @@ export const setMyReviews = reviewsData => {
 
 //async actions
 
+//When a user clicks "Submit Review" on ReviewForm, this gets triggered
+export const saveReview = (review, trail, currentUser) => {
+  debugger
+  return dispatch => {
+
+  }
+}
+
+
 export const getMyReviews = () => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {

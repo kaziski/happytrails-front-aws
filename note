@@ -14,3 +14,10 @@ conditionDetails, conditionDate
 
 check route when all the cards are rendered
 add authentification on routes? eg, when a user try to go to /my_trail without logging in
+
+from my_trail, it won't log out
+
+after logging in the first time, it doesn't show the name "logged in as"
+
+New user can't save trails 
+Processing by Api::V1::TrailsController#index as */*

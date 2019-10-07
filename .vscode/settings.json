@@ -1,8 +1,8 @@
 {
   "workbench.colorTheme": "Cyberpunk",
   "workbench.colorCustomizations": {
-    "statusBar.background": "#BFBCCB",
-    "statusBar.foreground": "#442f4f",
-    "sideBar.background": "#661C52"
+    "statusBar.background": "#201B48",
+    "statusBar.foreground": "#aba7ad",
+    "sideBar.background": "#201B48"
   }
 }

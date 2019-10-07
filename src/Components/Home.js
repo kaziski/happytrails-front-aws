@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 //Not sure why, but it stopped compiling with trails/GeoForm and having lowercase geoForm works
 import GeoForm from '../components/trails/geoForm'
 import { Button } from "../ui/Styles"
+
 class Home extends Component {
 
   state = {

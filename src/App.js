@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/users/Login'
+import Logout from './components/users/Logout'
 import Signup from './components/users/Signup'
 import MyTrails from './components/trails/MyTrails'
 import ReviewForm from './components/reviews/ReviewForm'
@@ -32,6 +33,8 @@ export class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
+                <Route exact path='/logout' component={Logout} />
+
                 <Route exact path='/my-trails' component={MyTrails} />
                 <Route exact path='/review-form' component={ReviewForm} />
               </Switch>

@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import MyReviews from './MyReviews'
+import MyReviews from './MyReviews'
 import { saveReview } from '../../actions/reviews'
-
-import Home from '../Home'
 
 class ReviewForm extends Component {
 
@@ -48,8 +46,7 @@ class ReviewForm extends Component {
       )
     }
     alert('yo!')
-    return <Home />
-    // return <MyReviews />
+    return <MyReviews />
   }
 }
 

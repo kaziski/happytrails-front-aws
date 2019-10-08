@@ -41,8 +41,8 @@ export const saveTrails = (trail, currentUser) => {
         if (trail.error) {
           alert(trail.error)
         } else {
-          // console.log("trail in saveTrails", trail)
           //? This may not be necessary
+          //! what do i put here if I don't want to do anything after saving?
           dispatch(getTrails())
         }
       })

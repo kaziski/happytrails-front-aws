@@ -42,7 +42,7 @@ export const saveReview = (comment, trail, currentUser) => {
           alert(review.error)
         } else {
           console.log("review in saveReview", review)
-          //! what do i put here if I don't want to do anything after saving?
+          // dispatch(getReviews())
         }
       })
       .catch(console.logs)
@@ -50,7 +50,7 @@ export const saveReview = (comment, trail, currentUser) => {
 }
 
 
-export const getMyReviews = () => {
+export const getReviews = () => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
@@ -64,6 +64,8 @@ export const getMyReviews = () => {
         if (reviewsObj.error) {
           alert(reviewsObj.error)
         } else {
+          console.log("reviewsObj in getReviews", reviewsObj)
+
           dispatch(setMyReviews(reviewsObj.data))
         }
       })

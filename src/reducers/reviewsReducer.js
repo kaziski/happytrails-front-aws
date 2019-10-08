@@ -6,13 +6,12 @@ const initialState = {
 
 
 export default (state = initialState, action) => {
+  console.log("In reviewsReducer action", action)
   switch (action.type) {
     case 'ADD_TRAIL_TO_REVIEW':
-      console.log("In reviewsReducer action", action)
-      // debugger
       return action.reviewtrail
-    // case 'SET_MY_REVIEWS':
-    //   return action.reviewsData
+    case 'SET_MY_REVIEWS':
+      return action.reviewsData
     default:
       return state
   }

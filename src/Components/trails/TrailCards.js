@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ReviewForm from '../reviews/ReviewForm'
 import { saveTrails } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 import { Redirect } from 'react-router';
@@ -52,7 +51,7 @@ class TrailCard extends Component {
         </div >
       )
     }
-    //redirecting and passing props
+    //redirecting to ReviewForm and passing props
     return <Redirect to={{
       pathname: '/review-form',
       state: { trail: trail, currentUser: this.props.currentUser }

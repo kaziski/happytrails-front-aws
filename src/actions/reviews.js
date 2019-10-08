@@ -20,11 +20,35 @@ export const setMyReviews = reviewsData => {
 
 //async actions
 
-//When a user clicks "Submit Review" on ReviewForm, this gets triggered
-export const saveReview = (review, trail, currentUser) => {
-  debugger
+//When a user clicks "Submit Review" on ReviewForm, this sends
+//Post request to create a new review
+export const saveReview = (comment, trail, currentUser) => {
   return dispatch => {
+    const reviewData = {
+      review: { comment, api_trail_id: trail.id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
+    }
+    console.log("reviewData line 30 reviews", reviewData)
+    return fetch("http://localhost:3000/api/v1/reviews", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        Accept: 'application/json', "Content-Type":
+          'application/json'
+      },
+      body: JSON.stringify(reviewData)
+    })
+      .then(res => res.json())
+      .then(review => {
+        console.log("review after fetch in saveReview", review);
 
+        if (review.error) {
+          alert(review.error)
+        } else {
+          console.log("review in saveReview", review)
+
+        }
+      })
+      .catch(console.logs)
   }
 }
 

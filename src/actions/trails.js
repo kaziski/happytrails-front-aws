@@ -18,16 +18,13 @@ export const setMyTrails = trailsObj => {
 
 
 //When a user clicks "save" on TrailCards, this gets triggered.
+//Sends a post request to create a new trail
 export const saveTrails = (trail, currentUser) => {
-  // console.log("trails action saveTrails - currentUser", currentUser);
-
   return dispatch => {
     //the key trail is the required key in Trail strong params
     const trailInfo = {
       trail: { ...trail, user_id: currentUser.id }
     }
-    // console.log("after first dispatch in saveTrails -trailInfo", trailInfo);
-
     return fetch("http://localhost:3000/api/v1/newtrail", {
       credentials: "include",
       method: "POST",

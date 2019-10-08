@@ -1,26 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import MyReviews from './MyReviews'
+// import MyReviews from './MyReviews'
 import { saveReview } from '../../actions/reviews'
+
+import Home from '../Home'
 
 class ReviewForm extends Component {
 
   state = {
-    review: '',
+    comment: '',
     isSubmitted: false
   }
 
   handleOnChange = event => {
     this.setState({
-      review: event.target.value
+      comment: event.target.value
     })
   }
 
   handleOnSubmit = event => {
     event.preventDefault()
     this.setState({ isSubmitted: true })
-    //this.state.review is a string
-    this.props.saveReview(this.state.review, this.props.trail, this.props.currentUser)
+    //this.state.comment is a string
+    this.props.saveReview(this.state.comment, this.props.trail, this.props.currentUser)
   }
 
   render() {
@@ -33,7 +35,7 @@ class ReviewForm extends Component {
                 <input type="text"
                   className="input"
                   placeholder="write review here"
-                  value={this.state.review}
+                  value={this.state.comment}
                   onChange={event => this.handleOnChange(event)}
                 />
               </div>
@@ -46,7 +48,8 @@ class ReviewForm extends Component {
       )
     }
     alert('yo!')
-    return <MyReviews />
+    return <Home />
+    // return <MyReviews />
   }
 }
 

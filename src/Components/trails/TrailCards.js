@@ -25,7 +25,6 @@ class TrailCard extends Component {
   render() {
     const { trail } = this.props
     if (!this.state.reviewClicked) {
-      console.log("first one is when rendered")
       return (
         <div className="box card column is-3">
           <div className="card-image">
@@ -53,8 +52,12 @@ class TrailCard extends Component {
         </div >
       )
     }
-    // return <ReviewForm trail={trail} currentUser={this.props.currentUser} />
-
+    //redirecting and passing props
+    return <Redirect to={{
+      pathname: '/review-form',
+      state: { trail: trail, currentUser: this.props.currentUser }
+    }}
+    />
   }
 }
 

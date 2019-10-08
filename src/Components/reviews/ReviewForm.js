@@ -21,7 +21,8 @@ class ReviewForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.setState({ isSubmitted: true })
-    this.props.saveReview(this.state.comment, this.props.trail, this.props.currentUser)
+    //last two props were passed in Redirect and this is how to access it with location
+    this.props.saveReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser)
   }
 
   render() {

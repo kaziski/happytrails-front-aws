@@ -27,7 +27,6 @@ export const saveReview = (comment, trail, currentUser) => {
     const reviewData = {
       review: { comment, api_trail_id: trail.id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
     }
-    console.log("reviewData line 30 reviews", reviewData)
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
       method: "POST",

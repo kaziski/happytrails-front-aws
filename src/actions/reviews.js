@@ -39,13 +39,11 @@ export const saveReview = (comment, trail, currentUser) => {
     })
       .then(res => res.json())
       .then(review => {
-        console.log("review after fetch in saveReview", review);
-
         if (review.error) {
           alert(review.error)
         } else {
           console.log("review in saveReview", review)
-
+          //! what do i put here if I don't want to do anything after saving?
         }
       })
       .catch(console.logs)

@@ -21,7 +21,6 @@ class ReviewForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.setState({ isSubmitted: true })
-    //this.state.comment is a string
     this.props.saveReview(this.state.comment, this.props.trail, this.props.currentUser)
   }
 

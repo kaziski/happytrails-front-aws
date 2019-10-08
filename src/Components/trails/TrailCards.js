@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import ReviewForm from '../reviews/ReviewForm'
 import { saveTrails } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
-
-// { trail, saveTrails, addTrailtoReview, currentUser, history }
+import { Redirect } from 'react-router';
 
 class TrailCard extends Component {
 
@@ -14,28 +13,19 @@ class TrailCard extends Component {
 
   handleLikeClick = event => {
     event.preventDefault()
-    // console.log("in TrailCards - handleLikeClick- this.props.currentUser", this.props.currentUser);
-
     this.props.saveTrails(this.props.trail, this.props.currentUser)
   }
 
   handleReviewClick = event => {
     event.preventDefault()
     this.props.addTrailtoReview(this.props.trail)
-    this.setState({ reviewClicked: true })
-    // history.push('/review-form')
-    // return <Redirect to='/review-form' />
+    this.setState({ reviewClicked: true, redirect: true })
   }
-
-  // renderRedirect = () => {
-  //   if (this.state.redirect) {
-  //     return <Redirect to='/review-form' />
-  //   }
-  // }
 
   render() {
     const { trail } = this.props
     if (!this.state.reviewClicked) {
+      console.log("first one is when rendered")
       return (
         <div className="box card column is-3">
           <div className="card-image">
@@ -58,12 +48,12 @@ class TrailCard extends Component {
             <a href="/like" className="card-footer-item has-text-black"
               onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
             <a href="/review-form" className="card-footer-item has-text-black"
-              onClick={this.handleReviewClick}> <i className="fas fa-comments"></i>  Review</a>
+              onClick={event => this.handleReviewClick(event)}> <i className="fas fa-comments"></i>  Review</a>
           </footer >
         </div >
       )
     }
-    return <ReviewForm trail={trail} currentUser={this.props.currentUser} />
+    // return <ReviewForm trail={trail} currentUser={this.props.currentUser} />
 
   }
 }

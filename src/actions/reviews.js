@@ -1,5 +1,3 @@
-//* need form info here
-
 export const addTrailtoReview = reviewtrail => {
   return {
     type: 'ADD_TRAIL_TO_REVIEW',
@@ -8,13 +6,22 @@ export const addTrailtoReview = reviewtrail => {
   }
 }
 
+export const setReview = data => {
+  return {
+    type: 'SET_REVIEW',
+    review: data
+  }
+}
+
 
 //synchronous actions
 export const setMyReviews = reviewsData => {
-  //reviewsData is an array of review objects
+  debugger
+  const reviews = reviewsData.data
+  console.log("setMyReviews", reviews)
   return {
     type: 'SET_MY_REVIEWS',
-    reviewsData
+    reviews
   }
 }
 
@@ -37,12 +44,14 @@ export const saveReview = (comment, trail, currentUser) => {
       body: JSON.stringify(reviewData)
     })
       .then(res => res.json())
-      .then(review => {
-        if (review.error) {
-          alert(review.error)
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
         } else {
-          console.log("review in saveReview", review)
-          // dispatch(getReviews())
+          //! The review is saved in the backend. 
+          //! After that, the review itself is not used right away.
+          //! May be used to edit later. Do I need setReview?
+          dispatch(setReview(data))
         }
       })
       .catch(console.logs)
@@ -51,6 +60,7 @@ export const saveReview = (comment, trail, currentUser) => {
 
 
 export const getReviews = () => {
+  // debugger
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
@@ -65,8 +75,9 @@ export const getReviews = () => {
           alert(reviewsObj.error)
         } else {
           console.log("reviewsObj in getReviews", reviewsObj)
+          // dispatch(setMyReviews(reviewsObj.data))
 
-          dispatch(setMyReviews(reviewsObj.data))
+          dispatch(setMyReviews(reviewsObj))
         }
       })
       .catch(console.logs)

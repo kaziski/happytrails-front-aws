@@ -5,19 +5,22 @@ import { getReviews } from '../../actions/reviews'
 
 class MyReviews extends Component {
 
-  componentDidMount() {
-    this.props.getReviews()
-  }
+  // componentDidMount() {
+  //   console.log("componentDidMount");
+
+  //   this.props.getReviews()
+  // }
 
   render() {
     console.log("this.props.reviews in MyReview", this.props.reviews)
-    // const { reviewsArr } = this.props.reviews
-    // const reviews = reviewsArr.map(review => {
-    return (
-      <div>hey</div>
-    )
-    // const reviews = this.props.reviews.map(review => {
-    //   console.log("MyReviews-.attributes", review.id)
+    const { reviews } = this.props
+    console.log("reviews in MyReview", reviews)
+    // debugger
+
+
+    // const reviewArr = reviews.map(review => {
+    //   console.log("MyReviews-.attributes", review.attributes)
+    //   debugger
     //   return (
     //     <div>
     //       <Review
@@ -27,15 +30,22 @@ class MyReviews extends Component {
     //     </div>
     //   )
     // })
-    // return (
-    //   < >
-    //     {reviews}
-    //   </>
-    // )
+    return (
+      < >
+        {/* {reviewArr} */}
+      </>
+    )
   }
 }
 
 const mapStateToProps = state => ({ reviews: state.reviews })
+
+// const mapStateToProps = (state) => {
+//   debugger
+//   return {
+//     reviews: state.reviews
+//   }
+// }
 //reviews is the name of the reducer. The name used here is 
 //defined in App
 

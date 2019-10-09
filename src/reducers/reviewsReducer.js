@@ -1,15 +1,18 @@
 const initialState = {
-  //! Make sure the data type coming in matches the state data type
+  //addTrailtoReview adds the trail associated to reviewtrail
   reviewtrail: {},
-  review: []
+  //trying to add reviews after getReviews -> setMyReviews
+  reviews: [],
+  review: {}
 }
 
 
 export default (state = initialState, action) => {
-  console.log("In reviewsReducer action", action)
   switch (action.type) {
     case 'ADD_TRAIL_TO_REVIEW':
       return action.reviewtrail
+    case 'SET_REVIEW':
+      return action.review.data.attributes
     case 'SET_MY_REVIEWS':
       return action.reviewsData
     default:

@@ -6,12 +6,12 @@ export const addTrailtoReview = reviewtrail => {
   }
 }
 
-export const setReview = data => {
-  return {
-    type: 'SET_REVIEW',
-    review: data
-  }
-}
+// export const setReview = data => {
+//   return {
+//     type: 'SET_REVIEW',
+//     review: data
+//   }
+// }
 
 export const setMyReviews = reviewsData => {
   const reviews = reviewsData.data
@@ -45,10 +45,13 @@ export const saveReview = (comment, trail, currentUser) => {
         if (data.error) {
           alert(data.error)
         } else {
-          //! The review is saved in the backend. 
-          //! After that, the review itself is not used right away.
-          //! May be used to edit later. Do I need setReview?
-          dispatch(setReview(data))
+
+          // dispatch(setReview(data))
+          dispatch({
+            type: 'SET_REVIEW',
+            review: data
+          }
+          )
           console.log("data in saveReview", data)
         }
       })
@@ -58,7 +61,7 @@ export const saveReview = (comment, trail, currentUser) => {
 
 
 export const getMyReviews = () => {
-  // debugger
+  debugger
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",

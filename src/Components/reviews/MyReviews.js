@@ -11,12 +11,16 @@ class MyReviews extends Component {
   //do i need another store for reviews?
   //after form, create another component, getReviews and then pass the proos to this one?
 
-  state = { reviews: {} }
+  // state = { reviews: {} }
 
-  static getDerivedStateFromProps({ getMyReviews }) {
-    getMyReviews()
-    //! It won't let me return anything else but null?
-    return null
+  // static getDerivedStateFromProps({ getMyReviews }) {
+  //   getMyReviews()
+  //   //! It won't let me return anything else but null?
+  //   return null
+  // }
+
+  componentDidMount() {
+    this.props.getMyReviews()
   }
 
   render() {
@@ -25,9 +29,10 @@ class MyReviews extends Component {
 
     const { reviews } = this.props
     console.log("reviews in MyReview", reviews)
-    console.log("this.state.reviews in MyReview", this.state.reviews);
-    // debugger
-    // const reviewArr = reviews.attributes.map(review => {
+    // s
+    // // const reviewArr = reviews.attributes.map(review => {
+    // const reviewArr = reviews.reviews.attributes.map(review => {
+
     //   debugger
     //   console.log("MyReviews-.attributes", review.attributes)
 

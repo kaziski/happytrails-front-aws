@@ -45,7 +45,6 @@ class ReviewForm extends Component {
         </>
       )
     }
-    alert('going to MyReviews')
     return <MyReviews />
   }
 }

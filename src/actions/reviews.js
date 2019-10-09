@@ -13,10 +13,7 @@ export const setReview = data => {
   }
 }
 
-
-//synchronous actions
 export const setMyReviews = reviewsData => {
-  debugger
   const reviews = reviewsData.data
   console.log("setMyReviews", reviews)
   return {
@@ -52,6 +49,7 @@ export const saveReview = (comment, trail, currentUser) => {
           //! After that, the review itself is not used right away.
           //! May be used to edit later. Do I need setReview?
           dispatch(setReview(data))
+          console.log("data in saveReview", data)
         }
       })
       .catch(console.logs)
@@ -59,7 +57,7 @@ export const saveReview = (comment, trail, currentUser) => {
 }
 
 
-export const getReviews = () => {
+export const getMyReviews = () => {
   // debugger
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {
@@ -74,9 +72,7 @@ export const getReviews = () => {
         if (reviewsObj.error) {
           alert(reviewsObj.error)
         } else {
-          console.log("reviewsObj in getReviews", reviewsObj)
-          // dispatch(setMyReviews(reviewsObj.data))
-
+          console.log("reviewsObj in getMyReviews", reviewsObj)
           dispatch(setMyReviews(reviewsObj))
         }
       })

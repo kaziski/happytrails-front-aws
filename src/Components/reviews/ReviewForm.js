@@ -29,20 +29,12 @@ class ReviewForm extends Component {
     if (!this.state.isSubmitted) {
       return (
         < >
-          {/* <div className="has-text-white has-text-weight-bold">
-            <h3 >{this.props.location.state.trail.name}</h3>
-          </div> */}
           <Sub>{this.props.location.state.trail.name}</Sub>
           <article className="media">
-            <figure className="media-left">
-              <div className="image is-64x64">
-                <img src={this.props.location.state.trail.imgSmallMed} alt={this.props.location.state.trail.name} />
-              </div>
-            </figure>
             <form className="media-content" onSubmit={(event) => this.handleOnSubmit(event)}>
               <div className="field">
                 <div className="control">
-                  <input type="text"
+                  <textarea type="text"
                     className="textarea"
                     placeholder="write review of trail here"
                     value={this.state.comment}

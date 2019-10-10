@@ -15,15 +15,23 @@ export const setMyReviews = reviewsData => {
   }
 }
 
-//async actions
-
 //When a user clicks "Submit Review" on ReviewForm, this sends
 //Post request to create a new review
 export const saveReview = (comment, trail, currentUser) => {
   return dispatch => {
-    const reviewData = {
-      review: { comment, api_trail_id: trail.id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
+
+    let reviewData
+    //associating trail reviewed with review using api_trail_id
+    if (!trail.api_trail_id) {
+      reviewData = {
+        review: { comment, api_trail_id: trail.id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
+      }
+    } else {
+      reviewData = {
+        review: { comment, api_trail_id: trail.api_trail_id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
+      }
     }
+
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
       method: "POST",

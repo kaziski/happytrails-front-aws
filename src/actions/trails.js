@@ -22,7 +22,7 @@ export const saveTrails = (trail, currentUser) => {
   return dispatch => {
     //the key trail is the required key in Trail strong params
     const trailInfo = {
-      trail: { ...trail, user_id: currentUser.id }
+      trail: { ...trail, user_id: currentUser.id, api_trail_id: trail.id }
     }
     return fetch("http://localhost:3000/api/v1/newtrail", {
       credentials: "include",

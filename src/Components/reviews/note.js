@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveReview } from '../../actions/reviews'
-import { Sub } from '../../ui/Styles'
 import MyReviews from './MyReviews'
+import { saveReview } from '../../actions/reviews'
 
 class ReviewForm extends Component {
 
@@ -24,15 +23,10 @@ class ReviewForm extends Component {
     this.props.saveReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser)
   }
 
-
   render() {
     if (!this.state.isSubmitted) {
       return (
         < >
-          {/* <div className="has-text-white has-text-weight-bold">
-            <h3 >{this.props.location.state.trail.name}</h3>
-          </div> */}
-          <Sub>{this.props.location.state.trail.name}</Sub>
           <article className="media">
             <figure className="media-left">
               <div className="image is-64x64">
@@ -44,7 +38,7 @@ class ReviewForm extends Component {
                 <div className="control">
                   <input type="text"
                     className="textarea"
-                    placeholder="write review of trail here"
+                    placeholder="write review here"
                     value={this.state.comment}
                     onChange={event => this.handleOnChange(event)}
                   />
@@ -68,6 +62,22 @@ class ReviewForm extends Component {
 
 //reviews is the name of the store.
 //What's in the store can be named whatever we want such as trailToReview
-// const mapStateToProps = state => ({ trailToReview: state.reviews })
+// const mapStateToProps = state => ({trailToReview: state.reviews })
 
 export default connect(null, { saveReview })(ReviewForm);
+
+// <form onSubmit={(event) => this.handleOnSubmit(event)}>
+// < div className="field has-addons" >
+//   <div className="control is-expanded">
+//     <input type="text"
+//       className="input"
+//       placeholder="write review here"
+//       value={this.state.comment}
+//       onChange={event => this.handleOnChange(event)}
+//     />
+//   </div>
+//   <div className="control">
+//     <input className="button is-primary " type="submit" value="Submit Review" />
+//   </div>
+// </div >
+// </form >

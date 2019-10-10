@@ -20,6 +20,13 @@ export const Title = styled.h1`
   padding: 10px 20px;
   font-weight: bold;
 `
+export const Sub = styled.h1`
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  padding: 10px 10px;
+  font-weight: bold;
+`
 
 export const Button = styled.button`
   display: inline - block;

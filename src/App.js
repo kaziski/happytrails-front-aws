@@ -8,6 +8,7 @@ import Logout from './components/users/Logout'
 import Signup from './components/users/Signup'
 import MyTrails from './components/trails/MyTrails'
 import ReviewForm from './components/reviews/ReviewForm'
+import MyReviews from './components/reviews/MyReviews'
 
 import { getCurrentUser } from './actions/currentUser'
 
@@ -37,6 +38,8 @@ export class App extends Component {
 
                 <Route exact path='/my-trails' component={MyTrails} />
                 <Route exact path='/review-form' component={ReviewForm} />
+                <Route exact path='/my-reviews' component={MyReviews} />
+
               </Switch>
             </div>
           </div>

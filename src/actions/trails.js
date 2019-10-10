@@ -16,7 +16,6 @@ export const setMyTrails = trailsObj => {
   }
 }
 
-
 //When a user clicks "save" on TrailCards, this gets triggered.
 //Sends a post request to create a new trail
 export const saveTrails = (trail, currentUser) => {

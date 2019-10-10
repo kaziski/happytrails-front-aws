@@ -6,13 +6,6 @@ export const addTrailtoReview = reviewtrail => {
   }
 }
 
-// export const setReview = data => {
-//   return {
-//     type: 'SET_REVIEW',
-//     review: data
-//   }
-// }
-
 export const setMyReviews = reviewsData => {
   const reviews = reviewsData.data
   console.log("setMyReviews", reviews)
@@ -45,13 +38,10 @@ export const saveReview = (comment, trail, currentUser) => {
         if (data.error) {
           alert(data.error)
         } else {
-
-          // dispatch(setReview(data))
           dispatch({
             type: 'SET_REVIEW',
             review: data
-          }
-          )
+          })
           console.log("data in saveReview", data)
         }
       })
@@ -61,7 +51,7 @@ export const saveReview = (comment, trail, currentUser) => {
 
 
 export const getMyReviews = () => {
-  debugger
+
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
@@ -76,6 +66,7 @@ export const getMyReviews = () => {
           alert(reviewsObj.error)
         } else {
           console.log("reviewsObj in getMyReviews", reviewsObj)
+          //! do i need to do this or just dispatch action?
           dispatch(setMyReviews(reviewsObj))
         }
       })

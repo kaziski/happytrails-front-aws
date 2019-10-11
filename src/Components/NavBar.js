@@ -20,7 +20,8 @@ export const NavBar = ({ currentUser }) => {
               <Logout />
               <Button><NavLink to="/my-trails" >My Trails</NavLink></Button>
               <Button><NavLink to="/my-reviews" >My Reviews</NavLink></Button>
-              {/* add home link, put in const and make it if statement? */}
+              <Button><NavLink to="/">Find more trails</NavLink></Button>
+              {/* how do i put if geoComponent is present? */}
             </div>
           </div>
         </nav>

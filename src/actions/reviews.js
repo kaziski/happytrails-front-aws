@@ -6,20 +6,13 @@ export const addTrailtoReview = reviewtrail => {
   }
 }
 
-export const setReview = data => {
-  return {
-    type: 'SET_REVIEW',
-    data
-  }
-}
-
-export const setMyReviews = reviewsData => {
-  const reviews = reviewsData.data
-  return {
-    type: 'SET_MY_REVIEWS',
-    reviews
-  }
-}
+// export const setMyReviews = reviewsData => {
+//   const reviews = reviewsData.data
+//   return {
+//     type: 'SET_MY_REVIEWS',
+//     reviews
+//   }
+// }
 
 //When a user clicks "Submit Review" on ReviewForm, this sends
 //Post request to create a new review
@@ -53,14 +46,13 @@ export const saveReview = (comment, trail, currentUser) => {
           alert(data.error)
         } else {
           console.log({
-            type: 'SET_REVIEW',
+            type: 'SAVE_REVIEW',
             review: data
           })
-          // dispatch({
-          //   type: 'SET_REVIEW',
-          //   data
-          // })
-          dispatch(setReview(data))
+          dispatch({
+            type: 'SAVE_REVIEW',
+            data
+          })
         }
       })
       .catch(console.logs)
@@ -83,7 +75,11 @@ export const getMyReviews = () => {
           alert(reviewsObj.error)
         } else {
           console.log("reviewsObj in getMyReviews", reviewsObj)
-          dispatch(setMyReviews(reviewsObj))
+          // dispatch(setMyReviews(reviewsObj))
+          dispatch({
+            type: 'GET_MY_REVIEWS',
+            reviewsObj
+          })
         }
       })
       .catch(console.logs)

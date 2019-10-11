@@ -1,29 +1,29 @@
-// import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-// import { Route, Switch } from 'react-router-dom'
-// //*make or find this action
-// import { fetchReviews } from '../../actions/reviews'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Route, Switch } from 'react-router-dom'
+import { getMyReviews } from '../../actions/reviews'
+import MyTrailReview from './MyTrailReview'
+import ReviewForm from './ReviewForm'
 
 
-// class ReviewContainer extends Component {
+class ReviewContainer extends Component {
 
-//   componentDidMount() {
-//     this.props.fetchReviews()
-//   }
+  componentDidMount() {
+    this.props.getMyReviews()
+  }
 
-//   render() {
-//     return (
-//       <div>
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route path='/reviews/new' component={ReviewForm} />
+          <Route path='/reviews' render={(routerProps) => <MyTrailReview {...routerProps} reviews={this.props.reviews} />} />
+        </Switch>
+      </div >
+    );
+  }
+}
 
-//       </div>
-//     );
-//   }
-// }
+const mapStateToProps = state => ({ reviews: state.reviews })
 
-// const mapStateToProps = state => {
-//   return {
-//     reviews: state.reviews
-//   }
-// }
-
-// export default connect(mapStateToProps, { fetchReviews })(ReviewContainer)
+export default connect(mapStateToProps, { getMyReviews })(ReviewContainer)

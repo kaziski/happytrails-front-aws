@@ -54,7 +54,7 @@ class ReviewForm extends Component {
         </>
       )
     }
-    return <MyTrailReview reviewObj={this.props} />
+    return <MyTrailReview reviewObj={this.props} reviews={this.props.reviews} />
   }
 }
 

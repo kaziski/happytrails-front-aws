@@ -18,12 +18,10 @@ export default (state = initialState, action) => {
     case 'ADD_TRAIL_TO_REVIEW':
       return { ...state, trailReviewed: action.reviewtrail }
     case 'ADD_SAVE_REVIEW':
-      console.log("action.data.data.attributess in reveiwsReducer", action.data.data.attributes)
+
+      console.log("action.data.data.attributess in reveiwsReducer", action.data.data)
       return { ...state, currentUserReviews: [...state.currentUserReviews, action.data.data] }
 
-    // case 'GET_SAVED_REVIEWS':
-    //   return { mySavedReviewArr: action.data.data.attributes }
-    // //! check the value of action.data.data.attributes 
     case 'GET_MY_REVIEWS':
       // return { ...state, currentUserReviews: [action.reviewsObj.data] }
       return { currentUserReviews: action.reviewsObj.data }

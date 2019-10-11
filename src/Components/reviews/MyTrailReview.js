@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { getMyReviews } from '../../actions/reviews'
 
 class MyTrailReview extends Component {
+
+  componentDidMount() {
+    this.props.getMyReviews()
+  }
   render() {
     console.log('====================================');
     console.log("this.props in MyTrailReview", this.props, Date.now());
@@ -9,7 +14,7 @@ class MyTrailReview extends Component {
     console.log('====================================');
 
     // const { review } = this.props.reviewObj
-    debugger
+    // debugger
     // return (
     //   <p>f</p>
     // )
@@ -40,5 +45,8 @@ class MyTrailReview extends Component {
 //     reviews
 //   }
 // }
-export default MyTrailReview
-// export default connect(mapStateToProps)(MyTrailReview)
+// export default MyTrailReview
+
+const mapStateToProps = state => ({ reviews: state.reviews })
+
+export default connect(mapStateToProps, { getMyReviews })(MyTrailReview)

@@ -67,7 +67,7 @@ export const getSavedTrails = () => {
         } else {
           console.log("trailsObj in getSavedTrails", trailsObj)
           dispatch({
-            type: 'SET_MY_TRAILS',
+            type: 'GET_SAVED_TRAILS',
             trailsObj
           })
         }

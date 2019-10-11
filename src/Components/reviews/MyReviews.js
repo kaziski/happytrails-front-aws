@@ -5,29 +5,10 @@ import { getMyReviews } from '../../actions/reviews'
 
 class MyReviews extends Component {
 
-  //I need to this initial state for getDerivedStateFromProps to work properly
-  //how does this state work with mapStateToProps??
-  //I'm probably not using getDerivedStateFromProps right.
-  //do i need another store for reviews?
-  //after form, create another component, getReviews and then pass the proos to this one?
-
-  // state = { reviews: {} }
-
-  // static getDerivedStateFromProps({ getMyReviews }) {
-  //   getMyReviews()
-  //   return null
-  // }
-
-  // componentDidMount() {
-  //   this.props.getMyReviews()
-  // }
-
   render() {
     alert('connected to my reviews!')
     console.log("this.props.reviews.currentUserReviews in MyReview", this.props.reviews.currentUserReviews)
-    // const { reviews } = this.props
 
-    // // const reviewArr = reviews.attributes.map(review => {
     const reviewArr = this.props.reviews.currentUserReviews.map(review => {
       console.log("review.id", review.id);
 

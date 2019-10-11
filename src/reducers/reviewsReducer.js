@@ -28,8 +28,9 @@ export default (state = initialState, action) => {
       return { ...state, reviewObj: action.data.data.attributes, reviewsOfThisTrail: action.data.data.attributes.api_reviews }
 
     // return { ...state, allReviews: additionalReview, review: action.data.data.attributes }
-    case 'SET_MY_REVIEWS':
-      return { ...state, currentUserReviews: action.reviews }
+    case 'GET_MY_REVIEWS':
+      debugger
+      return { ...state, currentUserReviews: action.reviewsObj.data }
     default:
       return state
   }

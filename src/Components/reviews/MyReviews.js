@@ -19,9 +19,9 @@ class MyReviews extends Component {
   //   return null
   // }
 
-  componentDidMount() {
-    this.props.getMyReviews()
-  }
+  // componentDidMount() {
+  //   this.props.getMyReviews()
+  // }
 
   render() {
     // debugger

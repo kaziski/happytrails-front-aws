@@ -11,7 +11,9 @@ import ReviewForm from './components/reviews/ReviewForm'
 import MyReviews from './components/reviews/MyReviews'
 
 import { getCurrentUser } from './actions/currentUser'
-
+import { getMyReviews } from '../src/actions/reviews'
+import { getSavedTrails } from '../src/actions/trails'
+//! I need to pass in getSavedTrails
 export class App extends Component {
 
   //I need to this for getDerivedStateFromProps to work properly
@@ -20,6 +22,11 @@ export class App extends Component {
   static getDerivedStateFromProps({ getCurrentUser }) {
     getCurrentUser()
     return null
+  }
+
+  componentDidMount() {
+    this.props.getMyReviews()
+    this.props.getSavedTrails()
   }
 
   render() {
@@ -36,9 +43,12 @@ export class App extends Component {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/logout' component={Logout} />
 
-                <Route exact path='/my-trails' component={MyTrails} />
-                <Route exact path='/review-form' component={ReviewForm} />
-                <Route exact path='/my-reviews' component={MyReviews} />
+                {/* <Route exact path='/my-trails' component={MyTrails} /> */}
+                <Route path='/my-trails' render={(props) => <MyTrails {...props} myTrails={this.props.myTrails} />} />
+
+                <Route exact path='/reviews/new' component={ReviewForm} />
+                {/* <Route exact path='/my-reviews' component={MyReviews} /> */}
+                <Route path='my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />
 
               </Switch>
             </div>
@@ -49,5 +59,12 @@ export class App extends Component {
   }
 }
 
-export default connect(null, { getCurrentUser })(App)
+const mapStateToProps = state => {
+  return {
+    reviews: state.reviews,
+    trails: state.trails
+  }
+}
+
+export default connect(mapStateToProps, { getCurrentUser, getMyReviews, getSavedTrails })(App)
 

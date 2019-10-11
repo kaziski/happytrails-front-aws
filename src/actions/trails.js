@@ -6,14 +6,14 @@ export const setTrail = trailsData => {
   }
 }
 
-//This gets dispatched in getTrails 
-export const setMyTrails = trailsObj => {
-  const trails = trailsObj.data
-  return {
-    type: 'SET_MY_TRAILS',
-    trails
-  }
-}
+//This gets dispatched in getSavedTrails 
+// export const setMyTrails = trailsObj => {
+//   const trails = trailsObj.data
+//   return {
+//     type: 'SET_MY_TRAILS',
+//     trails
+//   }
+// }
 
 //When a user clicks "save" on TrailCards, this gets triggered.
 //Sends a post request to create a new trail
@@ -42,7 +42,7 @@ export const saveTrails = (trail, currentUser) => {
           //!is this ok to dispatch another fetch???
           //if I don't. my trails says i have no trails saved.App
           //when should i fire this action?
-          dispatch(getTrails())
+          dispatch(getSavedTrails())
           console.log("trails - trail ", trail)
         }
       })
@@ -50,7 +50,7 @@ export const saveTrails = (trail, currentUser) => {
   }
 }
 
-export const getTrails = () => {
+export const getSavedTrails = () => {
   return dispatch => {
     return fetch("http://localhost:3000//api/v1/trails", {
 
@@ -65,8 +65,11 @@ export const getTrails = () => {
         if (trailsObj.error) {
           alert(trailsObj.error)
         } else {
-          console.log("trailsObj in getTrails", trailsObj)
-          dispatch(setMyTrails(trailsObj))
+          console.log("trailsObj in getSavedTrails", trailsObj)
+          dispatch({
+            type: 'SET_MY_TRAILS',
+            trailsObj
+          })
         }
       })
       .catch(console.log)

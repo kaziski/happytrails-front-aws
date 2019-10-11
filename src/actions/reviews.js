@@ -6,13 +6,6 @@ export const addTrailtoReview = reviewtrail => {
   }
 }
 
-// export const setMyReviews = reviewsData => {
-//   const reviews = reviewsData.data
-//   return {
-//     type: 'SET_MY_REVIEWS',
-//     reviews
-//   }
-// }
 
 //When a user clicks "Submit Review" on ReviewForm, this sends
 //Post request to create a new review
@@ -58,6 +51,7 @@ export const addReview = (comment, trail, currentUser) => {
       .catch(console.logs)
   }
 }
+
 
 //This gets all the reviews currentUser created
 export const getMyReviews = () => {

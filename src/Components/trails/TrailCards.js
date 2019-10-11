@@ -45,7 +45,7 @@ class TrailCard extends Component {
           <footer className="card-footer">
             <a href="/like" className="card-footer-item has-text-black"
               onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
-            <a href="/review-form" className="card-footer-item has-text-black"
+            <a href="/reviews/new" className="card-footer-item has-text-black"
               onClick={event => this.handleReviewClick(event)}> <i className="fas fa-comments"></i>  Review</a>
           </footer >
         </div >
@@ -53,7 +53,7 @@ class TrailCard extends Component {
     }
     //redirecting to ReviewForm and passing props
     return <Redirect to={{
-      pathname: '/review-form',
+      pathname: '/reviews/new',
       state: { trail: trail, currentUser: this.props.currentUser }
     }}
     />

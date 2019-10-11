@@ -4,17 +4,23 @@ import { getMyReviews } from '../../actions/reviews'
 
 class MyTrailReview extends Component {
 
-  componentDidMount() {
-    this.props.getMyReviews()
+  state = {}
+
+  static getDerivedStateFromProps({ getMyReviews }) {
+    getMyReviews()
+    return null
   }
+  // componentDidMount() {
+  //   this.props.getMyReviews()
+  // }
   render() {
     console.log('====================================');
-    console.log("this.props in MyTrailReview", this.props, Date.now());
+    console.log("this.props.reviews.currentUserReviews.length", this.props.reviews.currentUserReviews.length, Date.now());
     console.log("this.props.reviewObj in MyTrailReview", this.props.reviewObj);
     console.log('====================================');
 
     // const { review } = this.props.reviewObj
-    // debugger
+    debugger
     // return (
     //   <p>f</p>
     // )

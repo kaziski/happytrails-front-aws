@@ -21,7 +21,10 @@ class ReviewForm extends Component {
     event.preventDefault()
     this.setState({ isSubmitted: true })
     //last two props below were passed in by Redirect and this is how to access it with location
-    this.props.addReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser)
+    this.props.addReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser).then(() =>
+      this.props.history.push('/reviews')
+    )
+
   }
 
 
@@ -54,7 +57,9 @@ class ReviewForm extends Component {
         </>
       )
     }
-    return <MyTrailReview reviewObj={this.props} reviews={this.props.reviews} />
+    // return <MyTrailReview reviewObj={this.props} reviews={this.props.reviews} />
+    return null
+
   }
 }
 

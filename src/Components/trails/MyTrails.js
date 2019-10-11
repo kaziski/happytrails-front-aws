@@ -5,7 +5,7 @@ import MyTrailCard from './MyTrailCard'
 class MyTrails extends Component {
 
   render() {
-    const trailList = this.props.myTrails.myTrailsArr.map(trail => {
+    const trailList = this.props.myTrails.mySavedTrailsArr.map(trail => {
       return (
         <MyTrailCard
           key={trail.id}
@@ -15,7 +15,7 @@ class MyTrails extends Component {
     })
     return (
       <div className="has-text-white" >
-        {this.props.myTrails.myTrailsArr.length === 0 ? <h3>You don't have any trails saved</h3> : <h3>Click a name to view more info.</h3>}
+        {this.props.myTrails.mySavedTrailsArr.length === 0 ? <h3>You don't have any trails saved</h3> : <h3>Click a name to view more info.</h3>}
         {trailList}
       </div>
     )

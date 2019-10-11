@@ -1,10 +1,3 @@
-// set trail to pass down from <GeoForm/> to <TrailCards/>
-// export const setTrail = trailsData => {
-//   return {
-//     type: 'SET_TRAIL',
-//     trailsData
-//   }
-// }
 export const setTrail = trailsData => {
   return {
     type: 'SET_TRAIL',
@@ -46,7 +39,7 @@ export const saveTrail = (trail, currentUser) => {
           alert(trail.error)
         } else {
           dispatch({
-            type: 'SAVE_TRAIL',
+            type: 'ADD_SAVE_TRAIL',
             trail
           })
           console.log("trails - trail ", trail)

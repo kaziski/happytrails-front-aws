@@ -21,3 +21,7 @@ after logging in the first time, it doesn't show the name "logged in as"
 
 New user can't save trails 
 Processing by Api::V1::TrailsController#index as */*
+
+now showing cards and saving trails,
+but not added to mytrails? 
+or need to fetch get my trails?

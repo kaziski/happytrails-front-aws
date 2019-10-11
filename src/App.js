@@ -30,7 +30,7 @@ export class App extends Component {
   }
 
   render() {
-
+    // debugger
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
@@ -42,12 +42,9 @@ export class App extends Component {
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/logout' component={Logout} />
-
-                {/* <Route exact path='/my-trails' component={MyTrails} /> */}
                 <Route path='/my-trails' render={(props) => <MyTrails {...props} myTrails={this.props.myTrails} />} />
 
                 <Route exact path='/reviews/new' component={ReviewForm} />
-                {/* <Route exact path='/my-reviews' component={MyReviews} /> */}
                 <Route path='my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />
 
               </Switch>

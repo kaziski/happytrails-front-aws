@@ -9,7 +9,7 @@ class MyTrailReview extends Component {
     console.log('====================================');
 
     // const { review } = this.props.reviewObj
-    // debugger
+    debugger
     // return (
     //   <p>f</p>
     // )

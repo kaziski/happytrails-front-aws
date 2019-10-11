@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveTrails } from '../../actions/trails'
+import { saveTrail } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 import { Redirect } from 'react-router';
 
@@ -60,6 +60,6 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-export default connect(mapStateToProps, { saveTrails, addTrailtoReview })(MyTrailCard)
+export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(MyTrailCard)
 
 

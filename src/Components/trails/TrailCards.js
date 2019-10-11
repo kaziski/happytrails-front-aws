@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveTrails } from '../../actions/trails'
+import { saveTrail } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 import { Redirect } from 'react-router';
 
@@ -12,7 +12,7 @@ class TrailCard extends Component {
 
   handleLikeClick = event => {
     event.preventDefault()
-    this.props.saveTrails(this.props.trail, this.props.currentUser)
+    this.props.saveTrail(this.props.trail, this.props.currentUser)
   }
 
   handleReviewClick = event => {
@@ -65,4 +65,4 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-export default connect(mapStateToProps, { saveTrails, addTrailtoReview })(TrailCard)
+export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(TrailCard)

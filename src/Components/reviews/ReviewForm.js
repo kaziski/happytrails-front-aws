@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveReview } from '../../actions/reviews'
+import { addReview } from '../../actions/reviews'
 import { Sub } from '../../ui/Styles'
 import MyTrailReview from './MyTrailReview'
 
@@ -21,7 +21,7 @@ class ReviewForm extends Component {
     event.preventDefault()
     this.setState({ isSubmitted: true })
     //last two props below were passed in by Redirect and this is how to access it with location
-    this.props.saveReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser)
+    this.props.addReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser)
   }
 
 
@@ -66,4 +66,4 @@ const mapStateToProps = ({ reviews }) => {
     reviews
   }
 }
-export default connect(mapStateToProps, { saveReview })(ReviewForm);
+export default connect(mapStateToProps, { addReview })(ReviewForm);

@@ -16,7 +16,7 @@ export const addTrailtoReview = reviewtrail => {
 
 //When a user clicks "Submit Review" on ReviewForm, this sends
 //Post request to create a new review
-export const saveReview = (comment, trail, currentUser) => {
+export const addReview = (comment, trail, currentUser) => {
   return dispatch => {
 
     let reviewData
@@ -46,11 +46,11 @@ export const saveReview = (comment, trail, currentUser) => {
           alert(data.error)
         } else {
           console.log({
-            type: 'SAVE_REVIEW',
+            type: 'ADD_REVIEW',
             review: data
           })
           dispatch({
-            type: 'SAVE_REVIEW',
+            type: 'ADD_REVIEW',
             data
           })
         }

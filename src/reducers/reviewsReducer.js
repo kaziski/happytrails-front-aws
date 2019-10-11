@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TRAIL_TO_REVIEW':
       return { ...state, trailReviewed: action.reviewtrail }
-    case 'SAVE_REVIEW':
+    case 'ADD_REVIEW':
       //* action.data.data.attributes - object of the current review
       //*action.data.data.attributes.api_reviews - an array of reviews that belong to the trail being reviewed
       // let additionalReview

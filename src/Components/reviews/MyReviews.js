@@ -15,7 +15,6 @@ class MyReviews extends Component {
 
   // static getDerivedStateFromProps({ getMyReviews }) {
   //   getMyReviews()
-  //   //! It won't let me return anything else but null?
   //   return null
   // }
 
@@ -24,32 +23,28 @@ class MyReviews extends Component {
   // }
 
   render() {
-    // debugger
-    console.log("this.props.reviews in MyReview", this.props.reviews)
+    alert('connected to my reviews!')
+    console.log("this.props.reviews.currentUserReviews in MyReview", this.props.reviews.currentUserReviews)
+    // const { reviews } = this.props
 
-    const { reviews } = this.props
-    console.log("reviews in MyReview", reviews)
-    // s
     // // const reviewArr = reviews.attributes.map(review => {
-    // const reviewArr = reviews.reviews.attributes.map(review => {
+    const reviewArr = this.props.reviews.currentUserReviews.map(review => {
+      console.log("review.id", review.id);
 
-    //   debugger
-    //   console.log("MyReviews-.attributes", review.attributes)
-
-    //   return (
-    //     <div>
-    //       <Review
-    //         key={review.id}
-    //         review={review.attributes}
-    //       />
-    //     </div>
-    //   )
-    // })
+      return (
+        <div>
+          <Review
+            key={review.id}
+            review={review.attributes}
+          />
+        </div>
+      )
+    })
     return (
       < >
         <p>{console.log("Hey!")}</p>
         {/* this is creating loop */}
-        {/* {reviewArr} */}
+        {reviewArr}
       </>
     )
   }

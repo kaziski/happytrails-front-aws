@@ -4,23 +4,26 @@ import { connect } from 'react-redux'
 class MyTrailReview extends Component {
   render() {
     console.log('====================================');
-    console.log("this.props in MyTrailReview", this.props);
+    console.log("this.props in MyTrailReview", this.props, Date.now());
     console.log("this.props.reviewObj in MyTrailReview", this.props.reviewObj);
     console.log('====================================');
-    
-    // const {review} = this.props.reviewObj
+
+    // const { review } = this.props.reviewObj
     // debugger
-    //   return (
-    //     <p>f</p>
-    //   )
-    
-   
+    // return (
+    //   <p>f</p>
+    // )
+
+
     return (
       <div>
         <h1>Hi!</h1>
         {/* <p>{this.props}</p> */}
       </div>
     );
+
+
+
   }
 }
 

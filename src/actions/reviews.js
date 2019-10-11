@@ -39,11 +39,11 @@ export const addReview = (comment, trail, currentUser) => {
           alert(data.error)
         } else {
           console.log({
-            type: 'ADD_REVIEW',
+            type: 'ADD_SAVE_REVIEW',
             review: data
           })
           dispatch({
-            type: 'ADD_REVIEW',
+            type: 'ADD_SAVE_REVIEW',
             data
           })
         }

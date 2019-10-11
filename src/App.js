@@ -13,7 +13,7 @@ import MyReviews from './components/reviews/MyReviews'
 import { getCurrentUser } from './actions/currentUser'
 import { getMyReviews } from '../src/actions/reviews'
 import { getSavedTrails } from '../src/actions/trails'
-//! I need to pass in getSavedTrails
+
 export class App extends Component {
 
   //I need to this for getDerivedStateFromProps to work properly
@@ -45,7 +45,7 @@ export class App extends Component {
                 <Route path='/my-trails' render={(props) => <MyTrails {...props} myTrails={this.props.myTrails} />} />
 
                 <Route exact path='/reviews/new' component={ReviewForm} />
-                <Route path='my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />
+                <Route path='/my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />
 
               </Switch>
             </div>

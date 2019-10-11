@@ -8,7 +8,6 @@ export const addTrailtoReview = reviewtrail => {
 
 export const setMyReviews = reviewsData => {
   const reviews = reviewsData.data
-  console.log("setMyReviews", reviews)
   return {
     type: 'SET_MY_REVIEWS',
     reviews
@@ -46,20 +45,22 @@ export const saveReview = (comment, trail, currentUser) => {
         if (data.error) {
           alert(data.error)
         } else {
-          dispatch({
+          console.log({
             type: 'SET_REVIEW',
             review: data
           })
-          console.log("data in saveReview", data)
+          dispatch({
+            type: 'SET_REVIEW',
+            data
+          })
         }
       })
       .catch(console.logs)
   }
 }
 
-
+//This gets all the reviews currentUser created
 export const getMyReviews = () => {
-
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
@@ -74,7 +75,6 @@ export const getMyReviews = () => {
           alert(reviewsObj.error)
         } else {
           console.log("reviewsObj in getMyReviews", reviewsObj)
-          //! do i need to do this or just dispatch action?
           dispatch(setMyReviews(reviewsObj))
         }
       })

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { saveReview } from '../../actions/reviews'
 import { Sub } from '../../ui/Styles'
-import MyReviews from './MyReviews'
+import MyTrailReview from './MyTrailReview'
 
 class ReviewForm extends Component {
 
@@ -54,7 +54,7 @@ class ReviewForm extends Component {
         </>
       )
     }
-    return <MyReviews />
+    return <MyTrailReview />
   }
 }
 

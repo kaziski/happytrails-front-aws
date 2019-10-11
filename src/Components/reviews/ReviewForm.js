@@ -54,12 +54,16 @@ class ReviewForm extends Component {
         </>
       )
     }
-    return <MyTrailReview />
+    return <MyTrailReview reviewObj={this.props}/>
   }
 }
 
 //reviews is the name of the store.
-//What's in the store can be named whatever we want such as trailToReview
-// const mapStateToProps = state => ({ trailToReview: state.reviews })
+// const mapStateToProps = state => ({ reviews: state.reviews })
 
-export default connect(null, { saveReview })(ReviewForm);
+const mapStateToProps = ({ reviews }) => {
+  return {
+    reviews
+  }
+}
+export default connect(mapStateToProps, { saveReview })(ReviewForm);

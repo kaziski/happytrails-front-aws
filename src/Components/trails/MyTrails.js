@@ -5,9 +5,10 @@ import { getTrails } from '../../actions/trails'
 
 class MyTrails extends Component {
 
-  componentDidMount() {
-    this.props.getTrails()
-  }
+  //I don't think I need this...
+  // componentDidMount() {
+  //   this.props.getTrails()
+  // }
   render() {
     const { myTrails } = this.props
     const trailList = myTrails.map(trail => {

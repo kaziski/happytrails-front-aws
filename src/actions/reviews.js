@@ -6,6 +6,13 @@ export const addTrailtoReview = reviewtrail => {
   }
 }
 
+export const setReview = data => {
+  return {
+    type: 'SET_REVIEW',
+    data
+  }
+}
+
 export const setMyReviews = reviewsData => {
   const reviews = reviewsData.data
   return {
@@ -49,10 +56,11 @@ export const saveReview = (comment, trail, currentUser) => {
             type: 'SET_REVIEW',
             review: data
           })
-          dispatch({
-            type: 'SET_REVIEW',
-            data
-          })
+          // dispatch({
+          //   type: 'SET_REVIEW',
+          //   data
+          // })
+          dispatch(setReview(data))
         }
       })
       .catch(console.logs)

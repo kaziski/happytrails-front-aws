@@ -72,6 +72,7 @@ class GeoForm extends Component {
     return <IndexTrail trailobj={this.props} />
   }
 }
+
 const mapStateToProps = state => ({ trails: state.trails })
 
 export default connect(mapStateToProps, { setTrail })(GeoForm)

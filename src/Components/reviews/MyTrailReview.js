@@ -5,8 +5,16 @@ class MyTrailReview extends Component {
   render() {
     console.log('====================================');
     console.log("this.props in MyTrailReview", this.props);
+    console.log("this.props.reviewObj in MyTrailReview", this.props.reviewObj);
     console.log('====================================');
-    debugger
+    
+    // const {review} = this.props.reviewObj
+    // debugger
+    //   return (
+    //     <p>f</p>
+    //   )
+    
+   
     return (
       <div>
         <h1>Hi!</h1>
@@ -24,13 +32,10 @@ class MyTrailReview extends Component {
 //     reviews
 //   }
 // }
-
-const mapStateToProps = (state) => {
-  console.log("state in MyTrailReview - mapstatetoprops", state)
-  const { reviews } = state
-  return { reviewList: reviews.allReviews }
-  // const { todos } = state
-  // return { todoList: todos.allIds }
-}
-// export default MyTrailReview
-export default connect(mapStateToProps)(MyTrailReview)
+// const mapStateToProps = ({ reviews }) => {
+//   return {
+//     reviews
+//   }
+// }
+export default MyTrailReview
+// export default connect(mapStateToProps)(MyTrailReview)

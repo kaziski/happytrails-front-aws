@@ -9,7 +9,6 @@ export const setTrail = trailsData => {
 //This gets dispatched in getTrails 
 export const setMyTrails = trailsObj => {
   const trails = trailsObj.data
-  // console.log("setMyTrails trails", trails)
   return {
     type: 'SET_MY_TRAILS',
     trails
@@ -40,9 +39,11 @@ export const saveTrails = (trail, currentUser) => {
         if (trail.error) {
           alert(trail.error)
         } else {
-          //? This may not be necessary
-          //! what do i put here if I don't want to do anything after saving?
+          //!is this ok to dispatch another fetch???
+          //if I don't. my trails says i have no trails saved.App
+          //when should i fire this action?
           dispatch(getTrails())
+          console.log("trails - trail ", trail)
         }
       })
       .catch(console.logs)

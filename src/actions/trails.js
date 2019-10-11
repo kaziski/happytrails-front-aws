@@ -1,4 +1,10 @@
 // set trail to pass down from <GeoForm/> to <TrailCards/>
+// export const setTrail = trailsData => {
+//   return {
+//     type: 'SET_TRAIL',
+//     trailsData
+//   }
+// }
 export const setTrail = trailsData => {
   return {
     type: 'SET_TRAIL',
@@ -15,9 +21,10 @@ export const setTrail = trailsData => {
 //   }
 // }
 
+
 //When a user clicks "save" on TrailCards, this gets triggered.
 //Sends a post request to create a new trail
-export const saveTrails = (trail, currentUser) => {
+export const saveTrail = (trail, currentUser) => {
   return dispatch => {
     //the key trail is the required key in Trail strong params
     const trailInfo = {
@@ -34,15 +41,14 @@ export const saveTrails = (trail, currentUser) => {
     })
       .then(res => res.json())
       .then(trail => {
-        // console.log("trail after fetch in saveTrails", trail);
 
         if (trail.error) {
           alert(trail.error)
         } else {
-          //!is this ok to dispatch another fetch???
-          //if I don't. my trails says i have no trails saved.App
-          //when should i fire this action?
-          dispatch(getSavedTrails())
+          dispatch({
+            type: 'SAVE_TRAIL',
+            trail
+          })
           console.log("trails - trail ", trail)
         }
       })

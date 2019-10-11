@@ -12,13 +12,18 @@ class GeoForm extends Component {
     isSubmitted: false
   }
 
-  handleOnChange = event => {
+
+  // componentDidMount() {
+  //   this.props.getTrails()
+  // }
+
+  handleOnChange = (event) => {
     this.setState({
       address: event.target.value
     })
   }
 
-  handleOnSubmit = event => {
+  handleOnSubmit = (event) => {
     event.preventDefault()
     this.geoFunction()
     this.setState({ isSubmitted: true })
@@ -51,7 +56,7 @@ class GeoForm extends Component {
   render() {
     if (!this.state.isSubmitted) {
       return (
-        < >
+        <div>
           <form onSubmit={(event) => this.handleOnSubmit(event)}>
             <div className="field has-addons">
               <div className="control is-expanded">
@@ -66,13 +71,12 @@ class GeoForm extends Component {
               </div>
             </div>
           </form>
-        </>
+        </div >
       )
     }
     return <IndexTrail trailobj={this.props} />
   }
 }
-
 const mapStateToProps = state => ({ trails: state.trails })
 
 export default connect(mapStateToProps, { setTrail })(GeoForm)

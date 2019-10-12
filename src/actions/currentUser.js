@@ -35,13 +35,14 @@ export const signup = (credentials, history) => {
         } else {
           dispatch(setCurrentUser(user))
           dispatch(resetSignupForm())
+          history.push(`/`)
         }
       })
       .catch(console.logs)
   }
 }
 
-export const login = credentials => {
+export const login = (credentials, history) => {
   return dispatch => {
     console.log("credentials are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
@@ -60,6 +61,7 @@ export const login = credentials => {
         } else {
           dispatch(setCurrentUser(user))
           dispatch(resetLoginForm())
+          history.push('/')
         }
       })
       .catch(console.logs)

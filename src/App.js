@@ -16,24 +16,27 @@ import { getSavedTrails } from '../src/actions/trails'
 
 export class App extends Component {
 
+  //TODO when a user first sign up, it doesn't seem to know the current user
   //I need to this for getDerivedStateFromProps to work properly
-  state = {}
+  // state = {}
 
-  static getDerivedStateFromProps({ getCurrentUser }) {
-    getCurrentUser()
-    return null
-  }
+  // static getDerivedStateFromProps({ getCurrentUser }) {
+  //   getCurrentUser()
+  //   return null
+  // }
 
   componentDidMount() {
-    this.props.getMyReviews()
-    this.props.getSavedTrails()
+    this.props.getCurrentUser()
+    // this.props.getMyReviews()
+    // this.props.getSavedTrails()
   }
 
   render() {
+    const { loggedIn } = this.props
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
-          <NavBar />
+          {loggedIn ? <NavBar location={this.props.location} /> : null}
           <div className="hero-body">
             <div className="container">
               <Switch>
@@ -57,6 +60,7 @@ export class App extends Component {
 
 const mapStateToProps = state => {
   return {
+    loggedIn: !!state.currentUser,
     reviews: state.reviews,
     trails: state.trails
   }

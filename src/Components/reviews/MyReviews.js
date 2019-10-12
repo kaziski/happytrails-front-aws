@@ -12,6 +12,7 @@ class MyReviews extends Component {
           <MyReview
             key={review.id}
             review={review.attributes}
+            review_id={review.id}
           />
         </div>
       )

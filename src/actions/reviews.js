@@ -11,16 +11,15 @@ export const addTrailtoReview = reviewtrail => {
 //Post request to create a new review
 export const addReview = (comment, trail, currentUser) => {
   return dispatch => {
-
     let reviewData
     //associating trail reviewed with review using api_trail_id
     if (!trail.api_trail_id) {
       reviewData = {
-        review: { comment, api_trail_id: trail.id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
+        review: { comment, api_trail_id: trail.id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id, username: currentUser.username }
       }
     } else {
       reviewData = {
-        review: { comment, api_trail_id: trail.api_trail_id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id }
+        review: { comment, api_trail_id: trail.api_trail_id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id, username: currentUser.username }
       }
     }
 

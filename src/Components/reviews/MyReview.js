@@ -1,7 +1,8 @@
 import React from 'react'
 
-const Review = ({ review }) => {
-
+const MyReview = ({ review }) => {
+  //!need to attach onclick delete
+  //edit as well?
   return (
     <>
       <article className="message">
@@ -20,4 +21,4 @@ const Review = ({ review }) => {
   );
 }
 
-export default Review
+export default MyReview

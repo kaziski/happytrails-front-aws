@@ -9,7 +9,7 @@ import Signup from './components/users/Signup'
 import MyTrails from './components/trails/MyTrails'
 import ReviewForm from './components/reviews/ReviewForm'
 import MyReviews from './components/reviews/MyReviews'
-import MyTrailReview from './components/reviews/MyTrailReview'
+import TrailReviews from './components/reviews/TrailReviews'
 import { getCurrentUser } from './actions/currentUser'
 import { getMyReviews } from '../src/actions/reviews'
 import { getSavedTrails } from '../src/actions/trails'
@@ -46,7 +46,7 @@ export class App extends Component {
 
                 <Route exact path='/reviews/new' component={ReviewForm} />
                 <Route path='/my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />
-                <Route path='/reviews' render={(props) => <MyTrailReview {...props} reviews={this.props.reviews} />} />
+                <Route path='/reviews' render={(props) => <TrailReviews {...props} reviews={this.props.reviews} />} />
               </Switch>
             </div>
           </div>

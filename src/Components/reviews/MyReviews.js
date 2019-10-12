@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Review from './Review'
+import MyReview from './MyReview'
 import { getMyReviews } from '../../actions/reviews'
 
 class MyReviews extends Component {
@@ -9,7 +9,7 @@ class MyReviews extends Component {
     const reviewArr = this.props.reviews.currentUserReviews.map(review => {
       return (
         <div>
-          <Review
+          <MyReview
             key={review.id}
             review={review.attributes}
           />

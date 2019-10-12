@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Review from './Review'
+import TrailReview from './TrailReview'
 
-class MyTrailReview extends Component {
+class TrailReviews extends Component {
 
   render() {
     let newlyCreatedReviewObj
     newlyCreatedReviewObj = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length - 1]
 
-    console.log("newlyCreatedReviewObj.attributes.comment in MyTrailReview - ", newlyCreatedReviewObj.attributes.comment);
+    console.log("newlyCreatedReviewObj.attributes.comment in TrailReviews - ", newlyCreatedReviewObj.attributes.comment);
 
     const reviewArr = newlyCreatedReviewObj.attributes.api_reviews.map(review => {
+
       return (
         <div>
-          <Review
+          <TrailReview
             key={review.id}
             review={review}
           />
@@ -30,4 +31,4 @@ class MyTrailReview extends Component {
 
 const mapStateToProps = state => ({ reviews: state.reviews })
 
-export default connect(mapStateToProps)(MyTrailReview)
+export default connect(mapStateToProps)(TrailReviews)

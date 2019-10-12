@@ -56,13 +56,9 @@ class ReviewForm extends Component {
         </>
       )
     }
-    // return <MyTrailReview reviewObj={this.props} reviews={this.props.reviews} />
     return null
   }
 }
-
-//reviews is the name of the store.
-// const mapStateToProps = state => ({ reviews: state.reviews })
 
 const mapStateToProps = ({ reviews }) => {
   return {

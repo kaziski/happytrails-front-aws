@@ -1,58 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getMyReviews } from '../../actions/reviews'
+import Review from './Review'
 
 class MyTrailReview extends Component {
 
-  state = {}
-
-  static getDerivedStateFromProps({ getMyReviews }) {
-    getMyReviews()
-    return null
-  }
-  // componentDidMount() {
-  //   this.props.getMyReviews()
-  // }
+  //* this.props.reviews.currentUserReviews
+  //* TO prent, I need to get the last review
+  //* this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length -1]
+  //let a
+  //   a = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length -1]
+  // a.attributes.comment 
+  //a.attributes.api_reviews <- this is an array check and see if there is and then iterate over it
+  // the most recent one gets added to this, so when displaying, 
+  //check if there is more than 1
   render() {
+    let newlyCreatedReview
+    newlyCreatedReview = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length - 1]
     console.log('====================================');
-    console.log("this.props.reviews.currentUserReviews.length", this.props.reviews.currentUserReviews.length, Date.now());
-    console.log("this.props.reviewObj in MyTrailReview", this.props.reviewObj);
+    console.log("newlyCreatedReview.attributes.comment in MyTrailReview - ", newlyCreatedReview.attributes.comment);
+    console.log("newlyCreatedReview.attributes.api_reviews.length MyTrailReview - ", newlyCreatedReview.attributes.api_reviews.length);
+    // console.log("this.props.reviews.currentUserReviews.length", this.props.reviews.currentUserReviews.length, Date.now());
+    // console.log("this.props.reviews.currentUserReviews in MyTrailReview", this.props.reviews.currentUserReviews);
     console.log('====================================');
 
-    // const { review } = this.props.reviewObj
-    debugger
-    // return (
-    //   <p>f</p>
-    // )
-
-
+    const reviewArr = this.props.reviews.currentUserReviews.review.attributes.api_reviews.map(review => {
+      return (
+        <div>
+          <Review
+            key={review.id}
+            review={review.attributes}
+          />
+        </div>
+      )
+    })
     return (
-      <div>
-        <h1>Hi!</h1>
-        {/* <p>{this.props}</p> */}
-      </div>
-    );
-
-
-
+      < >
+        {reviewArr}
+      </>
+    )
   }
 }
 
-// const mapStateToProps = state => ({ allReviews: state.allReviews })
-// key reviews is the name of the reducer store
-// const mapStateToProps = ({ reviews }) => {
-//   debugger
-//   return {
-//     reviews
-//   }
-// }
-// const mapStateToProps = ({ reviews }) => {
-//   return {
-//     reviews
-//   }
-// }
-// export default MyTrailReview
-
 const mapStateToProps = state => ({ reviews: state.reviews })
 
-export default connect(mapStateToProps, { getMyReviews })(MyTrailReview)
+export default connect(mapStateToProps)(MyTrailReview)

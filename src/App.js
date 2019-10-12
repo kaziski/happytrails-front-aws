@@ -30,7 +30,6 @@ export class App extends Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">

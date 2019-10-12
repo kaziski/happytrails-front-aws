@@ -64,7 +64,6 @@ export const getSavedTrails = () => {
         if (trailsObj.error) {
           alert(trailsObj.error)
         } else {
-          console.log("trailsObj in getSavedTrails", trailsObj)
           dispatch({
             type: 'GET_SAVED_TRAILS',
             trailsObj

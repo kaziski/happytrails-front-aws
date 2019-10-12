@@ -17,9 +17,11 @@ class MyReviews extends Component {
       )
     })
     return (
-      < >
+      <div className="has-text-white" >
+        {this.props.reviews.currentUserReviews.length === 0 ? <h3>You haven't created any reviews</h3> : null}
         {reviewArr}
-      </>
+      </div>
+
     )
   }
 

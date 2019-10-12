@@ -4,18 +4,19 @@ const Review = ({ review }) => {
 
   return (
     <>
-      {/* <article className="message is-link"> */}
-      <div className="message-header">
-        <p><a href={review.api_trail_url} target="_blank" rel="noopener noreferrer">{review.api_trail_name}</a></p>
-      </div>
-      <div className="message-body has-text-white has-background-grey">
-        {/* <div class="message-body"> */}
+      <article className="message">
+        <div className="message-header has-background-white">
+          <div className="has-text-primary"><a href={review.api_trail_url} target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-link"></i></span> {review.api_trail_name}</a></div>
+          <div class="message-right">
+            <button class="delete"></button>
+          </div>
+        </div>
+        <div className="message-body has-background-white">
+          {review.comment}
+        </div>
 
-        {review.comment}
-      </div>
-      {/* </article> */}
+      </article>
     </>
-
   );
 }
 

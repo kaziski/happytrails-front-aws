@@ -14,21 +14,22 @@ class MyTrailReview extends Component {
   // the most recent one gets added to this, so when displaying, 
   //check if there is more than 1
   render() {
-    let newlyCreatedReview
-    newlyCreatedReview = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length - 1]
+    let newlyCreatedReviewObj
+    newlyCreatedReviewObj = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length - 1]
+    // newlyCreatedReview = this.props.reviews.currentUserReviews.attributes.api_reviews
     console.log('====================================');
-    console.log("newlyCreatedReview.attributes.comment in MyTrailReview - ", newlyCreatedReview.attributes.comment);
-    console.log("newlyCreatedReview.attributes.api_reviews.length MyTrailReview - ", newlyCreatedReview.attributes.api_reviews.length);
+    console.log("newlyCreatedReviewObj.attributes.comment in MyTrailReview - ", newlyCreatedReviewObj.attributes.comment);
+    console.log("newlyCreatedReviewObj.attributes.api_reviews.length MyTrailReview - ", newlyCreatedReviewObj.attributes.api_reviews.length);
     // console.log("this.props.reviews.currentUserReviews.length", this.props.reviews.currentUserReviews.length, Date.now());
     // console.log("this.props.reviews.currentUserReviews in MyTrailReview", this.props.reviews.currentUserReviews);
     console.log('====================================');
 
-    const reviewArr = this.props.reviews.currentUserReviews.review.attributes.api_reviews.map(review => {
+    const reviewArr = newlyCreatedReviewObj.attributes.api_reviews.map(review => {
       return (
         <div>
           <Review
             key={review.id}
-            review={review.attributes}
+            review={review}
           />
         </div>
       )

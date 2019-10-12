@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Review = ({ review }) => {
+
   return (
     <>
       <article className="message is-link">

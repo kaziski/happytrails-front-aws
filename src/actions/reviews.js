@@ -7,6 +7,13 @@ export const addTrailtoReview = reviewtrail => {
 }
 
 
+export const clearMyReviews = () => {
+  return {
+    type: "CLEAR_MY_REVIEWS"
+  }
+}
+
+
 //When a user clicks "Submit Review" on ReviewForm, this sends
 //Post request to create a new review
 export const addReview = (comment, trail, currentUser) => {

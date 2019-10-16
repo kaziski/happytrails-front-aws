@@ -12,12 +12,12 @@ const initialState = {
 
 
 export default (state = initialState, action) => {
+
   switch (action.type) {
     case 'ADD_TRAIL_TO_REVIEW':
       return { ...state, trailReviewed: action.reviewtrail }
 
     case 'ADD_SAVE_REVIEW':
-      console.log("action.data.data.attributess in reveiwsReducer", action.data.data)
       return { ...state, currentUserReviews: [...state.currentUserReviews, action.data.data] }
 
     case 'GET_MY_REVIEWS':
@@ -25,6 +25,9 @@ export default (state = initialState, action) => {
 
     case 'DELETE_REVIEW':
       return state
+
+    case 'CLEAR_MY_REVIEWS':
+      return initialState
 
     default:
       return state

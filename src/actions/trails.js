@@ -5,6 +5,13 @@ export const setTrail = trailsData => {
   }
 }
 
+
+export const clearTrails = () => {
+  return {
+    type: "CLEAR_TRAILS"
+  }
+}
+
 //This gets dispatched in getSavedTrails 
 // export const setMyTrails = trailsObj => {
 //   const trails = trailsObj.data

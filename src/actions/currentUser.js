@@ -1,5 +1,7 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
+import { clearMyReviews } from './../actions/reviews'
+import { clearTrails } from './../actions/trails'
 
 
 //* Action
@@ -103,6 +105,8 @@ export const clearCurrentUser = () => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearMyReviews())
+    dispatch(clearTrails())
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE"

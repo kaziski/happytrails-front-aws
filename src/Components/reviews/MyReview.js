@@ -5,6 +5,14 @@ import { createBrowserHistory } from "history";
 
 class MyReview extends Component {
 
+  // componentDidUpdate(prevProps) {
+  //   debugger
+  //   if (this.props !== prevProps) {
+  //     debugger
+  //     this.getMyReviews()
+  //   }
+  // }
+
   render() {
     const history = createBrowserHistory()
 
@@ -15,7 +23,9 @@ class MyReview extends Component {
           <div className="message-header has-background-white">
             <div className="has-text-primary"><a href={review.api_trail_url} target="_blank" rel="noopener noreferrer"><span className="icon is-small"><i className="fas fa-link"></i></span> {review.api_trail_name}</a></div>
             <div className="message-right">
-              <button onClick={() => { deleteReview(this.props.review_id, history); getMyReviews(); }} className="delete"></button>
+              <button onClick={() => { this.props.deleteReview(this.props.review_id, history) }} className="delete"></button>
+              {/* <button onClick={() => { this.props.deleteReview(this.props.review_id, history); this.props.getMyReviews(); }} className="delete"></button> */}
+
             </div>
           </div>
           <div className="message-body has-background-white">

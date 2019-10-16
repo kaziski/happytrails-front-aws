@@ -79,8 +79,6 @@ export const getMyReviews = () => {
 
 //deletes a review from my reviews
 export const deleteReview = (review_id, history) => {
-  console.log("review_id - ", review_id)
-  console.log("history", history)
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/reviews/${review_id}`, {
       credentials: "include",
@@ -98,10 +96,16 @@ export const deleteReview = (review_id, history) => {
             type: 'DELETE_REVIEW',
             review
           })
-          //!Why can't I do this?
           history.push(`/my-reviews`)
         }
       })
       .catch(console.logs)
   }
 }
+
+// export const updateReview = () => {
+//   console.log('heyo!')
+//   return dispatch => {
+
+//   }
+// }

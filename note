@@ -26,3 +26,7 @@ but not added to mytrails?
 or need to fetch get my trails?
 
 need to render a new set of trails after deleting one
+
+currentUser:  data : {id : "10", type: "user, attributes: {username: "Ri", id: 10}}
+
+currentUser : {id: 5, username "Po"}

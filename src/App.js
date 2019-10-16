@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
-import UnauthenticatedHome from './components/UnauthenticatedHome'
 import Home from './components/Home'
 import Login from './components/users/Login'
 import Logout from './components/users/Logout'
@@ -21,26 +20,17 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.props.getCurrentUser()
+    // this.props.getCurrentUser()
     this.props.getMyReviews()
     this.props.getSavedTrails()
   }
 
   render() {
-    const { loggedOut } = this.props
-
+    const { loggedIn } = this.props
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
-          {/* {loggedIn ? <NavBar location={this.props.location} /> : null} */}
-          {loggedOut ?
-            <UnauthenticatedHome />
-            : <span>
-              <NavBar location={this.props.location} />
-              {/* <Home /> */}
-            </span>
-          }
-
+          {loggedIn ? <NavBar location={this.props.location} /> : null}
           <div className="hero-body">
             <div className="container">
               <Switch>
@@ -63,10 +53,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    // loggedIn: !!state.currentUser,
-    loggedOut: !state.loginForm,
-
-    currentUser: state.currentUser,
+    loggedIn: !!state.currentUser,
     reviews: state.reviews,
     trails: state.trails
   }

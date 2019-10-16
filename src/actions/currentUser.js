@@ -14,7 +14,7 @@ export const setCurrentUser = user => {
 
 export const signup = (credentials, history) => {
   return dispatch => {
-    console.log("credentials are", credentials)
+    console.log("credentials in signup are", credentials)
     const userInfo = {
       user: credentials
     }
@@ -30,10 +30,12 @@ export const signup = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
+        console.log("user in signup", user)
         if (user.error) {
           alert(user.error)
         } else {
-          dispatch(setCurrentUser(user))
+          // debugger
+          dispatch(setCurrentUser(user.data.attributes))
           dispatch(resetSignupForm())
           history.push(`/`)
         }
@@ -44,7 +46,7 @@ export const signup = (credentials, history) => {
 
 export const login = (credentials, history) => {
   return dispatch => {
-    console.log("credentials are", credentials)
+    console.log("credentials in login are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
       method: "POST",
@@ -56,9 +58,11 @@ export const login = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
+        console.log("user in login", user)
         if (user.error) {
           alert(user.error)
         } else {
+          // debugger
           dispatch(setCurrentUser(user))
           dispatch(resetLoginForm())
           history.push('/')
@@ -82,6 +86,7 @@ export const getCurrentUser = () => {
         if (user.error) {
           alert(user.error)
         } else {
+          // debugger
           dispatch(setCurrentUser(user.data.attributes))
         }
       })

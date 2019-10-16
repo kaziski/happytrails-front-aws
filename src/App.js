@@ -10,20 +10,8 @@ import MyTrails from './components/trails/MyTrails'
 import ReviewForm from './components/reviews/ReviewForm'
 import MyReviews from './components/reviews/MyReviews'
 import TrailReviews from './components/reviews/TrailReviews'
-import { getCurrentUser } from './actions/currentUser'
-import { getMyReviews } from '../src/actions/reviews'
-import { getSavedTrails } from '../src/actions/trails'
 
 class App extends Component {
-
-  //TODO when a user first sign up, it doesn't seem to know the current user
-
-
-  componentDidMount() {
-    // this.props.getCurrentUser()
-    this.props.getMyReviews()
-    this.props.getSavedTrails()
-  }
 
   render() {
     const { loggedIn } = this.props
@@ -59,5 +47,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser, getMyReviews, getSavedTrails })(App)
+export default connect(mapStateToProps)(App)
 

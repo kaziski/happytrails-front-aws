@@ -1,11 +1,7 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { clearMyReviews } from './../actions/reviews'
-import { clearTrails } from './../actions/trails'
-
-
-//* Action
-
+import { clearMyReviews, getMyReviews } from './../actions/reviews'
+import { clearTrails, getSavedTrails } from './../actions/trails'
 
 export const setCurrentUser = user => {
   return {
@@ -67,6 +63,8 @@ export const login = (credentials, history) => {
           // debugger
           dispatch(setCurrentUser(user))
           dispatch(resetLoginForm())
+          dispatch(getMyReviews())
+          dispatch(getSavedTrails())
           history.push('/')
         }
       })
@@ -88,7 +86,6 @@ export const getCurrentUser = () => {
         if (user.error) {
           alert(user.error)
         } else {
-          // debugger
           dispatch(setCurrentUser(user.data.attributes))
         }
       })

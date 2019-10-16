@@ -5,21 +5,11 @@ export const setTrail = trailsData => {
   }
 }
 
-
 export const clearTrails = () => {
   return {
     type: "CLEAR_TRAILS"
   }
 }
-
-//This gets dispatched in getSavedTrails 
-// export const setMyTrails = trailsObj => {
-//   const trails = trailsObj.data
-//   return {
-//     type: 'SET_MY_TRAILS',
-//     trails
-//   }
-// }
 
 
 //When a user clicks "save" on TrailCards, this gets triggered.
@@ -56,6 +46,7 @@ export const saveTrail = (trail, currentUser) => {
   }
 }
 
+//gets all the trails saved under a user
 export const getSavedTrails = () => {
   return dispatch => {
     return fetch("http://localhost:3000//api/v1/trails", {

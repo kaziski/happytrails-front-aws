@@ -1,25 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { updateLoginForm } from "../../actions/loginForm"
 import { logout } from "../../actions/currentUser"
-import { Button } from "../../ui/Styles"
 
-class Logout extends Component {
+export const Logout = (props) => {
 
-  handleOnSubmit = (event) => {
-    event.preventDefault()
-    this.props.logout()
-    // this.props.history.push('/')
-  }
-
-  render() {
-    return (
-      <form onSubmit={(event) => this.handleOnSubmit(event)}>
-        <Button type="submit">  Log out </Button>
-      </form >
-    )
-  }
+  props.logout()
+  props.history.push('/')
+  return (
+    null
+  )
 
 }
 
-export default connect(null, { updateLoginForm, logout })(Logout)
+
+export default connect(null, { logout })(Logout)

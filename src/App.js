@@ -15,6 +15,7 @@ class App extends Component {
 
   render() {
     const { loggedIn } = this.props
+
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">

@@ -56,11 +56,9 @@ export const login = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
-        console.log("user in login", user)
         if (user.error) {
           alert(user.error)
         } else {
-          // debugger
           dispatch(setCurrentUser(user))
           dispatch(resetLoginForm())
           dispatch(getMyReviews())

@@ -6,6 +6,7 @@ import Logout from './users/Logout'
 import { NavLink } from 'react-router-dom'
 import { Button } from "../ui/Styles"
 
+//? can i conditionally render buttons and keep DRY?
 
 export const NavBar = ({ currentUser }) => {
   if (currentUser) {
@@ -17,7 +18,9 @@ export const NavBar = ({ currentUser }) => {
           </div>
           <div className="navbar-end">
             <div className="navbar-item">
-              <Logout />
+              {/* <Logout /> */}
+              <Button><NavLink to="/logout" >Logout</NavLink></Button>
+
               <Button><NavLink to="/my-trails" >My Trails</NavLink></Button>
               <Button><NavLink to="/my-reviews" >My Reviews</NavLink></Button>
               <Button><NavLink to="/">Find more trails</NavLink></Button>
@@ -31,9 +34,9 @@ export const NavBar = ({ currentUser }) => {
   return null
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
   return {
-    currentUser
+    currentUser: state.currentUser,
   }
 }
 export default connect(mapStateToProps)(NavBar)

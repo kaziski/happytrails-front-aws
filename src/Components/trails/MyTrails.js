@@ -15,9 +15,9 @@ class MyTrails extends Component {
     })
     return (
       <div className="has-text-white" >
-        {this.props.myTrails.mySavedTrailsArr.length === 0 ? <h3>You don't have any trails saved</h3> : <h3>Click a name to view more info.</h3>}
+        {this.props.myTrails.mySavedTrailsArr.length === 0 ? <h3>You don't have any trails saved</h3> : null}
         {trailList}
-      </div>
+      </div >
     )
 
   }

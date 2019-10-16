@@ -96,10 +96,12 @@ export const deleteReview = (review_id, history) => {
         if (review.error) {
           alert(review.error)
         } else {
+
           console.log('deleted in review aciton')
           dispatch({
             type: 'DELETE_REVIEW',
-            review
+            review,
+            reviewId: review_id
           })
           history.push(`/my-reviews`)
         }

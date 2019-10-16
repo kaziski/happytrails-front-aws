@@ -20,7 +20,6 @@ class Home extends Component {
 
   render() {
     const { currentUser } = this.props
-    // debugger
     return (
       <>
         {!currentUser ?

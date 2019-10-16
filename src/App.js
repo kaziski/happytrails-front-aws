@@ -14,21 +14,15 @@ import { getCurrentUser } from './actions/currentUser'
 import { getMyReviews } from '../src/actions/reviews'
 import { getSavedTrails } from '../src/actions/trails'
 
-export class App extends Component {
+class App extends Component {
 
   //TODO when a user first sign up, it doesn't seem to know the current user
-  //I need to this for getDerivedStateFromProps to work properly
-  // state = {}
 
-  // static getDerivedStateFromProps({ getCurrentUser }) {
-  //   getCurrentUser()
-  //   return null
-  // }
 
   componentDidMount() {
     this.props.getCurrentUser()
-    // this.props.getMyReviews()
-    // this.props.getSavedTrails()
+    this.props.getMyReviews()
+    this.props.getSavedTrails()
   }
 
   render() {

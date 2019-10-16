@@ -24,7 +24,6 @@ export default (state = initialState, action) => {
       return { currentUserReviews: action.reviewsObj.data }
 
     case 'DELETE_REVIEW':
-      debugger
       return state
 
     default:

@@ -77,25 +77,10 @@ export const getMyReviews = () => {
   }
 }
 
-// export const deleteReview = review_id => {
-//   return dispatch => {
-//     return fetch("http://localhost:3000/api/v1/reviews", {
-
-// export const deleteReview = (review_id, history) => {
-//   return (dispatch) => {
-//     fetch(`http://localhost:3000/api/v1/reviews/${review_id}`, {
-//       // return fetch(`http://localhost:3000/api/v1/reviews/252`, {
-
-//       credentials: "include",
-//       method: "DELETE",
-//       headers: {
-//         "Content-Type": "application/json"
-//       }
-//     })
-
-
+//deletes a review from my reviews
 export const deleteReview = (review_id, history) => {
   console.log("review_id - ", review_id)
+  console.log("history", history)
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/reviews/${review_id}`, {
       credentials: "include",
@@ -105,7 +90,6 @@ export const deleteReview = (review_id, history) => {
       }
     })
       .then(response => response.json())
-      // .then(review => console.log("review in action", review))
       .then(review => {
         if (review.error) {
           alert(review.error)
@@ -114,7 +98,8 @@ export const deleteReview = (review_id, history) => {
             type: 'DELETE_REVIEW',
             review
           })
-          history.push(`/reviews`)
+          //!Why can't I do this?
+          history.push(`/my-reviews`)
         }
       })
       .catch(console.logs)

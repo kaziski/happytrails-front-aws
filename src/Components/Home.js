@@ -35,9 +35,9 @@ class Home extends Component {
 }
 
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
   return {
-    currentUser
+    currentUser: state.currentUser
   }
 }
 

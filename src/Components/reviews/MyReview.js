@@ -1,13 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { deleteReview } from "../../actions/reviews"
+import { createBrowserHistory } from "history";
 
-const MyReview = ({ review, review_id, history }) => {
-
-  // const handleDelete = (review_id, history) => {
-  //   alert('clicked')
-  //   deleteReview(review_id, history)
-  // }
+const MyReview = ({ review, review_id, deleteReview }) => {
+  const history = createBrowserHistory()
 
   return (
     <>

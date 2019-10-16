@@ -104,9 +104,38 @@ export const deleteReview = (review_id, history) => {
   }
 }
 
-// export const updateReview = () => {
-//   console.log('heyo!')
-//   return dispatch => {
+export const fetchTrailReviews = (trail) => {
+  return dispatch => {
+    let trail_id
 
-//   }
-// }
+    if (!trail.trail.api_trail_id) {
+      //From GeoSearch
+      trail_id = trail.trail.id
+    } else {
+      //From MyTrails
+      trail_id = trail.trail.api_trail_id
+    }
+    //TODO check in the backend what's being fetched
+    //! also put debugger here and see trail_id from api and my trails
+    return fetch(`http://localhost:3000/api/v1/trails/${trail_id}/reviews`, {
+      credentials: "include",
+      method: "GET",
+      hearders: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(res => res.json())
+      .then(trailObj => {
+        if (trailObj.error) {
+          alert(trailObj.error)
+        } else {
+          console.log("trailObj from reviews", trailObj)
+          dispatch({
+            type: 'FETCH_TRAIL_REVIEWS',
+            trailObj
+          })
+        }
+      })
+      .catch(console.logs)
+  }
+}

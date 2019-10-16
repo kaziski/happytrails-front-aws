@@ -5,7 +5,12 @@ import TrailReview from './TrailReview'
 class TrailReviews extends Component {
 
   render() {
+
     let newlyCreatedReviewObj
+    //TODO Fix this!!
+    // if (this.props.reviews.currentUserReviews.length === 0) {
+    //   //if the user hasn't made any reviews - do something
+    // }
     newlyCreatedReviewObj = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length - 1]
 
     console.log("newlyCreatedReviewObj.attributes.comment in TrailReviews - ", newlyCreatedReviewObj.attributes.comment);

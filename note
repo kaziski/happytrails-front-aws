@@ -24,3 +24,5 @@ Processing by Api::V1::TrailsController#index as */*
 now showing cards and saving trails,
 but not added to mytrails? 
 or need to fetch get my trails?
+
+need to render a new set of trails after deleting one

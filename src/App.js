@@ -39,10 +39,9 @@ class App extends Component {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/logout' component={Logout} />
                 <Route path='/my-trails' render={(props) => <MyTrails {...props} myTrails={this.props.myTrails} />} />
-
                 <Route exact path='/reviews/new' component={ReviewForm} />
                 <Route path='/my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />
-                <Route path='/reviews' render={(props) => <TrailReviews {...props} reviews={this.props.reviews} />} />
+                <Route exact path='/trails/:trail_id/reviews' component={TrailReviews} />
               </Switch>
             </div>
           </div>

@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
       return { currentUserReviews: action.reviewsObj.data }
 
     case 'DELETE_REVIEW':
-      let newReviews = state.currentUserReviews.filter(review => review.id != action.reviewId)
+      let newReviews = state.currentUserReviews.filter(review => review.id !== action.reviewId)
       return { ...state, currentUserReviews: newReviews }
 
     case 'CLEAR_MY_REVIEWS':
@@ -35,4 +35,3 @@ export default (state = initialState, action) => {
   }
 }
 
-//* Reducer

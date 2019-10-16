@@ -96,8 +96,6 @@ export const deleteReview = (review_id, history) => {
         if (review.error) {
           alert(review.error)
         } else {
-
-          console.log('deleted in review aciton')
           dispatch({
             type: 'DELETE_REVIEW',
             review,
@@ -121,8 +119,6 @@ export const fetchTrailReviews = (trail) => {
       //From MyTrails
       trail_id = trail.trail.api_trail_id
     }
-    //TODO check in the backend what's being fetched
-    //! also put debugger here and see trail_id from api and my trails
     return fetch(`http://localhost:3000/api/v1/trails/${trail_id}/reviews`, {
       credentials: "include",
       method: "GET",
@@ -135,7 +131,6 @@ export const fetchTrailReviews = (trail) => {
         if (trailObj.error) {
           alert(trailObj.error)
         } else {
-          console.log("trailObj from reviews", trailObj)
           dispatch({
             type: 'FETCH_TRAIL_REVIEWS',
             trailObj

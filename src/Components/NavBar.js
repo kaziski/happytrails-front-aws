@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Title } from '../ui/Styles'
-import Logout from './users/Logout'
 import { NavLink } from 'react-router-dom'
 import { Button } from "../ui/Styles"
 
-//? can i conditionally render buttons and keep DRY?
 
 export const NavBar = ({ currentUser }) => {
   if (currentUser) {
@@ -18,9 +16,7 @@ export const NavBar = ({ currentUser }) => {
           </div>
           <div className="navbar-end">
             <div className="navbar-item">
-              {/* <Logout /> */}
               <Button><NavLink to="/logout" >Logout</NavLink></Button>
-
               <Button><NavLink to="/my-trails" >My Trails</NavLink></Button>
               <Button><NavLink to="/my-reviews" >My Reviews</NavLink></Button>
               <Button><NavLink to="/">Find more trails</NavLink></Button>

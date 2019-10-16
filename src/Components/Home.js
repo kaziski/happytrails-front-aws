@@ -4,19 +4,9 @@ import { connect } from 'react-redux'
 //Not sure why, but it stopped compiling with trails/GeoForm and having lowercase geoForm works
 import GeoForm from '../components/trails/geoForm'
 import { Title } from '../ui/Styles'
-
 import { Button } from "../ui/Styles"
 
 class Home extends Component {
-
-  state = {
-    clicked: false
-  }
-
-  handleOnClick = (event) => {
-    event.preventDefault()
-    this.setState({ isClicked: true })
-  }
 
   render() {
     const { currentUser } = this.props
@@ -27,8 +17,8 @@ class Home extends Component {
             <div className="navbar-brand">
               <Title className="title"><Link to="/"><span className="fas fa-hiking"></span></Link>  Happy Trails</Title>
             </div>
-            <Button onClick={this.handleOnClick} ><Link to="/signup">Sign Up</Link></Button>
-            <Button onClick={this.handleOnClick}><Link to="/login">Log In</Link></Button></span>
+            <Button><Link to="/signup">Sign Up</Link></Button>
+            <Button><Link to="/login">Log In</Link></Button></span>
           :
 
           <span>
@@ -47,6 +37,5 @@ const mapStateToProps = state => {
     currentUser: state.currentUser
   }
 }
-
 
 export default connect(mapStateToProps)(Home)

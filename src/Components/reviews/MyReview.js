@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteReview, getMyReviews } from '../../actions/reviews'
+import { deleteReview } from '../../actions/reviews'
 import { createBrowserHistory } from "history";
 
 class MyReview extends Component {
-
-  // componentDidUpdate(prevProps) {
-  //   debugger
-  //   if (this.props !== prevProps) {
-  //     debugger
-  //     this.getMyReviews()
-  //   }
-  // }
 
   render() {
     const history = createBrowserHistory()
@@ -24,14 +16,11 @@ class MyReview extends Component {
             <div className="has-text-primary"><a href={review.api_trail_url} target="_blank" rel="noopener noreferrer"><span className="icon is-small"><i className="fas fa-link"></i></span> {review.api_trail_name}</a></div>
             <div className="message-right">
               <button onClick={() => { this.props.deleteReview(this.props.review_id, history) }} className="delete"></button>
-              {/* <button onClick={() => { this.props.deleteReview(this.props.review_id, history); this.props.getMyReviews(); }} className="delete"></button> */}
-
             </div>
           </div>
           <div className="message-body has-background-white">
             {review.comment}
           </div>
-
         </article>
       </>
     )
@@ -39,4 +28,4 @@ class MyReview extends Component {
 }
 const mapStateToProps = state => ({ reviews: state.reviews })
 
-export default connect(mapStateToProps, { deleteReview, getMyReviews })(MyReview)
+export default connect(mapStateToProps, { deleteReview })(MyReview)

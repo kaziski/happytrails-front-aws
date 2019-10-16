@@ -60,9 +60,9 @@ export const login = (credentials, history) => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
-          dispatch(resetLoginForm())
-          dispatch(getMyReviews())
           dispatch(getSavedTrails())
+          dispatch(getMyReviews())
+          dispatch(resetLoginForm())
           history.push('/')
         }
       })

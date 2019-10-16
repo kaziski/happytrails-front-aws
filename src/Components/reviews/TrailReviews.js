@@ -10,6 +10,7 @@ class TrailReviews extends Component {
     let trailName
     let trailUrl
     //TODO Fix this!!
+    // when a new user create the first trail, it breaks.
     // if (this.props.reviews.currentUserReviews.length === 0) {
     //   //if the user hasn't made any reviews - do something
     // }

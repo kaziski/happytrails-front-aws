@@ -12,6 +12,7 @@ class TrailCard extends Component {
 
   handleLikeClick = event => {
     event.preventDefault()
+    alert('Trail saved!')
     this.props.saveTrail(this.props.trail, this.props.currentUser)
   }
 

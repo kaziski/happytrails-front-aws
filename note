@@ -7,11 +7,19 @@
  
 551 Madison Ave. Carnegie, PA 15106
 
+... for password
+change color or do something when a trail is saved
+show reverse order for added reviews and trails?
+delete button "are you sure?"
 
-check route when all the cards are rendered
-add authentification on routes? eg, when a user try to go to /my_trail without logging in
+<button onClick={() => {
+  this.sayHello();
+  this.setState({ name: "James"});
+}}>
+  Click me!
+</button>
 
-
-this is with a new user
-this.props.reviews.currentUserReviews.length 0
-this.props.reviews.currentUserReviews []
+onClick={() => {
+   handleProjectSelection(project);
+   anotherfunctionCall();
+}}

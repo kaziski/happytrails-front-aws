@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import GeoForm from '../components/trails/GeoForm'
+import GeoForm from '../components/trails/geoForm'
 // import Login from '../components/users/Login'
 // import Signup from '../components/users/Signup'
 import { Button } from "../ui/Styles"

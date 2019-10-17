@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Review from './Review'
+import MyReview from './MyReview'
+import { getMyReviews } from '../../actions/reviews'
 
 class MyReviews extends Component {
+
   render() {
-    // debugger
-    // const { reviewsArr } = this.props.reviews
-    // const reviews = reviewsArr.map(review => {
-    const reviews = this.props.reviews.map(review => {
-      console.log("MyReviews-.attributes", review.id)
+    const reviewArr = this.props.reviews.currentUserReviews.map(review => {
       return (
         <div>
-          <Review
+          <MyReview
             key={review.id}
             review={review.attributes}
+            review_id={review.id}
           />
         </div>
       )
     })
     return (
-      < >
-        {reviews}
-      </>
+      <div className="has-text-white" >
+        {this.props.reviews.currentUserReviews.length === 0 ? <h3>You haven't created any reviews</h3> : null}
+        {reviewArr}
+      </div>
+
     )
   }
+
 }
 
 const mapStateToProps = state => ({ reviews: state.reviews })
-//myReviews is the name of the reducer. The name used here is 
-//defined in App
 
-export default connect(mapStateToProps)(MyReviews)
+export default connect(mapStateToProps, { getMyReviews })(MyReviews)

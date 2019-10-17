@@ -1,6 +1,3 @@
-//* Action
-
-// set trail to pass down from <GeoForm/> to <TrailCard/>
 export const setTrail = trailsData => {
   return {
     type: 'SET_TRAIL',
@@ -8,24 +5,20 @@ export const setTrail = trailsData => {
   }
 }
 
-export const setMyTrails = trailsObj => {
-  const trails = trailsObj.data
-  console.log("setMyTrails trails", trails)
+export const clearTrails = () => {
   return {
-    type: 'SET_MY_TRAILS',
-    trails
+    type: "CLEAR_TRAILS"
   }
 }
 
 
-//When a user clicks "save" on TrailCard, this gets triggered.
-export const saveTrails = (trail, currentUser) => {
+//When a user clicks "save" on TrailCards, this gets triggered.
+//Sends a post request to create a new trail
+export const saveTrail = (trail, currentUser) => {
   return dispatch => {
-    // console.log("trail in saveTrails", trail)
-    // console.log("currentUser in saveTrails", currentUser)
     //the key trail is the required key in Trail strong params
     const trailInfo = {
-      trail: { ...trail, user_id: currentUser.id }
+      trail: { ...trail, user_id: currentUser.id, api_trail_id: trail.id }
     }
     return fetch("http://localhost:3000/api/v1/newtrail", {
       credentials: "include",
@@ -38,24 +31,24 @@ export const saveTrails = (trail, currentUser) => {
     })
       .then(res => res.json())
       .then(trail => {
-        console.log("trail after fetch in saveTrails", trail);
 
         if (trail.error) {
           alert(trail.error)
         } else {
-          console.log("trail in saveTrails", trail)
-          //? This may not be necessary
-          dispatch(getTrails())
+          dispatch({
+            type: 'ADD_SAVE_TRAIL',
+            trail
+          })
+          console.log("trails - trail ", trail)
         }
       })
       .catch(console.logs)
   }
 }
 
-export const getTrails = () => {
+//gets all the trails saved under a user
+export const getSavedTrails = () => {
   return dispatch => {
-    //!How does this know who the user is?
-    // return fetch("http://localhost:3000/api/v1/users/10/trails", {
     return fetch("http://localhost:3000//api/v1/trails", {
 
       credentials: "include",
@@ -65,13 +58,14 @@ export const getTrails = () => {
       },
     })
       .then(res => res.json())
-      // .then(trailsObj => console.log("trailsObj in trails action", trailsObj))
       .then(trailsObj => {
         if (trailsObj.error) {
           alert(trailsObj.error)
         } else {
-          console.log("trailsObj in getTrails", trailsObj)
-          dispatch(setMyTrails(trailsObj))
+          dispatch({
+            type: 'GET_SAVED_TRAILS',
+            trailsObj
+          })
         }
       })
       .catch(console.log)

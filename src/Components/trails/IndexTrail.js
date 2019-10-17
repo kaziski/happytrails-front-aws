@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import TrailCard from './TrailCard'
+import TrailCards from './TrailCards'
 
 class IndexTrail extends Component {
 
@@ -8,7 +8,7 @@ class IndexTrail extends Component {
     const { trails } = this.props.trailobj
     const trailList = trails.map(trail => {
       return (
-        <TrailCard
+        <TrailCards
           key={trail.id}
           trail={trail}
         />

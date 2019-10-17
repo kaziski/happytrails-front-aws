@@ -1,7 +1,16 @@
-export default (state = [], action) => {
+export default (state = { mySavedTrailsArr: [] }, action) => {
   switch (action.type) {
-    case 'SET_MY_TRAILS':
-      return action.trails
+
+    case 'ADD_SAVE_TRAIL':
+      // debugger
+      return { ...state, mySavedTrailsArr: [...state.mySavedTrailsArr, action.trail.data] }
+
+    case 'GET_SAVED_TRAILS':
+      return { mySavedTrailsArr: action.trailsObj.data }
+
+    case "CLEAR_TRAILS":
+      return null
+
     default:
       return state
   }

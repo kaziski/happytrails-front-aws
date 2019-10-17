@@ -1,9 +1,7 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-
-
-//* Action
-
+import { clearMyReviews, getMyReviews } from './../actions/reviews'
+import { clearTrails, getSavedTrails } from './../actions/trails'
 
 export const setCurrentUser = user => {
   return {
@@ -14,7 +12,7 @@ export const setCurrentUser = user => {
 
 export const signup = (credentials, history) => {
   return dispatch => {
-    console.log("credentials are", credentials)
+    console.log("credentials in signup are", credentials)
     const userInfo = {
       user: credentials
     }
@@ -30,20 +28,24 @@ export const signup = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
+        console.log("user in signup", user)
         if (user.error) {
           alert(user.error)
         } else {
-          dispatch(setCurrentUser(user))
+          dispatch(setCurrentUser(user.data.attributes))
+          dispatch(getSavedTrails())
+          dispatch(getMyReviews())
           dispatch(resetSignupForm())
+          history.push(`/`)
         }
       })
       .catch(console.logs)
   }
 }
 
-export const login = credentials => {
+export const login = (credentials, history) => {
   return dispatch => {
-    console.log("credentials are", credentials)
+    console.log("credentials in login are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
       method: "POST",
@@ -59,7 +61,10 @@ export const login = credentials => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
+          dispatch(getSavedTrails())
+          dispatch(getMyReviews())
           dispatch(resetLoginForm())
+          history.push('/')
         }
       })
       .catch(console.logs)
@@ -96,6 +101,8 @@ export const clearCurrentUser = () => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearMyReviews())
+    dispatch(clearTrails())
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE"

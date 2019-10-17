@@ -12,13 +12,18 @@ class GeoForm extends Component {
     isSubmitted: false
   }
 
-  handleOnChange = event => {
+
+  // componentDidMount() {
+  //   this.props.getTrails()
+  // }
+
+  handleOnChange = (event) => {
     this.setState({
       address: event.target.value
     })
   }
 
-  handleOnSubmit = event => {
+  handleOnSubmit = (event) => {
     event.preventDefault()
     this.geoFunction()
     this.setState({ isSubmitted: true })

@@ -7,10 +7,11 @@
  
 551 Madison Ave. Carnegie, PA 15106
 
-id, name, type, summary, difficulty, stars, 
-starVotes, location, url, imgSqSmall, imgSmall, imgSmallMed, imgMedium, 
-length, ascent, descent, high, low, longitude, latitude, conditionStatus, 
-conditionDetails, conditionDate
 
 check route when all the cards are rendered
 add authentification on routes? eg, when a user try to go to /my_trail without logging in
+
+
+this is with a new user
+this.props.reviews.currentUserReviews.length 0
+this.props.reviews.currentUserReviews []

@@ -1,12 +1,5 @@
 import styled from 'styled-components'
 
-// export const AppLayout = styled.div`
-//   padding: 20px 40px;
-// `
-
-// export const H2 = styled.div`
-//   font-size: 30px;
-// `
 export const BackGround = styled.div`
   background-image: url("https://res.cloudinary.com/codingmamakaz/image/upload/v1569377899/cliff-dawn-daylight-1571108_cuelzy.jpg");
   background-repeat: no - repeat;
@@ -18,6 +11,13 @@ export const Title = styled.h1`
   text-align: center;
   color: white;
   padding: 10px 20px;
+  font-weight: bold;
+`
+export const Sub = styled.h1`
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  padding: 10px 10px;
   font-weight: bold;
 `
 

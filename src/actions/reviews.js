@@ -26,7 +26,7 @@ export const addReview = (comment, trail, currentUser) => {
         review: { comment, api_trail_id: trail.api_trail_id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id, username: currentUser.username }
       }
     }
-
+    console.log("reviewData in reviews", reviewData)
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
       method: "POST",
@@ -38,10 +38,11 @@ export const addReview = (comment, trail, currentUser) => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log("data in review", data)
         if (data.error) {
           alert(data.error)
         } else {
-          console.log({
+          console.log("ADD_SAVE_REVIEW", {
             type: 'ADD_SAVE_REVIEW',
             review: data
           })
@@ -71,6 +72,8 @@ export const getMyReviews = () => {
         if (reviewsObj.error) {
           alert(reviewsObj.error)
         } else {
+          console.log("reviewsObj in reviews", reviewsObj)
+
           dispatch({
             type: 'GET_MY_REVIEWS',
             reviewsObj
@@ -102,39 +105,6 @@ export const deleteReview = (review_id, history) => {
             reviewId: review_id
           })
           history.push(`/my-reviews`)
-        }
-      })
-      .catch(console.logs)
-  }
-}
-
-export const fetchTrailReviews = (trail) => {
-  return dispatch => {
-    let trail_id
-
-    if (!trail.trail.api_trail_id) {
-      //From GeoSearch
-      trail_id = trail.trail.id
-    } else {
-      //From MyTrails
-      trail_id = trail.trail.api_trail_id
-    }
-    return fetch(`http://localhost:3000/api/v1/trails/${trail_id}/reviews`, {
-      credentials: "include",
-      method: "GET",
-      hearders: {
-        "Content-Type": "application/json"
-      },
-    })
-      .then(res => res.json())
-      .then(trailObj => {
-        if (trailObj.error) {
-          alert(trailObj.error)
-        } else {
-          dispatch({
-            type: 'FETCH_TRAIL_REVIEWS',
-            trailObj
-          })
         }
       })
       .catch(console.logs)

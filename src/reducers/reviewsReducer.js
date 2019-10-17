@@ -1,12 +1,6 @@
 const initialState = {
   //from addTrailtoReview 
   trailReviewed: {},
-  //setReview adds the review written in ReviewForm
-  //TODO check if this is used
-  reviewObj: {},
-  //an array of reviews of trail coming from serializer
-  mySavedReviewArr: [],
-
   currentUserReviews: []
 }
 

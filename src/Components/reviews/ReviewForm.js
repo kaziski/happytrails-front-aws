@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addReview, fetchTrailReviews } from '../../actions/reviews'
+import { addReview } from '../../actions/reviews'
 import { Sub } from '../../ui/Styles'
 
 class ReviewForm extends Component {
@@ -21,7 +21,6 @@ class ReviewForm extends Component {
     this.setState({ isSubmitted: true })
     //last two props below were passed in by Redirect when a user hits a review button and this is how to access it with location
     this.props.addReview(this.state.comment, this.props.location.state.trail, this.props.location.state.currentUser)
-    this.props.fetchTrailReviews(this.props.location.state)
       //this makes sure the last review is added before rendering /reviews
       .then(() =>
         this.props.history.push('/trails/:trail_id/reviews')
@@ -66,4 +65,4 @@ const mapStateToProps = ({ reviews }) => {
     reviews
   }
 }
-export default connect(mapStateToProps, { addReview, fetchTrailReviews })(ReviewForm);
+export default connect(mapStateToProps, { addReview })(ReviewForm);

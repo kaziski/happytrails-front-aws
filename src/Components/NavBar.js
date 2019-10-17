@@ -17,9 +17,9 @@ export const NavBar = ({ currentUser }) => {
           <div className="navbar-end">
             <div className="navbar-item">
               <Button><NavLink to="/logout" >Logout</NavLink></Button>
+              <Button><NavLink to="/">Find Trails</NavLink></Button>
               <Button><NavLink to="/my-trails" >My Trails</NavLink></Button>
               <Button><NavLink to="/my-reviews" >My Reviews</NavLink></Button>
-              <Button><NavLink to="/">Find more trails</NavLink></Button>
               {/* how do i put if geoComponent is present? */}
             </div>
           </div>

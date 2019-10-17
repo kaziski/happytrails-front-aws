@@ -7,26 +7,11 @@
  
 551 Madison Ave. Carnegie, PA 15106
 
-id, name, type, summary, difficulty, stars, 
-starVotes, location, url, imgSqSmall, imgSmall, imgSmallMed, imgMedium, 
-length, ascent, descent, high, low, longitude, latitude, conditionStatus, 
-conditionDetails, conditionDate
 
 check route when all the cards are rendered
 add authentification on routes? eg, when a user try to go to /my_trail without logging in
 
-from my_trail, it won't log out
 
-
-New user can't save trails 
-Processing by Api::V1::TrailsController#index as */*
-
-now showing cards and saving trails,
-but not added to mytrails? 
-or need to fetch get my trails?
-
-need to render a new set of trails after deleting one
-
-currentUser:  data : {id : "10", type: "user, attributes: {username: "Ri", id: 10}}
-
-currentUser : {id: 5, username "Po"}
+this is with a new user
+this.props.reviews.currentUserReviews.length 0
+this.props.reviews.currentUserReviews []

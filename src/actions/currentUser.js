@@ -32,8 +32,9 @@ export const signup = (credentials, history) => {
         if (user.error) {
           alert(user.error)
         } else {
-          // debugger
           dispatch(setCurrentUser(user.data.attributes))
+          dispatch(getSavedTrails())
+          dispatch(getMyReviews())
           dispatch(resetSignupForm())
           history.push(`/`)
         }

@@ -9,14 +9,11 @@ class TrailReviews extends Component {
     let newlyCreatedReviewObj
     let trailName
     let trailUrl
-    //TODO Fix this!!
-    // if (this.props.reviews.currentUserReviews.length === 0) {
-    //   //if the user hasn't made any reviews - do something
-    // }
+
     newlyCreatedReviewObj = this.props.reviews.currentUserReviews[this.props.reviews.currentUserReviews.length - 1]
-    // console.log("newlyCreatedReviewObj.attributes.comment in TrailReviews - ", newlyCreatedReviewObj.attributes.comment);
     trailName = newlyCreatedReviewObj.attributes.api_trail_name
     trailUrl = newlyCreatedReviewObj.attributes.api_trail_url
+
     const reviewArr = newlyCreatedReviewObj.attributes.api_reviews.map(review => {
 
       return (

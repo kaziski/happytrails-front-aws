@@ -26,7 +26,6 @@ export const addReview = (comment, trail, currentUser) => {
         review: { comment, api_trail_id: trail.api_trail_id, api_trail_name: trail.name, api_trail_url: trail.url, user_id: currentUser.id, username: currentUser.username }
       }
     }
-    console.log("reviewData in reviews", reviewData)
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
       method: "POST",
@@ -38,14 +37,9 @@ export const addReview = (comment, trail, currentUser) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("data in review", data)
         if (data.error) {
           alert(data.error)
         } else {
-          console.log("ADD_SAVE_REVIEW", {
-            type: 'ADD_SAVE_REVIEW',
-            review: data
-          })
           dispatch({
             type: 'ADD_SAVE_REVIEW',
             data

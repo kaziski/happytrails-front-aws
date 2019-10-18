@@ -39,7 +39,6 @@ export const saveTrail = (trail, currentUser) => {
             type: 'ADD_SAVE_TRAIL',
             trail
           })
-          console.log("trails - trail ", trail)
         }
       })
       .catch(console.logs)

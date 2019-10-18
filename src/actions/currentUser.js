@@ -43,7 +43,6 @@ export const signup = (credentials, history) => {
 
 export const login = (credentials, history) => {
   return dispatch => {
-    console.log("credentials in login are", credentials)
     return fetch("http://localhost:3000/api/v1/login", {
       credentials: "include",
       method: "POST",

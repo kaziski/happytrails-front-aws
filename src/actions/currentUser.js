@@ -12,7 +12,6 @@ export const setCurrentUser = user => {
 
 export const signup = (credentials, history) => {
   return dispatch => {
-    console.log("credentials in signup are", credentials)
     const userInfo = {
       user: credentials
     }
@@ -28,7 +27,6 @@ export const signup = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
-        console.log("user in signup", user)
         if (user.error) {
           alert(user.error)
         } else {

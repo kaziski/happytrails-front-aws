@@ -72,8 +72,6 @@ export const getMyReviews = () => {
         if (reviewsObj.error) {
           alert(reviewsObj.error)
         } else {
-          console.log("reviewsObj in reviews", reviewsObj)
-
           dispatch({
             type: 'GET_MY_REVIEWS',
             reviewsObj

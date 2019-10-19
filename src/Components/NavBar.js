@@ -5,9 +5,7 @@ import { Title } from '../ui/Styles'
 import { NavLink } from 'react-router-dom'
 import { Button } from "../ui/Styles"
 
-
-export const NavBar = ({ currentUser }) => {
-  if (currentUser) {
+export const NavBar = () => {
     return (
       < >
         <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
@@ -16,8 +14,9 @@ export const NavBar = ({ currentUser }) => {
           </div>
           <div className="navbar-end">
             <div className="navbar-item">
+              <Button><NavLink to="/" >Home</NavLink></Button>
               <Button><NavLink to="/logout" >Logout</NavLink></Button>
-              <Button><NavLink to="/">Find Trails</NavLink></Button>
+              <Button><NavLink to="/search">Find Trails</NavLink></Button>
               <Button><NavLink to="/my-reviews" >My Reviews</NavLink></Button>
               <Button><NavLink to="/my-trails" >My Saved Trails</NavLink></Button>
             </div>
@@ -26,12 +25,12 @@ export const NavBar = ({ currentUser }) => {
       </>
     )
   }
-  return null
-}
+  
 
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
+    trails: state.trails
   }
 }
 export default connect(mapStateToProps)(NavBar)

@@ -12,11 +12,6 @@ class GeoForm extends Component {
     isSubmitted: false
   }
 
-
-  // componentDidMount() {
-  //   this.props.getTrails()
-  // }
-
   handleOnChange = (event) => {
     this.setState({
       address: event.target.value
@@ -82,4 +77,3 @@ const mapStateToProps = state => ({ trails: state.trails })
 export default connect(mapStateToProps, { setTrail })(GeoForm)
 
 //* When submit button is clicked, render < TrailIndex />
-// {this.state.isSubmitted && <IndexTrail />}

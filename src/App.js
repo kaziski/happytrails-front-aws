@@ -10,6 +10,8 @@ import MyTrails from './components/trails/MyTrails'
 import ReviewForm from './components/reviews/ReviewForm'
 import MyReviews from './components/reviews/MyReviews'
 import TrailReviews from './components/reviews/TrailReviews'
+//Not sure why, but it stopped compiling with trails/GeoForm and having lowercase geoForm works
+import GeoForm from './components/trails/geoForm'
 import { getCurrentUser } from './actions/currentUser'
 
 class App extends Component {
@@ -32,6 +34,7 @@ class App extends Component {
                 <Route exact path='/signup' component={Signup} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/logout' component={Logout} />
+                <Route exact path='/search' component={GeoForm} />
                 <Route path='/my-trails' render={(props) => <MyTrails {...props} myTrails={this.props.myTrails} />} />
                 <Route exact path='/reviews/new' component={ReviewForm} />
                 <Route path='/my-reviews' render={(props) => <MyReviews {...props} reviews={this.props.reviews} />} />

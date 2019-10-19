@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-//Not sure why, but it stopped compiling with trails/GeoForm and having lowercase geoForm works
-import GeoForm from '../components/trails/geoForm'
 import { Title } from '../ui/Styles'
 import { Button } from '../ui/Styles'
 
@@ -22,7 +20,7 @@ class Home extends Component {
           :
 
           <span>
-            <GeoForm />
+            {/* <GeoForm /> */}
             {/* <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> */}
           </span>
         }

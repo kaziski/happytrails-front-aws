@@ -1,7 +1,7 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
 import { clearMyReviews, getMyReviews } from './../actions/reviews'
-import { clearTrails, getSavedTrails } from './../actions/trails'
+import { clearMyTrails, getSavedTrails } from './../actions/trails'
 
 export const setCurrentUser = user => {
   return {
@@ -99,7 +99,7 @@ export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
     dispatch(clearMyReviews())
-    dispatch(clearTrails())
+    dispatch(clearMyTrails())
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE"

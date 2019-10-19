@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveTrail, clearTrails } from '../../actions/trails'
+import { saveTrail } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 import { Redirect } from 'react-router';
 
@@ -21,11 +21,6 @@ class TrailCard extends Component {
     this.props.addTrailtoReview(this.props.trail)
     this.setState({ reviewClicked: true, redirect: true })
   }
-
-
-  // componentWillUnmount() {
-  //   this.props.clearTrails()
-  // }
 
   render() {
     const { trail } = this.props
@@ -71,4 +66,4 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-export default connect(mapStateToProps, { saveTrail, addTrailtoReview, clearTrails })(TrailCard)
+export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(TrailCard)

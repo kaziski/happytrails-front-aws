@@ -29,11 +29,17 @@ class GeoForm extends Component {
 
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxResults=12&key=${key}`)
       .then(response => response.json())
-      .then(res => (this.props.setTrail(res)))
-      .catch(console.log)
+      .then(res => {
+        if (res.error){
+          alert(res.error)
+        } else{
+          (this.props.setTrail(res))
+        }
+      })
+    .catch(console.log)
   }
-
-
+      
+  
   geoFunction = () => {
     Geocode.setApiKey(process.env.REACT_APP_GEOFORM_API_KEY)
     Geocode.enableDebug()
@@ -43,6 +49,8 @@ class GeoForm extends Component {
         this.getTrails(lat, lng)
       },
       error => {
+        alert("Unknown address")
+        this.props.history.push('/')
         console.error(error)
       }
     )
@@ -74,6 +82,6 @@ class GeoForm extends Component {
 }
 const mapStateToProps = state => ({ trails: state.trails })
 
-export default connect(mapStateToProps, { setTrail })(GeoForm)
+export default connect(mapStateToProps, { setTrail})(GeoForm)
 
 //* When submit button is clicked, render < TrailIndex />

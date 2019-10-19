@@ -5,6 +5,12 @@ export const setTrail = trailsData => {
   }
 }
 
+export const clearMyTrails = () => {
+  return {
+    type: "CLEAR_MY_TRAILS"
+  }
+}
+
 export const clearTrails = () => {
   return {
     type: "CLEAR_TRAILS"

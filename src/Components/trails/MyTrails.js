@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import MyTrailCard from './MyTrailCard'
 import { getSavedTrails } from '../../actions/trails'
+import { Sub } from '../../ui/Styles'
 
 class MyTrails extends Component {
 
@@ -15,9 +16,7 @@ class MyTrails extends Component {
 
     if (noSavedTrail) {
       return (
-        <div className="has-text-white" >
-          <h3>You don't have any trails saved</h3>
-        </div >
+        <Sub className="has-text-black">You don't have any trails saved</Sub>
       )
     }
     const trailList = this.props.myTrails.mySavedTrailsArr.map(trail => {
@@ -30,7 +29,7 @@ class MyTrails extends Component {
     })
     return (
       < >
-        {trailList}
+        {trailList.reverse()}
       </>
     )
 

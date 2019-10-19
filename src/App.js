@@ -19,12 +19,12 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { currentUser } = this.props
 
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
-          {loggedIn ? <NavBar location={this.props.location} /> : null}
+          {currentUser ? <NavBar location={this.props.location} /> : null}
           <div className="hero-body">
             <div className="container">
               <Switch>
@@ -39,6 +39,7 @@ class App extends Component {
               </Switch>
             </div>
           </div>
+          {currentUser ? <div className="hero-foot has-text-white	"><h2>Logged in as {currentUser.username}</h2></div> : null}
         </section>
       </div >
     )
@@ -47,7 +48,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: !!state.currentUser,
+    currentUser: state.currentUser,
     reviews: state.reviews,
     trails: state.trails
   }

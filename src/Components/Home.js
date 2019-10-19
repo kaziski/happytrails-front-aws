@@ -23,7 +23,7 @@ class Home extends Component {
 
           <span>
             <GeoForm />
-            <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div>
+            {/* <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> */}
           </span>
         }
       </>

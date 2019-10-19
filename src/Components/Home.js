@@ -18,11 +18,7 @@ class Home extends Component {
             <Button><Link to="/signup">Sign Up</Link></Button>
             <Button><Link to="/login">Log In</Link></Button></span>
           :
-
-          <span>
-            {/* <GeoForm /> */}
-            {/* <div className="hero-foot has-text-white	">Logged in as {currentUser.username}</div> */}
-          </span>
+          null
         }
       </>
     )

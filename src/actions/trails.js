@@ -1,6 +1,6 @@
-export const setTrail = trailsData => {
+export const setTrails = trailsData => {
   return {
-    type: 'SET_TRAIL',
+    type: 'SET_TRAILS',
     trailsData
   }
 }

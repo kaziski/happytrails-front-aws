@@ -26,7 +26,9 @@ class App extends Component {
     return (
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
-          {currentUser ? <NavBar location={this.props.location} /> : null}
+          {currentUser ? <NavBar /> : null}
+          {/* {currentUser ? <NavBar location={this.props.location} /> : null} */}
+
           <div className="hero-body">
             <div className="container">
               <Switch>

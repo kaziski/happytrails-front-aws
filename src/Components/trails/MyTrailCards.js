@@ -4,7 +4,7 @@ import { saveTrail } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 import { Redirect } from 'react-router';
 
-class MyTrailCard extends Component {
+class MyTrailCards extends Component {
 
   state = {
     reviewClicked: false,
@@ -60,6 +60,6 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(MyTrailCard)
+export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(MyTrailCards)
 
 

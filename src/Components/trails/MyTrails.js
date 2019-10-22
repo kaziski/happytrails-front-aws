@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import MyTrailCard from './MyTrailCard'
+import MyTrailCards from './MyTrailCards'
 import { getSavedTrails } from '../../actions/trails'
 import { Sub } from '../../ui/Styles'
 
@@ -21,7 +21,7 @@ class MyTrails extends Component {
     }
     const trailList = this.props.myTrails.mySavedTrailsArr.map(trail => {
       return (
-        <MyTrailCard
+        <MyTrailCards
           key={trail.id}
           trail={trail.attributes}
         />

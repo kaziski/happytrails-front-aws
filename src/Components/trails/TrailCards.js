@@ -4,15 +4,16 @@ import { saveTrail } from '../../actions/trails'
 import { addTrailtoReview } from '../../actions/reviews'
 import { Redirect } from 'react-router';
 
-class TrailCard extends Component {
+class TrailCards extends Component {
 
   state = {
     reviewClicked: false,
+    heartColor: 'black'
   }
 
   handleLikeClick = event => {
     event.preventDefault()
-    alert('Trail saved!')
+    this.setState({ heartColor: 'red' })
     this.props.saveTrail(this.props.trail, this.props.currentUser)
   }
 
@@ -44,10 +45,15 @@ class TrailCard extends Component {
             </div>
           </div>
           <footer className="card-footer">
-            <a href="/like" className="card-footer-item has-text-black"
-              onClick={this.handleLikeClick}><i className="fas fa-heart"></i>  Save</a>
+            {/* save */}
+            <div className="card-footer-item"
+              onClick={this.handleLikeClick}
+              style={{ color: this.state.heartColor }}>
+              <i className="fas fa-heart" ></i>  Save</div>
+            {/* review */}
             <a href="/reviews/new" className="card-footer-item has-text-black"
-              onClick={event => this.handleReviewClick(event)}> <i className="fas fa-comments"></i>  Review</a>
+              onClick={event => this.handleReviewClick(event)}>
+              <i className="fas fa-comments"></i>  Review</a>
           </footer >
         </div >
       )
@@ -66,4 +72,4 @@ const mapStateToProps = ({ currentUser }) => {
     currentUser
   }
 }
-export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(TrailCard)
+export default connect(mapStateToProps, { saveTrail, addTrailtoReview })(TrailCards)

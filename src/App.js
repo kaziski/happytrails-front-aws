@@ -17,7 +17,8 @@ import { getCurrentUser } from './actions/currentUser'
 class App extends Component {
 
   componentDidMount() {
-    this.props.getCurrentUser()
+    // this.props.getCurrentUser()
+    console.log(localStorage.getItem("token"))
   }
 
   render() {
@@ -27,8 +28,6 @@ class App extends Component {
       <div className="App">
         <section className="hero is-fullheight has-background is-transparent">
           {currentUser ? <NavBar /> : null}
-          {/* {currentUser ? <NavBar location={this.props.location} /> : null} */}
-
           <div className="hero-body">
             <div className="container">
               <Switch>

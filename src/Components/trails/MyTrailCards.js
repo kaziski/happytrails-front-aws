@@ -38,8 +38,8 @@ class MyTrailCards extends Component {
             </div>
 
             <footer className="card-footer">
-              <a href="/reviews/new" className="card-footer-item has-text-black"
-                onClick={event => this.handleReviewClick(event)}> <i className="fas fa-comments"></i>  Review</a>
+              <div className="card-footer-item has-text-black"
+                onClick={event => this.handleReviewClick(event)}> <i className="fas fa-comments"></i>  Review</div>
             </footer >
           </div>
         </div>

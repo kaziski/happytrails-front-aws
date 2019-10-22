@@ -51,9 +51,9 @@ class TrailCards extends Component {
               style={{ color: this.state.heartColor }}>
               <i className="fas fa-heart" ></i>  Save</div>
             {/* review */}
-            <a href="/reviews/new" className="card-footer-item has-text-black"
+            <div className="card-footer-item has-text-black"
               onClick={event => this.handleReviewClick(event)}>
-              <i className="fas fa-comments"></i>  Review</a>
+              <i className="fas fa-comments"></i>  Review</div>
           </footer >
         </div >
       )

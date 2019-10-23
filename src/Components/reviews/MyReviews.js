@@ -11,6 +11,17 @@ class MyReviews extends Component {
     this.props.getMyReviews()
   }
 
+  state = {
+    clicked: false
+  }
+
+  handleClick = event => {
+    event.preventDefault()
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
   render() {
     const reviewArr = this.props.reviews.currentUserReviews.sort(function (a, b) {
       let nameA = a.attributes.api_trail_name.toLowerCase(), nameB = b.attributes.api_trail_name.toLowerCase()
@@ -23,7 +34,6 @@ class MyReviews extends Component {
       }
     })
     const newArr = reviewArr.map(review => {
-
       return (
         <MyReview
           key={review.id}
@@ -32,12 +42,40 @@ class MyReviews extends Component {
         />
       )
     })
-    return (
-      < >
-        {this.props.reviews.currentUserReviews.length === 0 ? <Sub className="has-text-black">You haven't created any reviews</Sub> : null}
-        {newArr}
-      </>
-    )
+
+    const regArr = this.props.reviews.currentUserReviews.filter(review => {
+      return review.attributes.api_trail_name === "Muir Beach Loop"
+    })
+    const fuk = regArr.map(review => {
+      return (
+        <MyReview
+          key={review.id}
+          review={review.attributes}
+          review_id={review.id}
+        />
+      )
+    })
+
+    if (!this.state.clicked) {
+      return (
+        < >
+          <button onClick={this.handleClick}>click me</button>
+          {this.props.reviews.currentUserReviews.length === 0 ? <Sub className="has-text-black">You haven't created any reviews</Sub> : null}
+          {newArr}
+        </>
+      )
+    } else {
+      return (
+        < >
+          <button onClick={this.handleClick}>click me</button>
+          {/* {this.props.reviews.currentUserReviews.length === 0 ? <Sub className="has-text-black">You haven't created any reviews</Sub> : null} */}
+          {/* {regArr} */}
+          {fuk}
+          <p>hey</p>
+        </>
+      )
+    }
+
   }
 }
 const mapStateToProps = state => ({ reviews: state.reviews })

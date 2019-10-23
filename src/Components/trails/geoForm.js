@@ -86,4 +86,3 @@ const mapStateToProps = state => ({ trails: state.trails })
 
 export default connect(mapStateToProps, { setTrails })(GeoForm)
 
-//* When submit button is clicked, render < TrailIndex />

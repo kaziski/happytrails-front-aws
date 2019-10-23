@@ -17,8 +17,7 @@ import { getCurrentUser } from './actions/currentUser'
 class App extends Component {
 
   componentDidMount() {
-    // this.props.getCurrentUser()
-    console.log(localStorage.getItem("token"))
+    this.props.getCurrentUser()
   }
 
   render() {

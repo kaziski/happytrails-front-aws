@@ -37,6 +37,7 @@ export const addReview = (comment, trail, currentUser) => {
     })
       .then(res => res.json())
       .then(data => {
+
         if (data.error) {
           alert(data.error)
         } else {

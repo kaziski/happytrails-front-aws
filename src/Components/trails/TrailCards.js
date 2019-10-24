@@ -11,7 +11,7 @@ class TrailCards extends Component {
     heartColor: 'black'
   }
 
-  handleLikeClick = event => {
+  handleSaveClick = event => {
     event.preventDefault()
     this.setState({ heartColor: 'red' })
     this.props.saveTrail(this.props.trail, this.props.currentUser)
@@ -47,7 +47,7 @@ class TrailCards extends Component {
           <footer className="card-footer">
             {/* save */}
             <div className="card-footer-item"
-              onClick={this.handleLikeClick}
+              onClick={this.handleSaveClick}
               style={{ color: this.state.heartColor }}>
               <i className="fas fa-heart" ></i>  Save</div>
             {/* review */}

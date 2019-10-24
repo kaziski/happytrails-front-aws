@@ -29,3 +29,4 @@ class MyReview extends Component {
 const mapStateToProps = state => ({ reviews: state.reviews })
 
 export default connect(mapStateToProps, { deleteReview })(MyReview)
+

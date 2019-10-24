@@ -20,7 +20,6 @@ class TrailReviews extends Component {
     trailUrl = newlyCreatedReviewObj && newlyCreatedReviewObj.attributes.api_trail_url
 
     const reviewArr = newlyCreatedReviewObj && newlyCreatedReviewObj.attributes.api_reviews.map(review => {
-
       return (
         <TrailReview
           key={review.id}

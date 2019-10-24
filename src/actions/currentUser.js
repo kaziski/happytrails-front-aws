@@ -27,8 +27,8 @@ export const signup = (credentials, history) => {
     })
       .then(res => res.json())
       .then(user => {
-        if (!user.ok) {
-          throw new Error(user)
+        if (user.error) {
+          alert(user.error)
         } else {
           dispatch(setCurrentUser(user.data.attributes))
           dispatch(getSavedTrails())
@@ -37,9 +37,7 @@ export const signup = (credentials, history) => {
           history.push(`/`)
         }
       })
-      .catch((user) => alert.user.error)
-
-
+      .catch(console.logs)
   }
 }
 

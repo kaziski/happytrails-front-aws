@@ -26,7 +26,6 @@ class MyReview extends Component {
     )
   }
 }
-const mapStateToProps = state => ({ reviews: state.reviews })
 
-export default connect(mapStateToProps, { deleteReview })(MyReview)
+export default connect(state => ({ reviews: state.reviews }), { deleteReview })(MyReview)
 

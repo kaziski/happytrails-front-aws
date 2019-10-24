@@ -28,5 +28,5 @@ class MyReviews extends Component {
     )
   }
 }
-const mapStateToProps = state => ({ reviews: state.reviews })
-export default connect(mapStateToProps, { getMyReviews })(MyReviews)
+
+export default connect(state => ({ reviews: state.reviews }), { getMyReviews })(MyReviews)

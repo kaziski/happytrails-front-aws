@@ -28,4 +28,3 @@ class MyReview extends Component {
 }
 
 export default connect(state => ({ reviews: state.reviews }), { deleteReview })(MyReview)
-

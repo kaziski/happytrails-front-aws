@@ -7,8 +7,16 @@ import { Redirect } from 'react-router';
 class MyTrailCards extends Component {
 
   state = {
-    reviewClicked: false,
+    reviewClicked: false
   }
+
+  handleClick = (event) => {
+    event.preventDefault()
+    this.setState({
+      vote: this.state.vote + 1
+    })
+  }
+
 
   handleReviewClick = event => {
     event.preventDefault()

@@ -13,8 +13,8 @@ class TrailCards extends Component {
 
   handleSaveClick = event => {
     event.preventDefault()
-    this.setState({ heartColor: 'red' })
     this.props.saveTrail(this.props.trail, this.props.currentUser)
+    this.setState({ heartColor: 'red' })
   }
 
   handleReviewClick = event => {
